@@ -1,0 +1,4 @@
+.slideView {
+  grid-area: slideView;
+  background-color: coral;
+}

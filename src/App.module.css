@@ -11,6 +11,8 @@ grid-template-columns: 3fr 12fr;
 grid-gap: 5px;
 } */
 
+
+
 .app {
     height: 100vh;
     display: flex;

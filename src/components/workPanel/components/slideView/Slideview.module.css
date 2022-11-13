@@ -2,4 +2,5 @@
   width: 205px;
   flex-shrink: 0;
   background-color: coral;
+  overflow-y: scroll;
 }

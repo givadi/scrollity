@@ -1,0 +1,11 @@
+.wrapper {
+    padding: 15px 0;
+}
+
+.slide {
+    width: 90%;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin: auto;
+}

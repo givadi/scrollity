@@ -1,7 +1,7 @@
 import styles from './App.module.css';
 import ActionMenu from './ActionMenu';
 import Toolbar from './Toolbar';
-import Slideview from './Slideview';
+import Slideview from './components/slideView/Slideview';
 import Slide from './Slide';
 
 function App() {

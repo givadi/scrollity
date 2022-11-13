@@ -1,6 +1,3 @@
-.toolbar{
-  grid-area: toolbar;
-  background-color:bisque;
-  display: flex;
-  }
-  
+.toolbar {
+  background-color: bisque;
+}

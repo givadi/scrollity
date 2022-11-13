@@ -1,6 +1,4 @@
-
 .actionMenu {
-  grid-area: actionMenu;
-  background-color:bisque;
-  display: flex;
-  }
+    background-color: bisque;
+    border-bottom: 2px #dac3a7 solid;
+}

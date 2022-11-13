@@ -1,10 +1,10 @@
-import styles from './../Button.module.css';
+import styles from './../Icon.module.css';
 import redo from '../../img/redo.svg';
 
 const Redo = () => {
   return (
-    <div>
-<img className={styles.button} src={redo} alt='Redo'/>
+    <div className={styles.wrapper}>
+      <img className={styles.icon} src={redo} alt='Redo' />
     </div>
   );
 }

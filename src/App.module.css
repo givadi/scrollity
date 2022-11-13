@@ -1,4 +1,4 @@
-.app {
+/* .app {
   display: grid;
 
 grid-template-areas: 
@@ -9,9 +9,8 @@ grid-template-areas:
 grid-template-rows: 70px 60px 500px;
 grid-template-columns: 3fr 12fr;
 grid-gap: 5px;
+} */
+
+.app {
+    height: 100vh;
 }
-
-
-
-
-

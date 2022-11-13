@@ -1,10 +1,10 @@
-import styles from './../Button.module.css';
+import styles from './../Icon.module.css';
 import text_block from '../../img/text_block.svg';
 
 const TextBlock = () => {
   return (
-    <div>
-<img className={styles.button} src={text_block} alt='Text_block'/>
+    <div className={styles.wrapper}>
+      <img className={styles.icon} src={text_block} alt='Text_block' />
     </div>
   );
 }

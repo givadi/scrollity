@@ -1,10 +1,10 @@
-import styles from './../Button.module.css';
+import styles from './../Icon.module.css';
 import add from '../../img/add.svg';
 
 const AddNewSlide = () => {
-return (
-    <div>
-<img className={styles.button} src={add} alt='Add new slide'/>
+  return (
+    <div className={styles.wrapper}>
+      <img className={styles.icon} src={add} alt='Add new slide' />
     </div>
   );
 }

@@ -1,10 +1,10 @@
-import styles from './../Button.module.css';
+import styles from './../Icon.module.css';
 import view from '../../img/view.svg';
 
 const View = () => {
   return (
-    <div>
-<img className={styles.button} src={view} alt='View'/>
+    <div className={styles.wrapper}>
+      <img className={styles.icon} src={view} alt='View' />
     </div>
   );
 }

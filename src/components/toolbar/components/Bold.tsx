@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import bold from '../../img/bold.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import bold from '../../../img/bold.svg';
 
 const Bold = () => {
   return (

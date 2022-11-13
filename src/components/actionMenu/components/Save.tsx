@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import save_as from '../../img/save_as.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import save_as from '../../../img/save_as.svg';
 
 const Save = () => {
   return (

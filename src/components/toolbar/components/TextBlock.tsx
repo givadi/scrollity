@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import text_block from '../../img/text_block.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import text_block from '../../../img/text_block.svg';
 
 const TextBlock = () => {
   return (

@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import order_front from '../../img/order_front.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import order_front from '../../../img/order_front.svg';
 
 const OrderFront = () => {
   return (

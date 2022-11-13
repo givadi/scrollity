@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import add from '../../img/add.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import add from '../../../img/add.svg';
 
 const AddNewSlide = () => {
   return (

@@ -1,16 +1,14 @@
 import styles from './App.module.css';
-import ActionMenu from './ActionMenu';
-import Toolbar from './Toolbar';
-import Slideview from './components/slideView/Slideview';
-import Slide from './Slide';
+import ActionMenu from './components/actionMenu/ActionMenu';
+import Toolbar from './components/toolbar/Toolbar';
+import { WorkPanel } from './components/workPanel/WorkPanel';
 
 function App() {
     return (
         <div className={styles.app}>
             <ActionMenu />
             <Toolbar />
-            <Slideview />
-            <Slide />
+            <WorkPanel />
         </div>
     );
 }

@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import font_size from '../../img/font_size.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import font_size from '../../../img/font_size.svg';
 
 const FontSize = () => {
   return (

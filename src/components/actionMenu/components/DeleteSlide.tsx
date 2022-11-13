@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import delete_slide from '../../img/delete_slide.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import delete_slide from '../../../img/delete_slide.svg';
 
 const DeleteSlide = () => {
   return (

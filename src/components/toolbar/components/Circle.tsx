@@ -1,5 +1,5 @@
-import styles from './../Icon.module.css';
-import circle from '../../img/circle.svg';
+import styles from '../../common/menuIcon/MenuIcon.module.css';
+import circle from '../../../img/circle.svg';
 
 const Circle = () => {
   return (

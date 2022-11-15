@@ -1,6 +1,6 @@
 import { Presentation } from '../../data/types';
 import { SlideLayout } from './components/slideLayout/SlideLayout';
-import Slideview from './components/slideView/Slideview';
+import SlideView from './components/slideView/SlideView';
 import styles from './WorkPanel.module.css';
 
 type workPanelProps = {
@@ -10,8 +10,8 @@ type workPanelProps = {
 export function WorkPanel(props: workPanelProps) {
     return (
         <div className={styles.workPanel}>
-            <Slideview slides={props.presentation.slides} />
-            <SlideLayout />
+            <SlideView slides={props.presentation.slides} />
+            <SlideLayout slide={props.presentation.slides[0]} />
         </div>
     )
 }

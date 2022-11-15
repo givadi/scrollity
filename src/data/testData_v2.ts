@@ -109,7 +109,7 @@ const slide3: Slide = {
 
 const presentation: Presentation = {
     name: 'name',
-    slides: [slide1],
+    slides: [slide1, slide2],
     selectedSlides: [
         {
             selectedSlideId: 'slideId1',

@@ -1,4 +1,4 @@
-import styles from '../../common/menuIcon/MenuIcon.module.css';
+import styles from '../../common/barIcon/BarIcon.module.css';
 import order_front from '../../../assets/images/barIcons/order_front.svg';
 
 const OrderFront = () => {

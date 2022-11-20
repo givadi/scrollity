@@ -1,4 +1,4 @@
-import styles from './ActionMenu.module.css';
+import styles from './Menubar.module.css';
 import Open from './components/Open';
 import Save from './components/Save';
 import View from './components/View';
@@ -8,7 +8,7 @@ import Undo from './components/Undo';
 import Redo from './components/Redo';
 
 
-const ActionMenu = () => {
+const Menubar = () => {
   return (
     <div className={styles.actionMenu}>
       Action
@@ -23,4 +23,4 @@ const ActionMenu = () => {
   );
 }
 
-export default ActionMenu;
+export default Menubar;

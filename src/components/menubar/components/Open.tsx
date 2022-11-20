@@ -1,4 +1,4 @@
-import styles from '../../common/menuIcon/MenuIcon.module.css';
+import styles from '../../common/barIcon/BarIcon.module.css';
 import open_file from '../../../assets/images/barIcons/open_file.svg';
 
 const Open = () => {

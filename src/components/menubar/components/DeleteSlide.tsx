@@ -1,4 +1,4 @@
-import styles from '../../common/menuIcon/MenuIcon.module.css';
+import styles from '../../common/barIcon/BarIcon.module.css';
 import delete_slide from '../../../assets/images/barIcons/delete_slide.svg';
 
 const DeleteSlide = () => {

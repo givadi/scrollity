@@ -1,20 +1,5 @@
-/* .app {
-  display: grid;
-
-grid-template-areas: 
-"actionMenu actionMenu actionMenu"  
-"toolbar toolbar toolbar"
-"slideView slide slide";
-
-grid-template-rows: 70px 60px 500px;
-grid-template-columns: 3fr 12fr;
-grid-gap: 5px;
-} */
-
-
-
 .app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

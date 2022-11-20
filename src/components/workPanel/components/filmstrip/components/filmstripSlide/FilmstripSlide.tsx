@@ -1,11 +1,11 @@
 import { Slide } from '../../../../../../data/types';
-import styles from './SlideViewItem.module.css';
+import styles from './FilmstripSlide.module.css';
 
-type SlideViewItemProps = {
+type FilmstripSlideProps = {
     slide: Slide
 }
 
-export function SlideViewItem(props: SlideViewItemProps) {
+export function FilmstripSlide(props: FilmstripSlideProps) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.slide}>Slide</div>

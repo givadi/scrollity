@@ -1,22 +1,16 @@
-import styles from './SlideView.module.css';
-import { SlideViewItem } from './components/slideViewItem/SlideViewItem';
 import { Slide } from '../../../../data/types';
+import styles from './SlideView.module.css';
 
 type SlideViewProps = {
-    slides: Array<Slide>
+    slide: Slide
 }
 
-function SlideView(props: SlideViewProps) {
+export function SlideView(props: SlideViewProps) {
     return (
-        <div className={styles.slideView}>
-            {props.slides.map(slide => (
-                <SlideViewItem
-                    key={slide.id}
-                    slide={slide}
-                />
-            ))}
+        <div className={styles.wrapper}>
+            <div className={styles.layout}>
+                Slide
+            </div>
         </div>
     );
 }
-
-export default SlideView;

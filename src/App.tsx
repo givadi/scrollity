@@ -1,7 +1,7 @@
 import styles from './App.module.css';
 import Menubar from './components/menubar/Menubar';
 import Toolbar from './components/toolbar/Toolbar';
-import { WorkPanel } from './components/workPanel/WorkPanel';
+import { PresentationEditorArea } from './components/workPanel/PresentationEditorArea';
 import { Presentation } from './data/types';
 
 type appProps = {
@@ -13,7 +13,7 @@ function App(props: appProps) {
         <div className={styles.app}>
             <Menubar />
             <Toolbar />
-            <WorkPanel presentation={props.presentation} />
+            <PresentationEditorArea presentation={props.presentation} />
         </div>
     );
 }

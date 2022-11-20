@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import undo from '../../../img/undo.svg';
+import undo from '../../../assets/images/barIcons/undo.svg';
 
 const Undo = () => {
   return (

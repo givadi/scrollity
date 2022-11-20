@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import italic from '../../../img/italic.svg';
+import italic from '../../../assets/images/barIcons/italic.svg';
 
 const Italic = () => {
   return (

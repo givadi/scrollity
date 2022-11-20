@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import view from '../../../img/view.svg';
+import view from '../../../assets/images/barIcons/view.svg';
 
 const View = () => {
   return (

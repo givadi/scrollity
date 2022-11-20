@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import insert_picture from '../../../img/insert_picture.svg';
+import insert_picture from '../../../assets/images/barIcons/insert_picture.svg';
 
 const InsertPicture = () => {
   return (

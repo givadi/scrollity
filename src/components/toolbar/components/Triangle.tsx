@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import triangle from '../../../img/triangle.svg';
+import triangle from '../../../assets/images/barIcons/triangle.svg';
 
 const Triangle = () => {
   return (

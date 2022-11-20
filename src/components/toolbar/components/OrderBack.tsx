@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import order_back from '../../../img/order_back.svg';
+import order_back from '../../../assets/images/barIcons/order_back.svg';
 
 const OrderBack = () => {
   return (

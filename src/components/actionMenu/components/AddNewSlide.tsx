@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import add from '../../../img/add.svg';
+import add from '../../../assets/images/barIcons/add.svg';
 
 const AddNewSlide = () => {
   return (

@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import open_file from '../../../img/open_file.svg';
+import open_file from '../../../assets/images/barIcons/open_file.svg';
 
 const Open = () => {
   return (

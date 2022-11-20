@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import save_as from '../../../img/save_as.svg';
+import save_as from '../../../assets/images/barIcons/save_as.svg';
 
 const Save = () => {
   return (

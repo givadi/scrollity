@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import rectangle from '../../../img/rectangle.svg';
+import rectangle from '../../../assets/images/barIcons/rectangle.svg';
 
 const Rectangle = () => {
   return (

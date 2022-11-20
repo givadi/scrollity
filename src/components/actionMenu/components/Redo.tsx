@@ -1,5 +1,5 @@
 import styles from '../../common/menuIcon/MenuIcon.module.css';
-import redo from '../../../img/redo.svg';
+import redo from '../../../assets/images/barIcons/redo.svg';
 
 const Redo = () => {
   return (

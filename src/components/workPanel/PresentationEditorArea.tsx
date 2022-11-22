@@ -1,5 +1,5 @@
 import { Presentation } from '../../data/types';
-import { SlideView } from './components/slideView/SlideView';
+import { SlideView } from './components/slideView/Slideview';
 import Filmstrip from './components/filmstrip/Filmstrip';
 import styles from './PresentationEditorArea.module.css';
 

@@ -1,5 +1,5 @@
 import { Slide } from '../../../../data/types';
-import styles from './SlideView.module.css';
+import styles from './Slideview.module.css';
 
 type SlideViewProps = {
     slide: Slide

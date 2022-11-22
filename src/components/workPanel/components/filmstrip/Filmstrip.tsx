@@ -1,5 +1,5 @@
 import styles from './Filmstrip.module.css';
-import { FilmstripSlide } from './components/filmstripSlide/FilmstripSlide';
+import { Thumbnail } from './components/thumbnail/Thumbnail';
 import { Slide } from '../../../../data/types';
 
 type FilmstripProps = {
@@ -10,7 +10,7 @@ function Filmstrip(props: FilmstripProps) {
     return (
         <div className={styles.slide}>
             {props.slides.map(slide => (
-                <FilmstripSlide
+                <Thumbnail
                     key={slide.id}
                     slide={slide}
                 />

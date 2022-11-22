@@ -1,5 +1,5 @@
 import { Presentation } from '../../data/types';
-import { SlideView } from './components/slideView/SlideView';
+import { Workspace } from './components/workspace/Workspace';
 import Filmstrip from './components/filmstrip/Filmstrip';
 import styles from './PresentationEditorArea.module.css';
 
@@ -11,7 +11,7 @@ export function PresentationEditorArea(props: PresentationEditorAreaProps) {
     return (
         <div className={styles.editorArea}>
             <Filmstrip slides={props.presentation.slides} />
-            <SlideView slide={props.presentation.slides[0]} />
+            <Workspace slide={props.presentation.slides[0]} />
         </div>
     )
 }

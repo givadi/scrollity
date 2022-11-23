@@ -18,7 +18,7 @@ function getState(): TextBlock {
 
 function setState(newTextBlock: TextBlock) {
     textBlock = newTextBlock
-    // changeTextBlockHandler
+    changeTextBlockHandler()
     
 }
 

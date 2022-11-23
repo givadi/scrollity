@@ -1,9 +1,9 @@
 // import TextBlock from "../components/toolbar/components/TextBlock";
 import { Block, TextBlock } from "./types";
 
-function addTextBlock(blocks: Array<Block>): Array<Block> {
+function addTextBlock(presentation: Array<Block>): Array<Block> {
     return [
-        ...blocks,
+        ...presentation,
         {
             id: '1',
             x: 30.0,
@@ -20,4 +20,8 @@ function addTextBlock(blocks: Array<Block>): Array<Block> {
             }
         }
     ]
+}
+
+export {
+    addTextBlock
 }

@@ -25,7 +25,7 @@ type Block = {
     width: number,
     height: number,
     isSelected: boolean,
-    blockType: TextBlock|ImageBlock|GraphicObject
+    model: TextBlock|ImageBlock|GraphicObject
 }
 
 type Slide = {

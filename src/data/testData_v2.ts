@@ -16,21 +16,21 @@ const imageBlock: ImageBlock = {
 const graphicBlock: GraphicObject = {
     type: 'figure',
     colorBorder: '#ff00ff',
-    colorBackground: '#295d2b',
+    colorBackground: '#d6a1ea',
     figureType: 'rectangle',
 }
 
 const graphicBlock2: GraphicObject = {
     type: 'figure',
-    colorBorder: '#ff00ff',
-    colorBackground: '#295d2b',
+    colorBorder: '#8d3222',
+    colorBackground: '#fda95f',
     figureType: 'triangle',
 }
 
 const graphicBlock3: GraphicObject = {
     type: 'figure',
-    colorBorder: '#ff00ff',
-    colorBackground: '#295d2b',
+    colorBorder: '#205479',
+    colorBackground: '#96f898',
     figureType: 'circle',
 }
 
@@ -41,27 +41,27 @@ const block1: Block = {
     width: 20.0,
     height: 30.0,
     isSelected: false,
-    blockType: graphicBlock
+    model: graphicBlock
 }
 
 const block2: Block = {
     id: '2',
-    x: 30.0,
+    x: 300.0,
     y: 50.0,
-    width: 20.0,
-    height: 30.0,
+    width: 200.0,
+    height: 300.0,
     isSelected: true,
-    blockType: graphicBlock2
+    model: graphicBlock2
 }
 
 const block3: Block = {
     id: '3',
-    x: 30.0,
-    y: 50.0,
-    width: 20.0,
-    height: 30.0,
+    x: 300.0,
+    y: 200.0,
+    width: 200.0,
+    height: 300.0,
     isSelected: true,
-    blockType: graphicBlock3
+    model: graphicBlock3
 }
 
 const block4: Block = {
@@ -71,7 +71,7 @@ const block4: Block = {
     width: 20.0,
     height: 30.0,
     isSelected: true,
-    blockType: imageBlock
+    model: imageBlock
 }
 
 const block5: Block = {
@@ -81,7 +81,7 @@ const block5: Block = {
     width: 20.0,
     height: 30.0,
     isSelected: true,
-    blockType: textBlock
+    model: textBlock
 }
 
 const slideBackground: SlideBackground = {

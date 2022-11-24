@@ -1,4 +1,4 @@
-type TextBlock = {
+type TextBlock = BlockBase & {
     type: 'text',
     chars: string,
     fontSize: number,
@@ -6,27 +6,30 @@ type TextBlock = {
     color: string
 }
 
-type ImageBlock = {
+type ImageBlock = BlockBase &{
     type: 'image',
     imageResource: string
 }
 
-type GraphicObject = {
+type GraphicObject = BlockBase & {
     type: 'figure',
     colorBorder: string,
     colorBackground: string,
     figureType: 'circle'|'triangle'|'rectangle',
 }
 
-type Block = {
+type BlockBase = {
+    // type: 'image' | 'figure'| 'text',
     id: string,
     x: number,
     y: number, // x, y - координата верхнего левого угла графического объекта. по умолчанию одинаковые для всех объектов
     width: number,
     height: number,
     isSelected: boolean,
-    model: TextBlock|ImageBlock|GraphicObject
+    // model: TextBlock|ImageBlock|GraphicObject
 }
+
+type Block = TextBlock | ImageBlock | GraphicObject
 
 type Slide = {
     id: string,

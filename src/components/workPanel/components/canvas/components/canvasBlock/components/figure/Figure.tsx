@@ -32,10 +32,10 @@ function getFigure(figure: FigureType) {
                 <rect style={rectStyles}></rect>
             );
         case ('triangle'):
+            const trianglePoints = `${figure.x},${figure.y + figure.height} ${figure.x + figure.width / 2},${figure.y} 
+                ${figure.x + figure.width},${figure.y + figure.height}`
             return (
-                <svg height={figure.height} width={figure.width}>
-
-                </svg>
+                <polygon points={trianglePoints} style={figureStyles}></polygon>
             );
         default:
             return null;

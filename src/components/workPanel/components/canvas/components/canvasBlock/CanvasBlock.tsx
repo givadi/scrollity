@@ -14,9 +14,9 @@ function getBlock(block: Block) {
         height: block.height,
     }
 
-    if (block.type === 'figure') {
+    if (block.model.type === 'figure') {
         return (
-            <Figure figure={block} />
+            <Figure figure={block.model} blockStyles={blockStyles} />
         );
     }
     else {

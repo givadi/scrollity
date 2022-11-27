@@ -9,12 +9,11 @@ type appProps = {
 }
 
 function App(props: appProps) {
-    console.log('fff')
     return (
         <div className={styles.app}>
-            {/* <Menubar />
+            <Menubar />
             <Toolbar />
-            <PresentationEditorArea presentation={props.presentation} /> */}
+            <PresentationEditorArea presentation={props.presentation} />
         </div>
     );
 }

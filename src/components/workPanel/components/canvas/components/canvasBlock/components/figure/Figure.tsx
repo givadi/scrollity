@@ -2,7 +2,6 @@ import {Block, GraphicObject} from "../../../../../../../../data/types";
 
 type FigureProps = {
     figure: GraphicObject,
-    blockStyles: BlockParams
 }
 
 type BlockParams = {

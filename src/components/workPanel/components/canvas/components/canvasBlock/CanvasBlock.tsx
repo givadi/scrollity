@@ -1,22 +1,14 @@
-import {Block} from '../../../../../../data/types';
-import {GraphicObject} from "../../../../../../data/types";
-import {Figure} from "./components/figure/Figure";
+import {Figure} from './components/figure/Figure';
+import {BlockType} from '../../../../../../data/types';
 
 type CanvasBlockProps = {
-    block: Block
+    block: BlockType
 }
 
-function getBlock(block: Block) {
-    const blockStyles = {
-        x: block.x,
-        y: block.y,
-        width: block.width,
-        height: block.height,
-    }
-
-    if (block.model.type === 'figure') {
+function getBlock(block: BlockType) {
+    if (block.type === 'figure') {
         return (
-            <Figure figure={block.model} blockStyles={blockStyles} />
+            <Figure figure={block} />
         );
     }
     else {

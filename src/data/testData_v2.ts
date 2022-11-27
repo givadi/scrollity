@@ -1,6 +1,11 @@
-import {Presentation, GraphicObject, ImageBlock, Block, Slide, SlideBackground, TextBlock} from "./types";
+import {Presentation, FigureType, ImageBlockType, BlockType, Slide, SlideBackground, TextBlockType} from './types';
 
-const textBlock: TextBlock = {
+const block1: BlockType & TextBlockType = {
+    id: '1',
+    x: 30.0,
+    y: 50.0,
+    width: 20.0,
+    height: 30.0,
     type: 'text',
     chars: 'my super text',
     fontSize: 12,
@@ -8,85 +13,55 @@ const textBlock: TextBlock = {
     color: '#ffffff'
 }
 
-const imageBlock: ImageBlock = {
+const block2: BlockType & ImageBlockType = {
+    id: '2',
+    x: 30.0,
+    y: 50.0,
+    width: 20.0,
+    height: 30.0,
     type: 'image',
     imageResource: '/images/...'
 }
 
-const graphicBlock: GraphicObject = {
+const block3: BlockType & FigureType = {
+    id: '3',
+    x: 130.0,
+    y: 250.0,
+    width: 200.0,
+    height: 30.0,
     type: 'figure',
     colorBorder: '#ff00ff',
     colorBackground: '#d6a1ea',
     figureType: 'rectangle',
 }
 
-const graphicBlock2: GraphicObject = {
+const block4: BlockType & FigureType = {
+    id: '4',
+    x: 450.0,
+    y: 50.0,
+    width: 20.0,
+    height: 30.0,
     type: 'figure',
     colorBorder: '#8d3222',
     colorBackground: '#fda95f',
     figureType: 'triangle',
 }
 
-const graphicBlock3: GraphicObject = {
+const block5: BlockType & FigureType = {
+    id: '5',
+    x: 500.0,
+    y: 450.0,
+    width: 50.0,
+    height: 50.0,
     type: 'figure',
     colorBorder: '#205479',
     colorBackground: '#96f898',
     figureType: 'circle',
 }
 
-const block1: Block = {
-    id: '1',
-    x: 30.0,
-    y: 50.0,
-    width: 20.0,
-    height: 30.0,
-    isSelected: false,
-    model: graphicBlock
-}
-
-const block2: Block = {
-    id: '2',
-    x: 300.0,
-    y: 50.0,
-    width: 200.0,
-    height: 300.0,
-    isSelected: true,
-    model: graphicBlock2
-}
-
-const block3: Block = {
-    id: '3',
-    x: 300.0,
-    y: 200.0,
-    width: 200.0,
-    height: 300.0,
-    isSelected: true,
-    model: graphicBlock3
-}
-
-const block4: Block = {
-    id: '4',
-    x: 30.0,
-    y: 50.0,
-    width: 20.0,
-    height: 30.0,
-    isSelected: true,
-    model: imageBlock
-}
-
-const block5: Block = {
-    id: '5',
-    x: 30.0,
-    y: 50.0,
-    width: 20.0,
-    height: 30.0,
-    isSelected: true,
-    model: textBlock
-}
-
 const slideBackground: SlideBackground = {
-    type: 'image',
-    data: 'BASE64_ENCODING_IMAGE'
+    type: 'color',
+    data: '#fff999'
 }
 
 const slide1: Slide = {
@@ -109,7 +84,7 @@ const slide3: Slide = {
 
 const presentation: Presentation = {
     name: 'name',
-    slides: [slide1, slide2],
+    slides: [slide1, slide2, slide3],
     selectedSlides: [
         {
             selectedSlideId: 'slideId1',

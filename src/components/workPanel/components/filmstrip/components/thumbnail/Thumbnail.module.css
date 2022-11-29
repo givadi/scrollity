@@ -3,9 +3,9 @@
 }
 
 .thumbnail {
-    width: 90%;
-    height: 100px;
-    background-color: #fff;
+    width: 160px;
+    height: 90px;
     border-radius: 3px;
     margin: auto;
+    overflow: hidden;
 }

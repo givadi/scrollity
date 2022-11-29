@@ -6,11 +6,13 @@ type WorkspaceProps = {
     slide: Slide
 }
 
+const SLIDE_SIZE_COEFFICIENT = 1;
+
 export function Workspace(props: WorkspaceProps) {
 
     return (
         <div className={styles.wrapper}>
-            <Canvas slide={props.slide} />
+            <Canvas slide={props.slide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} />
         </div>
     );
 }

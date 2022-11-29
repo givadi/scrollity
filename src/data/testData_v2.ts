@@ -73,35 +73,27 @@ const slide1: Slide = {
 
 const slide2: Slide = {
     id: '2',
-    data: [block1, block2, block3, block4, block5],
+    data: [block1, block3, block5],
     background: slideBackground,
 }
 
 const slide3: Slide = {
     id: '3',
-    data: [block1, block2, block3, block4, block5],
+    data: [block4],
     background: slideBackground,
 }
 
 const presentation: Presentation = {
     name: 'name',
     slides: [slide1, slide2, slide3],
-    selectedSlides: [
+    selectedSlides:
         {
             selectedSlideId: 'slideId1',
             selectedBlocksId: [
                 'blockId1',
                 'blockId2'
             ]
-        },
-        {
-            selectedSlideId: 'slideId3',
-            selectedBlocksId: [
-                'blockId1',
-                'blockId2'
-            ]
-        },
-    ]
+        }
 }
 
 export function getData(): Presentation {

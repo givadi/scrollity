@@ -43,7 +43,7 @@ type SlideBackground = {
 type Presentation = {
     name: string,
     slides: Array<Slide>,
-    selectedSlides: Array<Selection>
+    selectedSlides: Array<string> | Selection
 }
 
 type Selection = {

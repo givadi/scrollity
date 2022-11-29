@@ -16,12 +16,12 @@ const block1: BlockType & TextBlockType = {
 
 const block2: BlockType & ImageBlockType = {
     id: '2',
-    x: 30.0,
+    x: 530.0,
     y: 50.0,
-    width: 20.0,
-    height: 30.0,
+    width: 400.0,
+    height: 300.0,
     type: 'image',
-    imageResource: '/images/...'
+    imageResource: 'https://get.wallhere.com/photo/2559x1571-px-cave-coast-landscape-nature-photography-sea-water-1039832.jpg'
 }
 
 const block3: BlockType & FigureType = {

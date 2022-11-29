@@ -1,6 +1,7 @@
 import {Figure} from './components/figure/Figure';
 import {BlockType} from '../../../../../../data/types';
 import {TextBlock} from './components/textBlock/TextBlock';
+import {ImageBlock} from './components/imageBlock/ImageBlock';
 
 type CanvasBlockProps = {
     block: BlockType
@@ -18,7 +19,9 @@ function getBlock(block: BlockType) {
                 <TextBlock textBlock={block} />
             );
         case 'image':
-            return null;
+            return (
+                <ImageBlock imageBlock={block} />
+            );
         default:
             return null;
     }

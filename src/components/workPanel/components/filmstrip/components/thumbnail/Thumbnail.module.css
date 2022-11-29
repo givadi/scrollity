@@ -1,11 +1,32 @@
+@import '../../../../../../assets/css/constants.css';
+
 .wrapper {
-    padding: 15px 0;
+    padding: 15px 5px;
+}
+
+.wrapperActive {
+    background-color: var(--wrapper-active-color);
+}
+
+.number {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+    color: var(--subtext-color);
 }
 
 .thumbnail {
+    display: inline-block;
     width: 160px;
     height: 90px;
     border-radius: 3px;
     margin: auto;
     overflow: hidden;
+    box-sizing: unset;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+.slideActive {
+    border: var(--border-active);
 }

@@ -8,11 +8,12 @@ type FilmstripProps = {
 
 function Filmstrip(props: FilmstripProps) {
     return (
-        <div className={styles.slide}>
-            {props.slides.map(slide => (
+        <div className={styles.filmstrip}>
+            {props.slides.map((slide, index) => (
                 <Thumbnail
                     key={slide.id}
                     slide={slide}
+                    slideNumber = {index + 1}
                 />
             ))}
         </div>

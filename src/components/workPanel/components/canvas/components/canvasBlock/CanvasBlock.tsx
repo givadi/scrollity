@@ -1,31 +1,47 @@
-import {Block} from '../../../../../../data/types';
-import {GraphicObject} from "../../../../../../data/types";
-import {Figure} from "./components/figure/Figure";
+import {Figure} from './components/figure/Figure';
+import {BlockType} from '../../../../../../data/types';
+import {TextBlock} from './components/textBlock/TextBlock';
+import {ImageBlock} from './components/imageBlock/ImageBlock';
 
 type CanvasBlockProps = {
-    block: Block
+    block: BlockType,
+    sizeCoefficient: number
 }
 
-function getBlock(block: Block) {
-    const blockStyles = {
-        x: block.x,
-        y: block.y,
-        width: block.width,
-        height: block.height,
+function getBlock(block: BlockType, sizeCoefficient: number) {
+    block = {
+        ...block,
+        width: block.width / sizeCoefficient,
+        height: block.height / sizeCoefficient,
+        x: block.x / sizeCoefficient,
+        y: block.y / sizeCoefficient
     }
 
-    if (block.model.type === 'figure') {
-        return (
-            <Figure figure={block.model} blockStyles={blockStyles} />
-        );
-    }
-    else {
-        return null;
+    switch (block.type)
+    {
+        case 'figure':
+            return (
+                <Figure figure={block} />
+            );
+        case 'text':
+            block = {
+                ...block,
+                fontSize: block.fontSize / sizeCoefficient
+            }
+            return (
+                <TextBlock textBlock={block} />
+            );
+        case 'image':
+            return (
+                <ImageBlock imageBlock={block} />
+            );
+        default:
+            return null;
     }
 }
 
 function CanvasBlock(props: CanvasBlockProps) {
-    const canvasBlock = getBlock(props.block);
+    const canvasBlock = getBlock(props.block, props.sizeCoefficient);
     return (
         canvasBlock
     );

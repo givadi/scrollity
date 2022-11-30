@@ -1,6 +1,6 @@
-.slide {
-  width: 205px;
-  flex-shrink: 0;
-  background-color: coral;
-  overflow-y: scroll;
+.filmstrip {
+    width: 205px;
+    flex-shrink: 0;
+    background-color: var(--main-background-color);
+    overflow-y: scroll;
 }

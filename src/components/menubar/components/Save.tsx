@@ -34,23 +34,23 @@ import {Presentation} from "../../../data/types";
 
 
 
-// localStorage.setItem("Presentation", JSON.stringify(App));
 
+function Save(filename, text) {
+  const jsonData = JSON.stringify(App, null, 2);
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
 
-const Save = () => {
-  const filePicker = useRef(null);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [uploaded, setUploaded] = useState();
-
-
-const handlePick = () => {
-  filePicker.current.click();
-}
-
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+  console.log(jsonData);
+  
 return (
    <div className={styles.wrapper}>
-     <img className={styles.icon} src={save_as} alt='Insert_picture' onClick={handlePick} />
-     <input className = {styles.hidden} type="file" ref={filePicker} accept="image/*, .png, .jpg, .jpeg"/>
+     <img className={styles.icon} src={save_as} alt='Save presentation' onClick={Save} />
+     <input className = {styles.hidden} type="file"/>
     </div>
 )
 }

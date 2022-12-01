@@ -35,47 +35,36 @@ import {Presentation} from "../../../data/types";
 
 
 
-function Save(filename, text) {
+function Save(App, file) {
+  const finished = (error) =>{
+        if (error){
+          console.error(error);
+          return;
+        }
+      }
+  const name = 'Presentation name'; 
   const jsonData = JSON.stringify(App, null, 2);
   const element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(file));
+  element.setAttribute('download', name);
 
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
   console.log(jsonData);
+
+
+  const handleSave = () => {
+    Save(App, file);
+    } 
   
-return (
-   <div className={styles.wrapper}>
-     <img className={styles.icon} src={save_as} alt='Save presentation' onClick={Save} />
-     <input className = {styles.hidden} type="file"/>
-    </div>
-)
+
+  return (
+    <div className={styles.wrapper}>
+      <img className={styles.icon} src={save_as} alt='Save presentation' onClick={handleSave} />
+      </div>
+  )
 }
-
-
-
-
-
-
-// const Save = () => {
-
-  
-//   // преобразовываем объект в строку и сохраняем в localStorage
-//   localStorage.setItem('App', JSON.stringify(App));
-
-// // useEffect(() => {
-// //   localStorage.setItem("Presentat", JSON.stringify(App));
-// // }, [App]);
-//   return (
-//     <div className={styles.wrapper}>
-//       <img className={styles.icon} src={save_as} alt='Save' />
-//     </div>
-//   );
-
-
-// }
 
 export default Save;

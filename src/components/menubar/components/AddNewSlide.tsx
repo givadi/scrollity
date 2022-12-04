@@ -5,7 +5,7 @@ import { addSlide } from '../../../actions/slides';
 
 const AddNewSlide = () => {
   return (
-    <div className={styles.wrapper} onClick={() => dispatch(addSlide, 1)}>
+    <div className={styles.wrapper} onClick={() => dispatch(addSlide, {})}>
       <img className={styles.icon} src={add} alt='Add new slide' />
     </div>
   );

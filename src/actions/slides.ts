@@ -12,6 +12,17 @@ function getEmptySlide(): Slide {
     }
 }
 
+function selectSlide(presentation: Presentation, slideId: string): Presentation {
+    console.log(presentation.selectedSlides)
+    return {
+        ...presentation,
+        selectedSlides: {
+            selectedSlideId: slideId,
+            selectedBlocksId: []
+        }
+    }
+}
+
 function addSlide(presentation: Presentation): Presentation {
     const newSlide: Slide = getEmptySlide();
 
@@ -59,6 +70,7 @@ function deleteSlides(presentation: Presentation): Presentation {
 }
 
 export {
+    selectSlide,
     addSlide,
     deleteSlides
 }

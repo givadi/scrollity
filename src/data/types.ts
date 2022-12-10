@@ -25,6 +25,7 @@ type BlockBase = {
     y: number, // x, y - координата верхнего левого угла графического объекта. по умолчанию одинаковые для всех объектов
     width: number,
     height: number,
+    selectedBlocks: Array<string> | Selection,
 }
 
 type BlockType = TextBlockType | ImageBlockType | FigureType
@@ -50,6 +51,7 @@ type Selection = {
     selectedSlideId: string,
     selectedBlocksId: Array<string>
 }
+
 
 export type {
     Presentation,

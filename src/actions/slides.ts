@@ -72,5 +72,6 @@ function deleteSlides(presentation: Presentation): Presentation {
 export {
     selectSlide,
     addSlide,
-    deleteSlides
+    deleteSlides,
+    getEmptySlide
 }

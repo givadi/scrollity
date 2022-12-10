@@ -83,7 +83,7 @@ const slide3: Slide = {
     background: slideBackground,
 }
 
-const presentation: Presentation = {
+let presentation: Presentation = {
     name: 'name',
     slides: [slide1, slide2, slide3],
     selectedSlides:
@@ -96,8 +96,29 @@ const presentation: Presentation = {
         }
 }
 
-export function getData(): Presentation {
+let changePresentationHandler: Function = () => {}
+
+function getState(): Presentation {
     return presentation;
+}
+
+function setState(newPresentation: Presentation) {
+    presentation = newPresentation;
+    changePresentationHandler();
+}
+
+function addChangePresentationHandler(handler: Function) {
+    changePresentationHandler = handler;
+}
+
+function dispatch(modifyFn: Function, payload: Object) {
+    setState(modifyFn(presentation, payload))
+}
+
+export {
+    getState,
+    dispatch,
+    addChangePresentationHandler
 }
 
 // const границы слайда с которым будут взаимодействовать блоки

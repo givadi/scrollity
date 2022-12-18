@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
-import {presentationReducer} from "./reducers/presentationReducer";
-import {getState} from "../data/testData_v2";
+import {getState} from '../data/testData_v2';
+import {slidesReducer} from './reducers/slidesReducer';
 
-const store = createStore(presentationReducer, getState());
+const store = createStore(slidesReducer, getState());
 
 export default store;

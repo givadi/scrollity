@@ -1,6 +1,7 @@
 import styles from './Filmstrip.module.css';
 import { Thumbnail } from './components/thumbnail/Thumbnail';
-import { Slide } from '../../../../data/types';
+import {Presentation, Slide} from '../../../../data/types';
+import {connect} from 'react-redux';
 
 type FilmstripProps = {
     slides: Array<Slide>
@@ -20,4 +21,10 @@ function Filmstrip(props: FilmstripProps) {
     );
 }
 
-export default Filmstrip;
+function mapStateToProps(state: Presentation) {
+    return {
+        slides: state.slides,
+    }
+}
+
+export default connect(mapStateToProps)(Filmstrip);

@@ -9,6 +9,8 @@ function TextBlock(props: TextBlockProps) {
         fontSize: props.textBlock.fontSize,
         fontFamily: props.textBlock.fontFamily,
         fontStyle: props.textBlock.fontStyle,
+        fontWeight: props.textBlock.fontWeight,
+        textDecoration:props.textBlock.textDecoration,
         fill: props.textBlock.color,
     }
 

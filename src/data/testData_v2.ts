@@ -7,11 +7,13 @@ const block1: BlockType & TextBlockType = {
     width: 20.0,
     height: 30.0,
     type: 'text',
-    chars: 'my super text',
-    fontSize: 12,
-    fontFamily: 'roboto',
-    fontStyle: 'italic',
-    color: '#090808'
+    chars: 'My super text',
+    fontSize: 20,
+    fontFamily: 'Times New Roman',
+    fontStyle: 'Italic',
+    fontWeight: 'normal',
+    textDecoration: 'underline',
+    color: '#C71585'
 }
 
 const block2: BlockType & ImageBlockType = {

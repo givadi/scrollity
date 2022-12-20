@@ -1,5 +1,5 @@
-import { Presentation, Slide, Selection } from '../data/types';
-import { generateId } from './id';
+import {generateId} from '../../actions/id';
+import {Presentation, Slide, Selection} from '../../data/types';
 
 function getEmptySlide(): Slide {
     return {
@@ -13,7 +13,6 @@ function getEmptySlide(): Slide {
 }
 
 function selectSlide(presentation: Presentation, slideId: string): Presentation {
-    console.log(presentation.selectedSlides)
     return {
         ...presentation,
         selectedSlides: {
@@ -53,11 +52,11 @@ function deleteSlides(presentation: Presentation): Presentation {
         ? selectedSlides
         : [selectedSlides.selectedSlideId];
 
-    let newSlides = presentation.slides.filter((slide: Slide) => 
+    let newSlides = presentation.slides.filter((slide: Slide) =>
         selectedSlidesIdToDelete.indexOf(slide.id) === -1
     );
 
-    newSlides = newSlides.length > 0 ? newSlides : [getEmptySlide()]; 
+    newSlides = newSlides.length > 0 ? newSlides : [getEmptySlide()];
 
     return {
         ...presentation,
@@ -72,5 +71,6 @@ function deleteSlides(presentation: Presentation): Presentation {
 export {
     selectSlide,
     addSlide,
-    deleteSlides
+    deleteSlides,
+    getEmptySlide
 }

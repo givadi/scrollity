@@ -1,9 +1,11 @@
 import styles from './Filmstrip.module.css';
-import { Thumbnail } from './components/thumbnail/Thumbnail';
-import { Slide } from '../../../../data/types';
+import {Thumbnail} from './components/thumbnail/Thumbnail';
+import {Presentation, Selection, Slide} from '../../../../data/types';
+import {connect} from 'react-redux';
 
 type FilmstripProps = {
-    slides: Array<Slide>
+    slides: Array<Slide>,
+    selectedSlides: Array<string> | Selection
 }
 
 function Filmstrip(props: FilmstripProps) {
@@ -14,10 +16,18 @@ function Filmstrip(props: FilmstripProps) {
                     key={slide.id}
                     slide={slide}
                     slideNumber = {index + 1}
+                    selectedSlides={props.selectedSlides}
                 />
             ))}
         </div>
     );
 }
 
-export default Filmstrip;
+function mapStateToProps(state: Presentation) {
+    return {
+        slides: state.slides,
+        selectedSlides: state.selectedSlides
+    }
+}
+
+export default connect(mapStateToProps)(Filmstrip);

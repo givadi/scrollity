@@ -2,7 +2,7 @@ import styles from '../../common/barIcon/BarIcon.module.css';
 import open_file from '../../../assets/images/barIcons/open_file.svg';
 import { useState, useRef, MutableRefObject } from 'react';
 import {Presentation, FigureType, ImageBlockType, BlockType, Slide, SlideBackground, TextBlockType} from '../../../data/types';
-import { getData } from '../../../data/testData_v2'
+import { getState } from '../../../data/testData_v2'
 
 // export type jsonPresentation = string;
 //   const obj = JSON.parse(json);

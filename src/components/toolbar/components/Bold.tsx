@@ -43,8 +43,8 @@ const Bold = () => {
 
   const boldStyle = useState(false);
 
-  const setBold = (event) => {
-    // setBold(event.target);
+  const setBold = () => {
+    // setBold(target);
     console.log("bold button clicked");
     
   };
@@ -53,7 +53,7 @@ const Bold = () => {
   return (
     <div className={styles.wrapper}>
       
-      <img className={styles.icon} src={bold} alt='Bold' onClick={() => setBold(!boldStyle)} />
+      <img className={styles.icon} src={bold} alt='Bold' /*onClick={() => setBold(!boldStyle)} */ />
        <div > 
   </div></div>
   )

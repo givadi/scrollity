@@ -1,10 +1,10 @@
 import styles from '../../common/barIcon/BarIcon.module.css';
 import save_as from '../../../assets/images/barIcons/save_as.svg';
-import { getData } from '../../../data/testData_v2';
+import { getState } from '../../../data/testData_v2';
 
 const handleSave = () => {
   const element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(getData(), null, 2)));
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(getState(), null, 2)));
   element.setAttribute('download', 'name' + '.json');
   element.click();
 };

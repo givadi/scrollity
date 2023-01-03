@@ -1,5 +1,5 @@
 import {generateId} from '../../actions/id';
-import {Presentation, Slide, Selection} from '../../data/types';
+import {Slide, Selection} from '../../data/types';
 
 function getEmptySlide(): Slide {
     return {
@@ -12,64 +12,36 @@ function getEmptySlide(): Slide {
     }
 }
 
-function selectSlide(presentation: Presentation, slideId: string): Presentation {
-    return {
-        ...presentation,
-        selectedSlides: {
-            selectedSlideId: slideId,
-            selectedBlocksId: []
-        }
-    }
-}
-
-function addSlide(presentation: Presentation): Presentation {
+function addSlide(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
     const newSlide: Slide = getEmptySlide();
 
-    const selectedSlides: Array<string> | Selection = presentation.selectedSlides;
     const selectedSlideId: string = Array.isArray(selectedSlides)
         ? selectedSlides[selectedSlides.length - 1]
         : selectedSlides.selectedSlideId;
 
-    const indexToInsert: number = presentation.slides.findIndex(slide => slide.id === selectedSlideId) + 1;
+    const indexToInsert: number = slides.findIndex(slide => slide.id === selectedSlideId) + 1;
 
-    let newSlides: Array<Slide> = presentation.slides;
+    let newSlides: Array<Slide> = slides;
     newSlides.splice(indexToInsert, 0, newSlide);
 
-    return {
-        ...presentation,
-        slides: newSlides,
-        selectedSlides: {
-            selectedSlideId: newSlide.id,
-            selectedBlocksId: []
-        }
-    }
+    return newSlides;
 }
 
-function deleteSlides(presentation: Presentation): Presentation {
-    const selectedSlides: Array<string> | Selection = presentation.selectedSlides;
-
+function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
     const selectedSlidesIdToDelete: Array<string> = Array.isArray(selectedSlides)
         ? selectedSlides
         : [selectedSlides.selectedSlideId];
 
-    let newSlides = presentation.slides.filter((slide: Slide) =>
+    let newSlides = slides.filter((slide: Slide) =>
         selectedSlidesIdToDelete.indexOf(slide.id) === -1
     );
 
     newSlides = newSlides.length > 0 ? newSlides : [getEmptySlide()];
 
-    return {
-        ...presentation,
-        slides: newSlides,
-        selectedSlides: {
-            selectedSlideId: newSlides[0].id,
-            selectedBlocksId: []
-        }
-    }
+    return newSlides;
 }
 
 export {
-    selectSlide,
     addSlide,
     deleteSlides,
     getEmptySlide

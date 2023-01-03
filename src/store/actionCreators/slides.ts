@@ -1,10 +1,12 @@
 import {SlideActionTypes} from '../../types/slides';
+import {Selection} from '../../data/types';
 
-export const addSlide = () => ({type: SlideActionTypes.ADD_SLIDE});
-export const deleteSlides = () => ({type: SlideActionTypes.DELETE_SLIDES});
-export const selectSlide = (slideId: string) => (
-    {
-        type: SlideActionTypes.SELECT_SLIDE,
-        payload: slideId
-    }
-);
+export const addSlide = (selectedSlides: Array<string> | Selection) => ({
+    type: SlideActionTypes.ADD_SLIDE,
+    payload: selectedSlides
+});
+
+export const deleteSlides = (selectedSlides: Array<string> | Selection) => ({
+    type: SlideActionTypes.DELETE_SLIDES,
+    payload: selectedSlides
+});

@@ -1,22 +1,18 @@
+import {Selection} from '../data/types';
+
 export enum SlideActionTypes {
     ADD_SLIDE = 'ADD_SLIDE',
     DELETE_SLIDES = 'DELETE_SLIDES',
-    SELECT_SLIDE = 'SELECT_SLIDE',
 }
 
 interface AddSlideAction {
-    type: SlideActionTypes.ADD_SLIDE
-}
-
-interface SelectSlideAction {
-    type: SlideActionTypes.SELECT_SLIDE,
-    payload: string
+    type: SlideActionTypes.ADD_SLIDE,
+    payload: Selection | Array<string>
 }
 
 interface RemoveSlideAction {
     type: SlideActionTypes.DELETE_SLIDES,
+    payload: Selection | Array<string>
 }
 
-export type SlideAction = AddSlideAction | SelectSlideAction | RemoveSlideAction;
-
-
+export type SlideAction = AddSlideAction | RemoveSlideAction;

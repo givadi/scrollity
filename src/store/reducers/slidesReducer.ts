@@ -1,16 +1,14 @@
-import {Presentation} from '../../data/types';
+import {Slide} from '../../data/types';
 import {SlideAction, SlideActionTypes} from '../../types/slides';
 import {initialState} from '../../types/presentation';
-import {addSlide, deleteSlides, selectSlide} from '../actions/slides';
+import {addSlide, deleteSlides} from '../actions/slides';
 
-function slidesReducer(state: Presentation = initialState, action: SlideAction): Presentation {
+function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideAction): Array<Slide> {
     switch (action.type) {
         case SlideActionTypes.ADD_SLIDE:
-            return addSlide(state);
+            return addSlide(state, action.payload);
         case SlideActionTypes.DELETE_SLIDES:
-            return deleteSlides(state);
-        case SlideActionTypes.SELECT_SLIDE:
-            return selectSlide(state, action.payload);
+            return deleteSlides(state, action.payload);
         default:
             return state;
     }

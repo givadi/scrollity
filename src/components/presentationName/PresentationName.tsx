@@ -1,19 +1,23 @@
-import {useDispatch} from 'react-redux';
 import {changeName} from '../../store/actionCreators/name';
 import store from '../../store/store';
 import {DEFAULT_PRESENTATION_NAME} from '../../types/presentation';
 
 function updateNameInput(changedPresentationName: string) {
-    const nameInput = document.querySelector('#presentationName') as HTMLInputElement;
-    if (nameInput && changedPresentationName === '') {
-        nameInput.value = DEFAULT_PRESENTATION_NAME;
+    if (changedPresentationName === '')
+    {
+        changedPresentationName = DEFAULT_PRESENTATION_NAME;
+
+        const nameInput = document.querySelector('#presentationName') as HTMLInputElement;
+        if (nameInput) {
+            nameInput.value = changedPresentationName;
+            nameInput.blur();
+        }
     }
-    nameInput.blur();
+
+    store.dispatch(changeName(changedPresentationName));
 }
 
 function PresentationName() {
-    const dispatch = useDispatch();
-
     return (
         <div>
             PresentationName
@@ -22,12 +26,10 @@ function PresentationName() {
                 defaultValue={store.getState().name}
                 onBlur={event => {
                     updateNameInput(event.target.value);
-                    dispatch(changeName(event.target.value));
                 }}
                 onKeyDown={event => {
                     if (event.key === 'Enter') {
                         updateNameInput(event.currentTarget.value);
-                        dispatch(changeName(event.currentTarget.value));
                     }
                 }}
             />

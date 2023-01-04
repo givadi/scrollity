@@ -1,23 +1,16 @@
-import {Presentation, Selection, Slide} from '../../../../data/types';
+import {Presentation, Slide} from '../../../../data/types';
 import styles from './Workspace.module.css';
 import {Canvas} from '../canvas/Canvas';
-import {connect} from 'react-redux';
-
-type WorkspaceProps = {
-    slides: Array<Slide>,
-    selectedSlides: Array<string> | Selection
-}
+import {useSelector} from 'react-redux';
+import store from '../../../../store/store';
+import {getSelectedSlidesById} from '../../../../common/slides';
 
 const SLIDE_SIZE_COEFFICIENT = 1;
 
-function Workspace(props: WorkspaceProps) {
-    const presentationSelection: string = Array.isArray(props.selectedSlides)
-        ? props.selectedSlides[0]
-        : props.selectedSlides.selectedSlideId;
+function Workspace() {
+    useSelector((state: Presentation) => state.selectedSlides)
 
-    const currentSlide: Slide = props.slides.find((slide: Slide) => {
-        return slide.id === presentationSelection;
-    }) ?? props.slides[0];
+    const currentSlide: Slide = getSelectedSlidesById(store.getState().slides, store.getState().selectedSlides)[0];
 
     return (
         <div className={styles.wrapper}>
@@ -26,11 +19,4 @@ function Workspace(props: WorkspaceProps) {
     );
 }
 
-function mapStateToProps(state: Presentation) {
-    return {
-        slides: state.slides,
-        selectedSlides: state.selectedSlides,
-    }
-}
-
-export default connect(mapStateToProps)(Workspace);
+export default Workspace;

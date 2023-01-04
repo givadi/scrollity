@@ -3,11 +3,11 @@ import styles from './Thumbnail.module.css';
 import {Canvas} from '../../../canvas/Canvas';
 import {useDispatch} from 'react-redux';
 import {selectSlide} from '../../../../../../store/actionCreators/selectedSlides';
+import store from '../../../../../../store/store';
 
 type ThumbnailProps = {
     slide: Slide,
     slideNumber: number,
-    selectedSlides: Array<string> | Selection
 }
 
 const THUMBNAIL_SLIDE_SIZE_COEFFICIENT = 6;
@@ -23,7 +23,7 @@ function checkIfActive(selectedSlides: Array<string> | Selection, currentSlideId
 
 export function Thumbnail(props: ThumbnailProps) {
     const dispatch = useDispatch();
-    const isActive = checkIfActive(props.selectedSlides, props.slide.id) ? styles.wrapperActive : '';
+    const isActive = checkIfActive(store.getState().selectedSlides, props.slide.id) ? styles.wrapperActive : '';
 
     return (
         <div className={`${styles.wrapper} ${isActive ? styles.wrapperActive : ''}`}

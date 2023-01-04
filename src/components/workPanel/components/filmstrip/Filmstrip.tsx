@@ -1,33 +1,23 @@
 import styles from './Filmstrip.module.css';
 import {Thumbnail} from './components/thumbnail/Thumbnail';
-import {Presentation, Selection, Slide} from '../../../../data/types';
-import {connect} from 'react-redux';
+import {Presentation} from '../../../../data/types';
+import {useSelector} from 'react-redux';
+import store from '../../../../store/store';
 
-type FilmstripProps = {
-    slides: Array<Slide>,
-    selectedSlides: Array<string> | Selection
-}
+function Filmstrip() {
+    useSelector((state: Presentation) => state.selectedSlides);
 
-function Filmstrip(props: FilmstripProps) {
     return (
         <div className={styles.filmstrip}>
-            {props.slides.map((slide, index) => (
+            {store.getState().slides.map((slide, index) => (
                 <Thumbnail
                     key={slide.id}
                     slide={slide}
                     slideNumber = {index + 1}
-                    selectedSlides={props.selectedSlides}
                 />
             ))}
         </div>
     );
 }
 
-function mapStateToProps(state: Presentation) {
-    return {
-        slides: state.slides,
-        selectedSlides: state.selectedSlides
-    }
-}
-
-export default connect(mapStateToProps)(Filmstrip);
+export default Filmstrip;

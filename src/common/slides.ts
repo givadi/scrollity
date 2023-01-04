@@ -8,22 +8,24 @@ function getSelectedSlideIds(selectedSlides: Array<string> | Selection): Array<s
 
 function getLastSelectedSlideId(selectedSlides: Array<string> | Selection): string {
     const selectedSlidesId = getSelectedSlideIds(selectedSlides);
-    return selectedSlidesId[selectedSlidesId.length];
+    return selectedSlidesId[selectedSlidesId.length - 1];
 }
 
-function getFirstSelectedSlideId(selectedSlides: Array<string> | Selection): string {
-    return getSelectedSlideIds(selectedSlides)[0];
-}
-
-function getSelectedSlidesById(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
+function getSlidesBySelection(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
     return slides.filter((slide: Slide) => {
         return getSelectedSlideIds(selectedSlides).includes(slide.id);
+    });
+}
+
+function getSlidesByOppositeSelection(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
+    return slides.filter((slide: Slide) => {
+        return !getSelectedSlideIds(selectedSlides).includes(slide.id);
     });
 }
 
 export {
     getSelectedSlideIds,
     getLastSelectedSlideId,
-    getFirstSelectedSlideId,
-    getSelectedSlidesById
+    getSlidesBySelection,
+    getSlidesByOppositeSelection
 }

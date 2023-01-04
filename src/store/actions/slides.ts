@@ -1,5 +1,10 @@
-import {generateId} from '../../actions/id';
-import {Slide, Selection} from '../../data/types';
+import {generateId} from '../../common/id';
+import {Slide, Selection, SlideBackground} from '../../data/types';
+import {
+    getLastSelectedSlideId,
+    getSelectedSlideIds,
+    getSlidesByOppositeSelection,
+} from '../../common/slides';
 
 function getEmptySlide(): Slide {
     return {
@@ -14,11 +19,7 @@ function getEmptySlide(): Slide {
 
 function addSlide(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
     const newSlide: Slide = getEmptySlide();
-
-    const selectedSlideId: string = Array.isArray(selectedSlides)
-        ? selectedSlides[selectedSlides.length - 1]
-        : selectedSlides.selectedSlideId;
-
+    const selectedSlideId: string = getLastSelectedSlideId(selectedSlides);
     const indexToInsert: number = slides.findIndex(slide => slide.id === selectedSlideId) + 1;
 
     let newSlides: Array<Slide> = slides;
@@ -28,13 +29,7 @@ function addSlide(slides: Array<Slide>, selectedSlides: Array<string> | Selectio
 }
 
 function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
-    const selectedSlidesIdToDelete: Array<string> = Array.isArray(selectedSlides)
-        ? selectedSlides
-        : [selectedSlides.selectedSlideId];
-
-    let newSlides = slides.filter((slide: Slide) =>
-        selectedSlidesIdToDelete.indexOf(slide.id) === -1
-    );
+    let newSlides = getSlidesByOppositeSelection(slides, selectedSlides);
 
     newSlides = newSlides.length > 0 ? newSlides : [getEmptySlide()];
 
@@ -44,5 +39,6 @@ function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Sele
 export {
     addSlide,
     deleteSlides,
-    getEmptySlide
+    getEmptySlide,
+    changeSlideBackground
 }

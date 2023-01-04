@@ -1,4 +1,4 @@
-import {Selection} from '../../data/types';
+import {Selection, Slide} from '../../data/types';
 
 function selectSlide(slideId: string): Array<string> | Selection {
     return {
@@ -7,6 +7,14 @@ function selectSlide(slideId: string): Array<string> | Selection {
     }
 }
 
+function setDefaultSelection(slides: Array<Slide>): Array<string> | Selection {
+    return {
+        selectedSlideId: slides[0].id,
+        selectedBlocksId: []
+    }
+}
+
 export {
-    selectSlide
+    selectSlide,
+    setDefaultSelection
 }

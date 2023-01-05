@@ -1,11 +1,16 @@
 import {FigureBlock} from './components/figureBlock/FigureBlock';
 import {TextBlock} from './components/textBlock/TextBlock';
 import {ImageBlock} from './components/imageBlock/ImageBlock';
-import {BlockType} from '../../../../../../types/blocks';
+import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY, BlockType} from '../../../../../../types/blocks';
+import {ReactElement} from 'react';
 
 type CanvasBlockProps = {
     block: BlockType,
     sizeCoefficient: number
+}
+
+function getBorder(x: number, y: number, width: number, height: number) {
+    return `M ${x} ${y} h ${width} v ${height} h ${(-1) * width} Z`;
 }
 
 function getBlock(block: BlockType, sizeCoefficient: number) {
@@ -17,33 +22,47 @@ function getBlock(block: BlockType, sizeCoefficient: number) {
         y: block.y / sizeCoefficient
     }
 
-    switch (block.type)
-    {
+    let blockElement: ReactElement;
+
+    switch (block.type) {
         case 'figure':
-            return (
-                <FigureBlock figure={block} />
-            );
+            blockElement = <FigureBlock figure={block}/>;
+            break;
         case 'text':
             block = {
                 ...block,
                 fontSize: block.fontSize / sizeCoefficient
             }
-            return (
-                <TextBlock textBlock={block} />
-            );
+            blockElement = <TextBlock textBlock={block}/>;
+            break;
         case 'image':
-            return (
-                <ImageBlock imageBlock={block} />
-            );
+            blockElement = <ImageBlock imageBlock={block}/>;
+            break;
         default:
             return null;
     }
+
+    return (
+        <g>
+            {blockElement}
+            <path
+                d={getBorder(block.x, block.y, block.width, block.height)}
+                stroke={BLOCK_SELECTED_BORDER_COLOR}
+                fill="transparent"
+                strokeDasharray={BLOCK_SELECTED_BORDER_DASHARRAY}
+            ></path>
+        </g>
+    );
+
 }
 
 function CanvasBlock(props: CanvasBlockProps) {
     const canvasBlock = getBlock(props.block, props.sizeCoefficient);
     return (
-        canvasBlock
+        <g>
+            {canvasBlock}
+
+        </g>
     );
 }
 

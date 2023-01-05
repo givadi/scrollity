@@ -14,8 +14,8 @@ function getFigureBlock(figure: FigureBlockType) {
         case ('circle'):
             const circleStyles = {
                 ...figureStyles,
-                cx: figure.x,
-                cy: figure.y,
+                cx: figure.x + figure.width / 2,
+                cy: figure.y + figure.height / 2,
                 r: figure.width / 2
             }
 

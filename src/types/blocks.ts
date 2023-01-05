@@ -4,6 +4,9 @@ const DEFAULT_BLOCK_COLOR = '#ffffff';
 const FIGURE_TYPE = 'figure';
 const RECTANGLE_TYPE = 'rectangle';
 
+const BLOCK_SELECTED_BORDER_COLOR = '#000000';
+const BLOCK_SELECTED_BORDER_DASHARRAY = '5';
+
 type TextBlockType = BlockBase & {
     type: 'text',
     chars: string,
@@ -56,7 +59,9 @@ export {
     defaultFigureData,
     DEFAULT_BLOCK_COLOR,
     RECTANGLE_TYPE,
-    FIGURE_TYPE
+    FIGURE_TYPE,
+    BLOCK_SELECTED_BORDER_COLOR,
+    BLOCK_SELECTED_BORDER_DASHARRAY
 };
 
 export type { BlockType, TextBlockType, ImageBlockType, FigureBlockType };

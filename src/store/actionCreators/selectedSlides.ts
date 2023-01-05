@@ -21,3 +21,10 @@ export const selectBlock = (blockId: string) => (
         payload: blockId
     }
 );
+
+export const selectBlocks = (blockId: string) => (
+    {
+        type: SelectedSlidesTypes.SELECT_BLOCKS,
+        payload: blockId
+    }
+);

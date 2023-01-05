@@ -7,7 +7,7 @@ import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY} from '../.
 import store from '../../../../../../store/store';
 import {Selection} from '../../../../../../types/selectedSlides';
 import {useDispatch} from 'react-redux';
-import {selectBlock} from '../../../../../../store/actionCreators/selectedSlides';
+import {selectBlock, selectBlocks} from '../../../../../../store/actionCreators/selectedSlides';
 
 type CanvasBlockProps = {
     block: BlockType,
@@ -76,8 +76,8 @@ function CanvasBlock(props: CanvasBlockProps) {
     const canvasBlock = getBlock(props.block, props.sizeCoefficient, props.isFilmstrip);
     return (
         <g
-            onClick={() => {
-                dispatch(selectBlock(props.block.id));
+            onClick={(event) => {
+                event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
             }}
         >
             {canvasBlock}

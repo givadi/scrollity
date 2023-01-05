@@ -1,9 +1,10 @@
-import {Selection, Slide} from '../../../../../../data/types';
 import styles from './Thumbnail.module.css';
 import {Canvas} from '../../../canvas/Canvas';
 import {useDispatch} from 'react-redux';
 import {selectSlide} from '../../../../../../store/actionCreators/selectedSlides';
 import store from '../../../../../../store/store';
+import {Slide} from '../../../../../../types/slides';
+import {Selection} from '../../../../../../types/selectedSlides';
 
 type ThumbnailProps = {
     slide: Slide,

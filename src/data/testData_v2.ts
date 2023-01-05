@@ -1,4 +1,6 @@
-import {Presentation, FigureType, ImageBlockType, BlockType, Slide, SlideBackground, TextBlockType} from './types';
+import {BlockType, FigureBlockType, ImageBlockType, TextBlockType} from '../types/blocks';
+import {Slide, SlideBackground} from '../types/slides';
+import {Presentation} from '../types/presentation';
 
 const block1: BlockType & TextBlockType = {
     id: '1',
@@ -24,7 +26,7 @@ const block2: BlockType & ImageBlockType = {
     imageResource: 'https://get.wallhere.com/photo/2559x1571-px-cave-coast-landscape-nature-photography-sea-water-1039832.jpg'
 }
 
-const block3: BlockType & FigureType = {
+const block3: BlockType & FigureBlockType = {
     id: '3',
     x: 130.0,
     y: 250.0,
@@ -36,7 +38,7 @@ const block3: BlockType & FigureType = {
     figureType: 'rectangle',
 }
 
-const block4: BlockType & FigureType = {
+const block4: BlockType & FigureBlockType = {
     id: '4',
     x: 450.0,
     y: 50.0,
@@ -48,7 +50,7 @@ const block4: BlockType & FigureType = {
     figureType: 'triangle',
 }
 
-const block5: BlockType & FigureType = {
+const block5: BlockType & FigureBlockType = {
     id: '5',
     x: 500.0,
     y: 450.0,

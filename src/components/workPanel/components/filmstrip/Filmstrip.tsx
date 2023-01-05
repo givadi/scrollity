@@ -1,10 +1,11 @@
 import styles from './Filmstrip.module.css';
 import {Thumbnail} from './components/thumbnail/Thumbnail';
-import {Presentation} from '../../../../data/types';
 import {useSelector} from 'react-redux';
 import store from '../../../../store/store';
+import {Presentation} from '../../../../types/presentation';
 
 function Filmstrip() {
+    useSelector((state: Presentation) => state.slides);
     useSelector((state: Presentation) => state.selectedSlides);
 
     return (

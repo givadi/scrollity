@@ -1,8 +1,21 @@
-import {Selection} from '../data/types';
+import {BlockType} from './blocks';
+import {Selection} from './selectedSlides';
+
+type Slide = {
+    id: string,
+    data: Array<BlockType>,
+    background: SlideBackground,
+}
+
+type SlideBackground = {
+    type: 'image'|'color',
+    data: string
+}
 
 export enum SlideActionTypes {
     ADD_SLIDE = 'ADD_SLIDE',
     DELETE_SLIDES = 'DELETE_SLIDES',
+    ADD_BLOCK = 'ADD_BLOCK'
 }
 
 interface AddSlideAction {
@@ -15,4 +28,17 @@ interface RemoveSlideAction {
     payload: Selection | Array<string>
 }
 
-export type SlideAction = AddSlideAction | RemoveSlideAction;
+interface AddBlockAction {
+    type: SlideActionTypes.ADD_BLOCK,
+    payload: {
+        slideId: string,
+        newBlock: BlockType
+    }
+}
+
+export type SlideAction = AddSlideAction | RemoveSlideAction | AddBlockAction;
+
+export type {
+    Slide,
+    SlideBackground,
+}

@@ -1,6 +1,6 @@
-import {Slide} from '../../../../data/types';
 import styles from './Canvas.module.css';
 import {CanvasBlock} from './components/canvasBlock/CanvasBlock';
+import {Slide} from '../../../../types/slides';
 
 type CanvasProps = {
     slide: Slide,

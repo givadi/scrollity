@@ -1,10 +1,10 @@
-import {FigureType} from '../../../../../../../../data/types';
+import {FigureBlockType} from '../../../../../../../../types/blocks';
 
 type FigureProps = {
-    figure: FigureType
+    figure: FigureBlockType
 }
 
-function getFigure(figure: FigureType) {
+function getFigureBlock(figure: FigureBlockType) {
     const figureStyles = {
         stroke: figure.colorBorder,
         fill: figure.colorBackground
@@ -42,11 +42,11 @@ function getFigure(figure: FigureType) {
     }
 }
 
-function Figure(props: FigureProps) {
-    const figure = getFigure(props.figure);
+function FigureBlock(props: FigureProps) {
+    const figure = getFigureBlock(props.figure);
     return (figure);
 }
 
 export {
-    Figure
+    FigureBlock
 }

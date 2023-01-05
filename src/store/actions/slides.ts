@@ -1,9 +1,11 @@
 import {generateId} from '../../common/id';
-import {Slide, Selection} from '../../data/types';
 import {
     getLastSelectedSlideId,
     getSlidesByOppositeSelection,
 } from '../../common/slides';
+import {Slide} from '../../types/slides';
+import {BlockType} from '../../types/blocks';
+import {Selection} from '../../types/selectedSlides';
 
 function getEmptySlide(): Slide {
     return {
@@ -35,8 +37,29 @@ function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Sele
     return newSlides;
 }
 
+function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
+    let newSlides = slides.map((slide) => {
+         if (slide.id === slideId) {
+             const newBlocks = slide.data;
+             newBlocks.push(block)
+             console.log('slide id', slideId)
+
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+
+    console.log(newSlides, 'newSlides');
+    return newSlides;
+}
+
 export {
     addSlide,
     deleteSlides,
     getEmptySlide,
+    addBlock
 }

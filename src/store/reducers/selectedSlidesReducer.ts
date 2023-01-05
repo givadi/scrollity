@@ -1,4 +1,4 @@
-import {Selection} from '../../data/types';
+import {Selection} from '../../types/selectedSlides';
 import {initialState} from '../../types/presentation';
 import {SelectedSlidesAction, SelectedSlidesTypes} from '../../types/selectedSlides';
 import {selectSlide, setDefaultSelection} from '../actions/selectedSlides';

@@ -1,4 +1,9 @@
-import {Slide} from '../data/types';
+import {Slide} from './slides';
+
+type Selection = {
+    selectedSlideId: string,
+    selectedBlocksId: Array<string>
+}
 
 export enum SelectedSlidesTypes {
     SELECT_SLIDE = 'SELECT_SLIDE',
@@ -16,3 +21,7 @@ interface UpdateAfterDeletingSlidesAction {
 }
 
 export type SelectedSlidesAction = SelectSlideAction | UpdateAfterDeletingSlidesAction;
+
+export type {
+    Selection
+}

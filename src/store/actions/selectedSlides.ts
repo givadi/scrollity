@@ -1,4 +1,5 @@
-import {Selection, Slide} from '../../data/types';
+import {Slide} from '../../types/slides';
+import {Selection} from '../../types/selectedSlides';
 
 function selectSlide(slideId: string): Array<string> | Selection {
     return {

@@ -1,7 +1,7 @@
-import {Figure} from './components/figure/Figure';
-import {BlockType} from '../../../../../../data/types';
+import {FigureBlock} from './components/figureBlock/FigureBlock';
 import {TextBlock} from './components/textBlock/TextBlock';
 import {ImageBlock} from './components/imageBlock/ImageBlock';
+import {BlockType} from '../../../../../../types/blocks';
 
 type CanvasBlockProps = {
     block: BlockType,
@@ -21,7 +21,7 @@ function getBlock(block: BlockType, sizeCoefficient: number) {
     {
         case 'figure':
             return (
-                <Figure figure={block} />
+                <FigureBlock figure={block} />
             );
         case 'text':
             block = {

@@ -7,7 +7,6 @@ import DeleteSlide from './components/DeleteSlide';
 import Undo from './components/Undo';
 import Redo from './components/Redo';
 
-
 const Menubar = () => {
   return (
     <div className={styles.actionMenu}>

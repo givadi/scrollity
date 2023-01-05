@@ -5,7 +5,7 @@ import PresentationEditorArea from './components/workPanel/PresentationEditorAre
 import store from './store/store';
 import PresentationName from './components/presentationName/PresentationName';
 import {useSelector} from 'react-redux';
-import {Presentation} from './data/types';
+import {Presentation} from './types/presentation';
 
 function App() {
     document.title = store.getState().name;

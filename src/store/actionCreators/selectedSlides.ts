@@ -1,5 +1,5 @@
 import {SelectedSlidesTypes} from '../../types/selectedSlides';
-import {Slide} from '../../data/types';
+import {Slide} from '../../types/slides';
 
 export const selectSlide = (slideId: string) => (
     {

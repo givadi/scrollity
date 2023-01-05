@@ -38,11 +38,10 @@ function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Sele
 }
 
 function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
-    let newSlides = slides.map((slide) => {
+    return slides.map((slide) => {
          if (slide.id === slideId) {
              const newBlocks = slide.data;
              newBlocks.push(block)
-             console.log('slide id', slideId)
 
              return {
                  ...slide,
@@ -52,9 +51,6 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
 
          return slide;
     });
-
-    console.log(newSlides, 'newSlides');
-    return newSlides;
 }
 
 export {

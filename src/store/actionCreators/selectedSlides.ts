@@ -28,3 +28,9 @@ export const selectBlocks = (blockId: string) => (
         payload: blockId
     }
 );
+
+export const clearSelectedBlocks = () => (
+    {
+        type: SelectedSlidesTypes.CLEAR_SELECTED_BLOCKS
+    }
+);

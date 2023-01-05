@@ -77,6 +77,7 @@ function CanvasBlock(props: CanvasBlockProps) {
     return (
         <g
             onClick={(event) => {
+                event.stopPropagation();
                 event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
             }}
         >

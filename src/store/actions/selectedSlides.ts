@@ -37,9 +37,17 @@ function selectBlocks(selectedSlides: Array<string> | Selection, blockId: string
     return selectedSlides;
 }
 
+function clearSelectedBlocks(selectedSlides: Array<string> | Selection): Array<string> | Selection {
+    return {
+        selectedSlideId: getLastSelectedSlideId(selectedSlides),
+        selectedBlocksId: []
+    }
+}
+
 export {
     selectSlide,
     setDefaultSelection,
     selectBlock,
-    selectBlocks
+    selectBlocks,
+    clearSelectedBlocks
 }

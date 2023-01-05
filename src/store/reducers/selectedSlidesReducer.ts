@@ -1,7 +1,13 @@
 import {Selection} from '../../types/selectedSlides';
 import {initialState} from '../../types/presentation';
 import {SelectedSlidesAction, SelectedSlidesTypes} from '../../types/selectedSlides';
-import {selectBlock, selectBlocks, selectSlide, setDefaultSelection} from '../actions/selectedSlides';
+import {
+    clearSelectedBlocks,
+    selectBlock,
+    selectBlocks,
+    selectSlide,
+    setDefaultSelection
+} from '../actions/selectedSlides';
 
 function selectedSlidesReducer(
     state: Array<string> | Selection = initialState.selectedSlides,
@@ -15,6 +21,8 @@ function selectedSlidesReducer(
             return selectBlock(state, action.payload);
         case SelectedSlidesTypes.SELECT_BLOCKS:
             return selectBlocks(state, action.payload);
+        case SelectedSlidesTypes.CLEAR_SELECTED_BLOCKS:
+            return clearSelectedBlocks(state);
         default:
             return state;
     }

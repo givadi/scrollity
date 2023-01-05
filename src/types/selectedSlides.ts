@@ -10,6 +10,7 @@ export enum SelectedSlidesTypes {
     UPDATE_AFTER_DELETING_SLIDES = 'UPDATE_AFTER_DELETING_SLIDES',
     SELECT_BLOCK = 'SELECT_BLOCK',
     SELECT_BLOCKS = 'SELECT_BLOCKS',
+    CLEAR_SELECTED_BLOCKS = 'CLEAR_SELECTED_BLOCKS',
 }
 
 interface SelectSlideAction {
@@ -32,10 +33,15 @@ interface SelectBlocksAction {
     payload: string
 }
 
+interface ClearSelectedBlocksAction {
+    type: SelectedSlidesTypes.CLEAR_SELECTED_BLOCKS
+}
+
 export type SelectedSlidesAction = SelectSlideAction
     | UpdateAfterDeletingSlidesAction
     | SelectBlockAction
-    | SelectBlocksAction;
+    | SelectBlocksAction
+    | ClearSelectedBlocksAction;
 
 export type {
     Selection

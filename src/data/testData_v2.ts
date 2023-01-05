@@ -3,7 +3,7 @@ import {Slide, SlideBackground} from '../types/slides';
 import {Presentation} from '../types/presentation';
 
 const block1: BlockType & TextBlockType = {
-    id: '1',
+    id: 'blockId1',
     x: 30.0,
     y: 50.0,
     width: 20.0,
@@ -17,7 +17,7 @@ const block1: BlockType & TextBlockType = {
 }
 
 const block2: BlockType & ImageBlockType = {
-    id: '2',
+    id: 'blockId2',
     x: 530.0,
     y: 50.0,
     width: 400.0,
@@ -27,7 +27,7 @@ const block2: BlockType & ImageBlockType = {
 }
 
 const block3: BlockType & FigureBlockType = {
-    id: '3',
+    id: 'blockId3',
     x: 130.0,
     y: 250.0,
     width: 200.0,
@@ -39,7 +39,7 @@ const block3: BlockType & FigureBlockType = {
 }
 
 const block4: BlockType & FigureBlockType = {
-    id: '4',
+    id: 'blockId4',
     x: 450.0,
     y: 50.0,
     width: 20.0,
@@ -51,7 +51,7 @@ const block4: BlockType & FigureBlockType = {
 }
 
 const block5: BlockType & FigureBlockType = {
-    id: '5',
+    id: 'blockId5',
     x: 500.0,
     y: 450.0,
     width: 50.0,
@@ -92,8 +92,8 @@ const presentation: Presentation = {
         {
             selectedSlideId: '1',
             selectedBlocksId: [
-                'blockId1',
-                'blockId2'
+                'blockId2',
+                'blockId3'
             ]
         }
 }

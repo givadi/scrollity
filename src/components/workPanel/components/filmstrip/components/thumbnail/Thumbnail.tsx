@@ -32,7 +32,7 @@ export function Thumbnail(props: ThumbnailProps) {
         >
             <span className={styles.number}>{props.slideNumber}</span>
             <div className={`${styles.thumbnail} ${isActive ? styles.thumbnailActive : ''}`}>
-                <Canvas slide={props.slide} sizeCoefficient={THUMBNAIL_SLIDE_SIZE_COEFFICIENT}></Canvas>
+                <Canvas slide={props.slide} sizeCoefficient={THUMBNAIL_SLIDE_SIZE_COEFFICIENT} isFilmstrip={true}></Canvas>
             </div>
         </div>
     )

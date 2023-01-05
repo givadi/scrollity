@@ -16,7 +16,7 @@ function Workspace() {
 
     return (
         <div className={styles.wrapper}>
-            <Canvas slide={currentSlide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} />
+            <Canvas slide={currentSlide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} isFilmstrip={false}/>
         </div>
     );
 }

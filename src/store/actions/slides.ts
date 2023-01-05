@@ -1,8 +1,7 @@
 import {generateId} from '../../common/id';
-import {Slide, Selection, SlideBackground} from '../../data/types';
+import {Slide, Selection} from '../../data/types';
 import {
     getLastSelectedSlideId,
-    getSelectedSlideIds,
     getSlidesByOppositeSelection,
 } from '../../common/slides';
 
@@ -40,5 +39,4 @@ export {
     addSlide,
     deleteSlides,
     getEmptySlide,
-    changeSlideBackground
 }

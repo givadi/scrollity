@@ -26,7 +26,9 @@ function selectBlock(selectedSlides: Array<string> | Selection, blockId: string)
 function selectBlocks(selectedSlides: Array<string> | Selection, blockId: string): Array<string> | Selection {
     if (!Array.isArray(selectedSlides)) {
         const newSelectionBlocksId = selectedSlides.selectedBlocksId;
-        newSelectionBlocksId.push(blockId);
+        newSelectionBlocksId.includes(blockId)
+            ? newSelectionBlocksId.splice(newSelectionBlocksId.indexOf(blockId), 1)
+            : newSelectionBlocksId.push(blockId);
 
         return {
             ...selectedSlides,

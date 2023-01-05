@@ -2,12 +2,9 @@ import styles from '../../common/barIcon/BarIcon.module.css';
 import rectangle from '../../../assets/images/barIcons/rectangle.svg';
 import {useDispatch} from 'react-redux';
 import {addBlock} from '../../../store/actionCreators/slides';
-import {getLastSelectedSlideId} from '../../../common/slides';
+import {getLastSelectedSlideId} from '../../../common/functions/slides';
 import store from '../../../store/store';
-import {
-    defaultFigureData,
-    RECTANGLE_TYPE
-} from '../../../types/blocks';
+import {defaultFigureData, RECTANGLE_TYPE} from '../../../common/consts/slides';
 
 const Rectangle = () => {
     const dispatch = useDispatch();

@@ -1,8 +1,8 @@
-import {generateId} from '../../common/id';
+import {generateId} from '../../common/functions/id';
 import {
     getLastSelectedSlideId,
     getSlidesByOppositeSelection,
-} from '../../common/slides';
+} from '../../common/functions/slides';
 import {Slide} from '../../types/slides';
 import {BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';

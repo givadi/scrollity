@@ -1,8 +1,9 @@
 import {FigureBlock} from './components/figureBlock/FigureBlock';
 import {TextBlock} from './components/textBlock/TextBlock';
 import {ImageBlock} from './components/imageBlock/ImageBlock';
-import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY, BlockType} from '../../../../../../types/blocks';
+import {BlockType} from '../../../../../../types/blocks';
 import {ReactElement} from 'react';
+import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY} from '../../../../../../common/consts/slides';
 
 type CanvasBlockProps = {
     block: BlockType,

@@ -2,7 +2,7 @@ import styles from './Workspace.module.css';
 import {Canvas} from '../canvas/Canvas';
 import {useSelector} from 'react-redux';
 import store from '../../../../store/store';
-import {getSlidesBySelection} from '../../../../common/slides';
+import {getSlidesBySelection} from '../../../../common/functions/slides';
 import {Presentation} from '../../../../types/presentation';
 import {Slide} from '../../../../types/slides';
 

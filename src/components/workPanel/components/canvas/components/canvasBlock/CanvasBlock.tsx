@@ -6,6 +6,8 @@ import {ReactElement} from 'react';
 import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY} from '../../../../../../common/consts/slides';
 import store from '../../../../../../store/store';
 import {Selection} from '../../../../../../types/selectedSlides';
+import {useDispatch} from 'react-redux';
+import {selectBlock} from '../../../../../../store/actionCreators/selectedSlides';
 
 type CanvasBlockProps = {
     block: BlockType,
@@ -70,9 +72,14 @@ function getBlock(block: BlockType, sizeCoefficient: number, isFilmstrip: boolea
 }
 
 function CanvasBlock(props: CanvasBlockProps) {
+    const dispatch = useDispatch();
     const canvasBlock = getBlock(props.block, props.sizeCoefficient, props.isFilmstrip);
     return (
-        <g>
+        <g
+            onClick={() => {
+                dispatch(selectBlock(props.block.id));
+            }}
+        >
             {canvasBlock}
         </g>
     );

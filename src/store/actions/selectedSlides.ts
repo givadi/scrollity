@@ -1,5 +1,6 @@
 import {Slide} from '../../types/slides';
 import {Selection} from '../../types/selectedSlides';
+import {getLastSelectedSlideId} from '../../common/functions/slides';
 
 function selectSlide(slideId: string): Array<string> | Selection {
     return {
@@ -15,7 +16,29 @@ function setDefaultSelection(slides: Array<Slide>): Array<string> | Selection {
     }
 }
 
+function selectBlock(selectedSlides: Array<string> | Selection, blockId: string): Array<string> | Selection {
+    return {
+        selectedSlideId: getLastSelectedSlideId(selectedSlides),
+        selectedBlocksId: [blockId]
+    }
+}
+
+// function selectBlocks(selectedSlides: Array<string> | Selection, blockId: string): Array<string> | Selection {
+//     if (!Array.isArray(selectedSlides)) {
+//         const newSelectionBlocksId = selectedSlides.selectedBlocksId;
+//         newSelectionBlocksId.push(blockId);
+//
+//         return {
+//             ...selectedSlides,
+//             selectedBlocksId: newSelectionBlocksId
+//         }
+//     }
+//
+//     return selectedSlides;
+// }
+
 export {
     selectSlide,
-    setDefaultSelection
+    setDefaultSelection,
+    selectBlock
 }

@@ -24,6 +24,20 @@ function getSlidesByOppositeSelection(slides: Array<Slide>, selectedSlides: Arra
     });
 }
 
+// function getSelectedBlocks(selectedSlides: Array<string> | Selection, slideId: string): Array<string> {
+//     if (selectedSlides.includes(slideId)) {
+//         if (newSelectedSlides.length > 1) {
+//             newSelectedSlides.splice(newSelectedSlides.indexOf(slideId), 1);
+//         }
+//     } else {
+//         newSelectedSlides.push(slideId);
+//     }
+//     if (Array.isArray(selectedSlides)) {
+//         const selectedBlocks
+//
+//     }
+// }
+
 export {
     getSelectedSlideIds,
     getLastSelectedSlideId,

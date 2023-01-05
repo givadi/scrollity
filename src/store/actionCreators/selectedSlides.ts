@@ -14,3 +14,10 @@ export const updateAfterDeletingSlides = (slides: Array<Slide>) => (
         payload: slides
     }
 );
+
+export const selectBlock = (blockId: string) => (
+    {
+        type: SelectedSlidesTypes.SELECT_BLOCK,
+        payload: blockId
+    }
+);

@@ -1,4 +1,4 @@
-import {TextBlockType} from '../../../../../../../../data/types';
+import {TextBlockType} from '../../../../../../../../types/blocks';
 
 type TextBlockProps = {
     textBlock: TextBlockType

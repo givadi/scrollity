@@ -1,10 +1,11 @@
-import {Slide} from '../../../../data/types';
 import styles from './Canvas.module.css';
 import {CanvasBlock} from './components/canvasBlock/CanvasBlock';
+import {Slide} from '../../../../types/slides';
 
 type CanvasProps = {
     slide: Slide,
-    sizeCoefficient: number
+    sizeCoefficient: number,
+    isFilmstrip: boolean
 }
 
 const CANVAS_SIZE = {
@@ -36,6 +37,7 @@ function Canvas(props: CanvasProps) {
                     key={block.id}
                     block={block}
                     sizeCoefficient={props.sizeCoefficient}
+                    isFilmstrip={props.isFilmstrip}
                 />
             ))}
         </svg>

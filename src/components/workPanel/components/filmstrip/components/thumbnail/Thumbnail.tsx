@@ -1,9 +1,10 @@
-import {Selection, Slide} from '../../../../../../data/types';
 import styles from './Thumbnail.module.css';
 import {Canvas} from '../../../canvas/Canvas';
 import {useDispatch} from 'react-redux';
 import {selectSlide} from '../../../../../../store/actionCreators/selectedSlides';
 import store from '../../../../../../store/store';
+import {Slide} from '../../../../../../types/slides';
+import {Selection} from '../../../../../../types/selectedSlides';
 
 type ThumbnailProps = {
     slide: Slide,
@@ -31,7 +32,7 @@ export function Thumbnail(props: ThumbnailProps) {
         >
             <span className={styles.number}>{props.slideNumber}</span>
             <div className={`${styles.thumbnail} ${isActive ? styles.thumbnailActive : ''}`}>
-                <Canvas slide={props.slide} sizeCoefficient={THUMBNAIL_SLIDE_SIZE_COEFFICIENT}></Canvas>
+                <Canvas slide={props.slide} sizeCoefficient={THUMBNAIL_SLIDE_SIZE_COEFFICIENT} isFilmstrip={true}></Canvas>
             </div>
         </div>
     )

@@ -1,5 +1,12 @@
-import {Presentation} from '../data/types';
 import {getEmptySlide} from '../store/actions/slides';
+import {Slide} from './slides';
+import {Selection} from './selectedSlides';
+
+type Presentation = {
+    name: string,
+    slides: Array<Slide>,
+    selectedSlides: Array<string> | Selection
+}
 
 export const DEFAULT_PRESENTATION_NAME: string = 'Untitled';
 
@@ -7,4 +14,8 @@ export const initialState: Presentation = {
     name: DEFAULT_PRESENTATION_NAME,
     slides: [getEmptySlide()],
     selectedSlides: []
+}
+
+export type {
+    Presentation,
 }

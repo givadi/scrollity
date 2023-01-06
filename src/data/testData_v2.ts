@@ -6,7 +6,7 @@ const block1: BlockType & TextBlockType = {
     id: 'blockId1',
     x: 30.0,
     y: 50.0,
-    width: 20.0,
+    width: 100.0,
     height: 30.0,
     type: 'text',
     chars: 'my super text',

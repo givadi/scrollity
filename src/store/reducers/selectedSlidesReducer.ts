@@ -4,8 +4,7 @@ import {SelectedSlidesAction, SelectedSlidesTypes} from '../../types/selectedSli
 import {
     clearSelectedBlocks,
     selectBlock,
-    selectBlocks,
-    selectSlide,
+    selectBlocks, selectSlide, selectSlides,
     setDefaultSelection
 } from '../actions/selectedSlides';
 
@@ -15,6 +14,8 @@ function selectedSlidesReducer(
     switch (action.type) {
         case SelectedSlidesTypes.SELECT_SLIDE:
             return selectSlide(action.payload);
+        case SelectedSlidesTypes.SELECT_SLIDES:
+            return selectSlides(state, action.payload);
         case SelectedSlidesTypes.UPDATE_AFTER_DELETING_SLIDES:
             return setDefaultSelection(action.payload);
         case SelectedSlidesTypes.SELECT_BLOCK:

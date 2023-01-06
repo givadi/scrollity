@@ -1,6 +1,6 @@
 import {Slide} from '../../types/slides';
 import {Selection} from '../../types/selectedSlides';
-import {getLastSelectedSlideId} from '../../common/functions/slides';
+import {getLastSelectedSlideId, getSelectedSlideIds} from '../../common/functions/slides';
 
 function selectSlide(slideId: string): Array<string> | Selection {
     return {
@@ -46,10 +46,24 @@ function clearSelectedBlocks(selectedSlides: Array<string> | Selection): Array<s
     }
 }
 
+function selectSlides(selectedSlides: Array<string> | Selection, slideId: string): Array<string> | Selection {
+    const newSelectedSlides = getSelectedSlideIds(selectedSlides);
+    if (newSelectedSlides.includes(slideId)) {
+        if (newSelectedSlides.length > 1) {
+            newSelectedSlides.splice(newSelectedSlides.indexOf(slideId), 1);
+        }
+    } else {
+        newSelectedSlides.push(slideId);
+    }
+
+    return [...newSelectedSlides];
+}
+
 export {
     selectSlide,
     setDefaultSelection,
     selectBlock,
     selectBlocks,
-    clearSelectedBlocks
+    clearSelectedBlocks,
+    selectSlides,
 }

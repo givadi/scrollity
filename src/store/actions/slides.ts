@@ -21,10 +21,10 @@ function addSlide(slides: Array<Slide>, selectedSlides: Array<string> | Selectio
     const selectedSlideId: string = getLastSelectedSlideId(selectedSlides);
     const indexToInsert: number = slides.findIndex(slide => slide.id === selectedSlideId) + 1;
 
-    let newSlides: Array<Slide> = slides;
+    const newSlides: Array<Slide> = slides;
     newSlides.splice(indexToInsert, 0, newSlide);
 
-    return newSlides;
+    return [...newSlides];
 }
 
 function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {

@@ -56,6 +56,13 @@ function selectSlides(selectedSlides: Array<string> | Selection, slideId: string
         newSelectedSlides.push(slideId);
     }
 
+    if (newSelectedSlides.length === 1) {
+        return {
+            selectedSlideId: newSelectedSlides[0],
+            selectedBlocksId: []
+        }
+    }
+
     return [...newSelectedSlides];
 }
 

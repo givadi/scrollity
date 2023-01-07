@@ -77,6 +77,9 @@ function CanvasBlock(props: CanvasBlockProps) {
     return (
         <g
             onClick={(event) => {
+                if (props.isFilmstrip) {
+                    return;
+                }
                 event.stopPropagation();
                 event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
             }}

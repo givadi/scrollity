@@ -4,7 +4,7 @@ import {
     getSlidesByOppositeSelection,
 } from '../../common/functions/slides';
 import {Slide} from '../../types/slides';
-import {BlockType} from '../../types/blocks';
+import {BlockPositionType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
 function getEmptySlide(): Slide {
@@ -53,9 +53,35 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
     });
 }
 
+function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
+    console.log('entered')
+    return slides.map((slide) => {
+         if (slide.id === slideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (blockIds.includes(block.id)) {
+                     return {
+                         ...block,
+                         x: newPosition.x,
+                         y: newPosition.y
+                     }
+                 }
+                 return block;
+             });
+            console.log(newBlocks, 'newBlocks')
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
 export {
     addSlide,
     deleteSlides,
     getEmptySlide,
-    addBlock
+    addBlock,
+    moveBlocks
 }

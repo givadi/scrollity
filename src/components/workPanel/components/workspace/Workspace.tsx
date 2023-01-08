@@ -7,8 +7,6 @@ import {Presentation} from '../../../../types/presentation';
 import {Slide} from '../../../../types/slides';
 import {clearSelectedBlocks} from '../../../../store/actionCreators/selectedSlides';
 
-const SLIDE_SIZE_COEFFICIENT = 1;
-
 function Workspace() {
     useSelector((state: Presentation) => state.slides);
     useSelector((state: Presentation) => state.selectedSlides);
@@ -22,7 +20,7 @@ function Workspace() {
                  dispatch(clearSelectedBlocks());
              }}
         >
-            <Canvas slide={currentSlide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} isFilmstrip={false}/>
+            <Canvas slide={currentSlide} isFilmstrip={false}/>
         </div>
     );
 }

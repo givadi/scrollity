@@ -12,7 +12,6 @@ import {useDragAndDrop} from '../../../../../../customHooks/useDragAndDrop';
 
 type CanvasBlockProps = {
     block: BlockType,
-    sizeCoefficient: number,
     isFilmstrip: boolean
 }
 
@@ -79,6 +78,8 @@ function CanvasBlock(props: CanvasBlockProps) {
         <g
             ref={ref}
             onClick={(event) => {
+                if (props.isFilmstrip) return;
+
                 event.stopPropagation();
                 event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
             }}

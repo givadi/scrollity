@@ -1,3 +1,4 @@
 .canvas {
-    background-color: #fff;
+    background-color: var(--main-background-color);
+    overflow: visible;
 }

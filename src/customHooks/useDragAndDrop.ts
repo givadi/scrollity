@@ -1,7 +1,11 @@
 import React from 'react';
 import {BlockPositionType} from '../types/blocks';
 
-function useDragAndDrop(element: React.MutableRefObject<any>, position: BlockPositionType, setPos: React.Dispatch<React.SetStateAction<BlockPositionType>>) {
+function useDragAndDrop(
+    element: React.MutableRefObject<any>,
+    position: BlockPositionType,
+    setPos: React.Dispatch<React.SetStateAction<BlockPositionType>>
+) {
     function onMouseDownHandler(event: React.MouseEvent<SVGGElement>) {
         event.preventDefault();
         const startPos: BlockPositionType = {x: event.pageX, y: event.pageY}

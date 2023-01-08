@@ -4,8 +4,11 @@ import {Slide} from '../../../../types/slides';
 
 type CanvasProps = {
     slide: Slide,
-    sizeCoefficient: number,
-    isFilmstrip: boolean
+    isFilmstrip: boolean,
+    size?: {
+        width: number,
+        height: number
+    },
 }
 
 const CANVAS_SIZE = {
@@ -29,14 +32,14 @@ function Canvas(props: CanvasProps) {
     return (
         <svg className={styles.canvas}
              style={{background: canvasBackground}}
-             width={CANVAS_SIZE.width / props.sizeCoefficient}
-             height={CANVAS_SIZE.height / props.sizeCoefficient}
+             width={props.size ? props.size.width : CANVAS_SIZE.width}
+             height={props.size ? props.size.height : CANVAS_SIZE.height}
+             viewBox={`0 0 ${CANVAS_SIZE.width} ${CANVAS_SIZE.height}`}
         >
             {props.slide.data.map(block => (
                 <CanvasBlock
                     key={block.id}
                     block={block}
-                    sizeCoefficient={props.sizeCoefficient}
                     isFilmstrip={props.isFilmstrip}
                 />
             ))}

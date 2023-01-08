@@ -54,7 +54,6 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
 }
 
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
-    console.log('entered')
     return slides.map((slide) => {
          if (slide.id === slideId) {
              const newBlocks = slide.data.map((block: BlockType) => {
@@ -67,7 +66,6 @@ function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<strin
                  }
                  return block;
              });
-            console.log(newBlocks, 'newBlocks')
              return {
                  ...slide,
                  data: newBlocks

@@ -1,9 +1,9 @@
 import {generateId} from '../../common/functions/id';
 import {
-    getLastSelectedSlideId,
+    getLastSelectedSlideId, getSelectedSlideIds,
     getSlidesByOppositeSelection,
 } from '../../common/functions/slides';
-import {Slide} from '../../types/slides';
+import {Slide, SlideBackground} from '../../types/slides';
 import {BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
@@ -37,19 +37,39 @@ function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Sele
     return newSlides;
 }
 
+function changeSlideBackground(
+    slides: Array<Slide>,
+    selectedSlides: Array<string> | Selection,
+    newBackground: SlideBackground)
+    : Array<Slide> {
+    const selectedSlidesIdToChangeBackground: Array<string> = getSelectedSlideIds(selectedSlides);
+
+    const newSlides = slides;
+
+    newSlides.map((slide: Slide) => {
+        if (selectedSlidesIdToChangeBackground.includes(slide.id)) {
+            return slide.background = newBackground;
+        }
+
+        return slide;
+    })
+
+    return [...newSlides];
+}
+
 function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
     return slides.map((slide) => {
-         if (slide.id === slideId) {
-             const newBlocks = slide.data;
-             newBlocks.push(block)
+        if (slide.id === slideId) {
+            const newBlocks = slide.data;
+            newBlocks.push(block)
 
-             return {
-                 ...slide,
-                 data: newBlocks
-             }
-         }
+            return {
+                ...slide,
+                data: newBlocks
+            }
+        }
 
-         return slide;
+        return slide;
     });
 }
 
@@ -57,5 +77,6 @@ export {
     addSlide,
     deleteSlides,
     getEmptySlide,
+    changeSlideBackground,
     addBlock
 }

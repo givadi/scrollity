@@ -3,6 +3,7 @@
     background-color: white;
     border-radius: 3px;
     margin-right: 2px;
+    padding: 5px;
 }
 
 .text {
@@ -13,9 +14,8 @@
 }
 
 .icon {
-    height: 35px;
-    width: 35px;
-    padding: 5px;
+    height: 25px;
+    width: 25px;
     vertical-align: middle;
 }
 
@@ -36,4 +36,14 @@
     overflow: hidden;
     padding: 0;
     margin: 0;
-  }
+}
+
+.colorPicker {
+    width: 25px;
+    height: 25px;
+}
+
+.background {
+    vertical-align: middle;
+    display: inline-block;
+}

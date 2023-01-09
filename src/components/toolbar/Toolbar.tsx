@@ -14,6 +14,7 @@ import AddNewSlide from '../menubar/components/AddNewSlide';
 import DeleteSlide from '../menubar/components/DeleteSlide';
 import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
+import Background from './components/Background';
 
 function Toolbar() {
     return (
@@ -22,6 +23,7 @@ function Toolbar() {
                 <div className={styles.icons}>
                     <AddNewSlide/>
                     <DeleteSlide/>
+                    <Background/>
                     <Undo/>
                     <Redo/>
                 </div>

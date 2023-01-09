@@ -3,7 +3,7 @@ import view from '../../../assets/images/barIcons/view.svg';
 
 const View = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={view} alt='View' />
     </div>
   );

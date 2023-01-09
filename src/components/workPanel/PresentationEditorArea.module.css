@@ -1,4 +1,4 @@
 .editorArea {
     display: flex;
-    height: 86%;
+    height: calc(100% - 162px);
 }

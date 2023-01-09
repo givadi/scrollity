@@ -3,7 +3,7 @@ import circle from '../../../assets/images/barIcons/circle.svg';
 
 const Circle = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={circle} alt='Circle' />
     </div>
   );

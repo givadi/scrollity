@@ -3,7 +3,7 @@ import order_back from '../../../assets/images/barIcons/order_back.svg';
 
 const OrderBack = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={order_back} alt='Order back' />
     </div>
   );

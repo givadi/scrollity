@@ -1,0 +1,15 @@
+.nameInput {
+    text-align: center;
+    outline: none;
+    border: none;
+    border-bottom: var(--border-color) 2px solid;
+}
+
+.nameInput:focus {
+    border-bottom: var(--border-active-color) 2px solid;
+}
+
+.nameBar {
+    margin: auto;
+    padding: 10px;
+}

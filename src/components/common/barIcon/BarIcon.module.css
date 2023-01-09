@@ -1,18 +1,30 @@
-.wrapper {
-    padding: 7px;
+.container {
     display: inline-block;
-    vertical-align: top;
+    background-color: white;
+    border-radius: 3px;
+    margin-right: 2px;
+}
+
+.text {
+   display: inline-block;
+    height: 100%;
+    padding: 0 2px;
+    vertical-align: middle;
 }
 
 .icon {
     height: 35px;
     width: 35px;
     padding: 5px;
-    background-color: white;
-    border-radius: 3px;
+    vertical-align: middle;
 }
 
-.icon:hover {
+.container:hover {
+    background-color: #ebe8e8;
+    cursor: pointer;
+}
+
+.icon:hover + .text {
     background-color: #ebe8e8;
 }
 

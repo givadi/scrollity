@@ -3,7 +3,7 @@ import italic from '../../../assets/images/barIcons/italic.svg';
 
 const Italic = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={italic} alt='Italic' />
     </div>
   );

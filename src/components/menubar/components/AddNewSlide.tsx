@@ -8,7 +8,7 @@ function AddNewSlide() {
     const dispatch = useDispatch();
 
     return (
-        <div className={styles.wrapper} onClick={() => {
+        <div className={styles.container} onClick={() => {
             dispatch(addSlide(store.getState().selectedSlides));
         }}>
             <img className={styles.icon} src={add} alt='Add new slide'/>

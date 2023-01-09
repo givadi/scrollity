@@ -1,6 +1,7 @@
 import {changeName} from '../../store/actionCreators/name';
 import store from '../../store/store';
 import {DEFAULT_PRESENTATION_NAME} from '../../types/presentation';
+import styles from './PresentationName.module.css';
 
 function updateNameInput(changedPresentationName: string) {
     if (changedPresentationName === '')
@@ -19,9 +20,8 @@ function updateNameInput(changedPresentationName: string) {
 
 function PresentationName() {
     return (
-        <div>
-            PresentationName
-            <input
+        <div className={styles.nameBar}>
+            <input className={styles.nameInput}
                 id={'presentationName'}
                 defaultValue={store.getState().name}
                 onBlur={event => {

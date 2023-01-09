@@ -3,7 +3,7 @@ import undo from '../../../assets/images/barIcons/undo.svg';
 
 const Undo = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={undo} alt='Undo' />
     </div>
   );

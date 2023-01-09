@@ -39,7 +39,7 @@ const handlePick = () => {
 }
 
 return (
-   <div className={styles.wrapper}>
+   <div className={styles.container}>
      <img className={styles.icon} src={insert_picture} alt='Insert_picture' onClick={handlePick} />
      <input className = {styles.hidden} type="file" ref={filePicker}  onChange = {handleChange} accept="image/*, .png, .jpg, .jpeg"/>
     </div>

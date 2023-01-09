@@ -9,7 +9,7 @@ function DeleteSlide() {
     const dispatch = useDispatch();
 
     return (
-        <div className={styles.wrapper} onClick={() => {
+        <div className={styles.container} onClick={() => {
             dispatch(deleteSlides(store.getState().selectedSlides));
             dispatch(updateAfterDeletingSlides(store.getState().slides));
         }}>

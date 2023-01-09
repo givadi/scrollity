@@ -14,8 +14,11 @@ function App() {
     return (
         <div className={styles.app}>
             <PresentationName />
-            <Menubar />
-            <Toolbar />
+            <div>
+                <Menubar />
+                <Toolbar />
+            </div>
+
             <PresentationEditorArea />
         </div>
     );

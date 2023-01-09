@@ -3,7 +3,7 @@ import bold from '../../../assets/images/barIcons/bold.svg';
 
 const Bold = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={bold} alt='Bold' />
     </div>
 

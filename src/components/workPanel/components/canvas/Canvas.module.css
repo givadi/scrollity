@@ -1,3 +1,4 @@
 .canvas {
     background-color: #fff;
+    box-shadow: var(--box-shadow-dark);
 }

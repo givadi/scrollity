@@ -9,7 +9,7 @@ import {defaultFigureData, RECTANGLE_TYPE} from '../../../common/consts/slides';
 const Rectangle = () => {
     const dispatch = useDispatch();
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.container}>
             <img className={styles.icon} src={rectangle} alt="Rectangle"
                  onClick={() => {
                      dispatch(addBlock(getLastSelectedSlideId(store.getState().selectedSlides), {

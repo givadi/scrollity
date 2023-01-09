@@ -1,4 +1,3 @@
-import {generateId} from '../functions/id';
 import {FigureBlockType} from '../../types/blocks';
 import {BlockBase} from '../../data/types';
 
@@ -10,7 +9,7 @@ const BLOCK_SELECTED_BORDER_COLOR = '#000000';
 const BLOCK_SELECTED_BORDER_DASHARRAY = '5';
 
 const defaultBlockBase: BlockBase = {
-    id: generateId(),
+    id: '',
     x: 0,
     y: 0,
     width: 100,

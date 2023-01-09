@@ -1,10 +1,12 @@
 import {generateId} from '../functions/id';
-import {FigureBlockType} from '../../types/blocks';
+import {FigureBlockType, ImageBlockType} from '../../types/blocks';
 import {BlockBase} from '../../data/types';
 
 const DEFAULT_BLOCK_COLOR = '#ffffff';
 const FIGURE_TYPE = 'figure';
 const RECTANGLE_TYPE = 'rectangle';
+
+const IMAGE_TYPE = 'image';
 
 const BLOCK_SELECTED_BORDER_COLOR = '#000000';
 const BLOCK_SELECTED_BORDER_DASHARRAY = '5';
@@ -25,12 +27,19 @@ const defaultFigureData: FigureBlockType = {
     figureType: RECTANGLE_TYPE
 }
 
+const defaultImageData: ImageBlockType = {
+    ...defaultBlockBase,
+    type: IMAGE_TYPE,
+    imageResource: ''
+}
+
 export {
     defaultBlockBase,
     defaultFigureData,
+    defaultImageData,
     DEFAULT_BLOCK_COLOR,
     RECTANGLE_TYPE,
     FIGURE_TYPE,
     BLOCK_SELECTED_BORDER_COLOR,
-    BLOCK_SELECTED_BORDER_DASHARRAY
+    BLOCK_SELECTED_BORDER_DASHARRAY,
 };

@@ -98,7 +98,7 @@ function CanvasBlock(props: CanvasBlockProps) {
                 fill="transparent"
                 strokeDasharray={BLOCK_SELECTED_BORDER_DASHARRAY}>
                 </path>}
-            {!props.isFilmstrip && <circle
+            {!props.isFilmstrip && checkIfSelected(props.block.id) && <circle
                 ref={resizeDotRef}
                 data-point-order={++pointOrder}
                 style={{cursor: 'nw-resize'}}

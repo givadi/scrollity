@@ -1,5 +1,5 @@
 import styles from './Thumbnail.module.css';
-import {Canvas} from '../../../canvas/Canvas';
+import {WorkspaceCanvas} from '../../../canvas/WorkspaceCanvas';
 import {useDispatch} from 'react-redux';
 import {selectSlide, selectSlides} from '../../../../../../store/actionCreators/selectedSlides';
 import store from '../../../../../../store/store';
@@ -37,7 +37,7 @@ export function Thumbnail(props: ThumbnailProps) {
         >
             <span className={styles.number}>{props.slideNumber}</span>
             <div className={`${styles.thumbnail} ${isActive ? styles.thumbnailActive : ''}`}>
-                <Canvas slide={props.slide} size={thumbnailSize} isFilmstrip={true}></Canvas>
+                <WorkspaceCanvas slide={props.slide} size={thumbnailSize} isFilmstrip={true}></WorkspaceCanvas>
             </div>
         </div>
     )

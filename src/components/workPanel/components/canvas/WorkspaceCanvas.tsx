@@ -27,7 +27,7 @@ function getBackground(slide: Slide): string {
     return '#fff';
 }
 
-function Canvas(props: CanvasProps) {
+function WorkspaceCanvas(props: CanvasProps) {
     const canvasBackground: string = getBackground(props.slide);
     return (
         <svg className={styles.canvas}
@@ -48,5 +48,5 @@ function Canvas(props: CanvasProps) {
 }
 
 export {
-    Canvas
+    WorkspaceCanvas
 }

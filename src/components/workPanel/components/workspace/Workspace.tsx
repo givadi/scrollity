@@ -1,8 +1,9 @@
 import styles from './Workspace.module.css';
-import {Canvas} from '../canvas/Canvas';
+import {WorkspaceCanvas} from '../canvas/WorkspaceCanvas';
 import {useDispatch, useSelector} from 'react-redux';
-import store from '../../../../store/store';
-import {getSlidesBySelection} from '../../../../common/functions/slides';
+import {
+    getLastSlideBySelection,
+} from '../../../../common/functions/slides';
 import {Presentation} from '../../../../types/presentation';
 import {Slide} from '../../../../types/slides';
 import {clearSelectedBlocks} from '../../../../store/actionCreators/selectedSlides';
@@ -12,15 +13,15 @@ function Workspace() {
     useSelector((state: Presentation) => state.selectedSlides);
     const dispatch = useDispatch();
 
-    const currentSlide: Slide = getSlidesBySelection(store.getState().slides, store.getState().selectedSlides)[0];
+    const currentSlide: Slide = getLastSlideBySelection();
 
     return (
-        <div className={styles.wrapper}
+        <div className={styles.wrapper} id={'workspaceCanvas'}
              onClick={() => {
                  dispatch(clearSelectedBlocks());
              }}
         >
-            <Canvas slide={currentSlide} isFilmstrip={false}/>
+            <WorkspaceCanvas slide={currentSlide} isFilmstrip={false}/>
         </div>
     );
 }

@@ -11,8 +11,8 @@ const block1: BlockType & TextBlockType = {
     type: 'text',
     chars: 'My super text',
     fontSize: 20,
-    fontFamily: 'Times New Roman',
-    fontStyle: 'Italic',
+    fontFamily: 'Arial',
+    fontStyle: 'normal',
     fontWeight: 'normal',
     textDecoration: 'underline',
     color: '#C71585'

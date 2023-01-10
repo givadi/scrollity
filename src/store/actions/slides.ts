@@ -95,6 +95,27 @@ function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType,
     });
 }
 
+function changeFontFamily(slides: Array<Slide>, slideId: string, block: BlockType, newFontFamily: string): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontFamily: newFontFamily
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
+        }
+        return slide;
+    });
+}
+
+
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
     return slides.map((slide) => {
          if (slide.id === slideId) {
@@ -126,5 +147,6 @@ export {
     addBlock,
     moveBlocks,
     changeSlideBackground,
-    changeFontSize
+    changeFontSize,
+    changeFontFamily
 }

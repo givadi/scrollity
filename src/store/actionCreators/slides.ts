@@ -29,6 +29,16 @@ export const changeFontSize = (slideId: string, newFontBlock: BlockType, newFont
     }
 });
 
+export const changeFontFamily = (slideId: string, newFontBlock: BlockType, newFontFamily: string) => ({
+    type: SlideActionTypes.CHANGE_FONT_FAMILY,
+    payload: {
+        slideId,
+        newFontBlock,
+        newFontFamily
+    }
+});
+
+
 export const moveBlocks = (slideId: string, blocksIds: Array<string>, newPosition: BlockPositionType) => ({
     type: SlideActionTypes.ADD_BLOCK,
     payload: {

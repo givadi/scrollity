@@ -49,7 +49,7 @@ const Bold = () => {
 
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       
       <img className={styles.icon} src={bold} alt='Bold' /* onClick={() => setBold(!boldStyle)} */ />
        <div > 

@@ -20,11 +20,12 @@ export const addBlock = (slideId: string, newBlock: BlockType) => ({
     }
 });
 
-export const changeFontSize = (slideId: string, newBlock: BlockType) => ({
+export const changeFontSize = (slideId: string, newFontBlock: BlockType, newFontSize: number) => ({
     type: SlideActionTypes.CHANGE_FONT_SIZE,
     payload: {
         slideId,
-        newBlock
+       newFontBlock,
+        newFontSize
     }
 });
 

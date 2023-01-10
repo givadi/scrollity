@@ -12,6 +12,7 @@ function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideA
         case SlideActionTypes.ADD_BLOCK:
             return addBlock(state, action.payload.slideId, action.payload.newBlock);
         case SlideActionTypes.CHANGE_FONT_SIZE:
+            console.log('newFontBlock', action.payload.newFontBlock)
         return changeFontSize(state, action.payload.slideId, action.payload.newFontBlock, action.payload.newFontSize);
         default:
             return state;

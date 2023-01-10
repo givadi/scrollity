@@ -77,25 +77,22 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
 
 
 function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType, newFontSize: number): Array<Slide> {
-    console.log('works');
-  return slides.map((slide) =>  {
-    if (slide.id === slideId){
-   const newData =  slide.data.map(block); {
-        if (block.type === 'text') {
-            return {
-                ...block,
-                fontsize: CHANGE_FONT_SIZE
-            }
-            }
-    }
-    return {
-        ...slide,
-        data: newData
-    }
-    return slide
-    }})
-
-
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontSize: newFontSize
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
+        }
+        return slide;
+    });
 }
 
 export {

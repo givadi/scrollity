@@ -1,3 +1,4 @@
+import {FigureBlockType} from '../../types/blocks';
 import {generateId} from '../functions/id';
 import {FigureBlockType, ImageBlockType, TextBlockType} from '../../types/blocks';
 import {BlockBase} from '../../data/types';
@@ -20,7 +21,7 @@ const DEFAULT_BLOCK_FONT_SIZE = 20;
 
 
 const defaultBlockBase: BlockBase = {
-    id: generateId(),
+    id: '',
     x: 0,
     y: 0,
     width: 100,

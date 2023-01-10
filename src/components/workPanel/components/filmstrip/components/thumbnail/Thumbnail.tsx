@@ -11,8 +11,6 @@ type ThumbnailProps = {
     slideNumber: number,
 }
 
-const THUMBNAIL_SLIDE_SIZE_COEFFICIENT = 6;
-
 function checkIfActive(selectedSlides: Array<string> | Selection, currentSlideId: string): boolean {
     if (Array.isArray(selectedSlides)) {
         return selectedSlides.indexOf(currentSlideId) > -1;
@@ -24,6 +22,11 @@ function checkIfActive(selectedSlides: Array<string> | Selection, currentSlideId
 export function Thumbnail(props: ThumbnailProps) {
     const dispatch = useDispatch();
     const isActive = checkIfActive(store.getState().selectedSlides, props.slide.id) ? styles.wrapperActive : '';
+    const thumbnailSize = {
+        width: 160,
+        height: 90
+    }
+
     return (
         <div className={`${styles.wrapper} ${isActive ? styles.wrapperActive : ''}`}
             onClick={(event) => {
@@ -34,7 +37,7 @@ export function Thumbnail(props: ThumbnailProps) {
         >
             <span className={styles.number}>{props.slideNumber}</span>
             <div className={`${styles.thumbnail} ${isActive ? styles.thumbnailActive : ''}`}>
-                <Canvas slide={props.slide} sizeCoefficient={THUMBNAIL_SLIDE_SIZE_COEFFICIENT} isFilmstrip={true}></Canvas>
+                <Canvas slide={props.slide} size={thumbnailSize} isFilmstrip={true}></Canvas>
             </div>
         </div>
     )

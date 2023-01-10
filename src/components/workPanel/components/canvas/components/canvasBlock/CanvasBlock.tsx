@@ -2,16 +2,16 @@ import {FigureBlock} from './components/figureBlock/FigureBlock';
 import {TextBlock} from './components/textBlock/TextBlock';
 import {ImageBlock} from './components/imageBlock/ImageBlock';
 import {BlockType} from '../../../../../../types/blocks';
-import {ReactElement} from 'react';
+import {ReactElement, useRef, useState} from 'react';
 import {BLOCK_SELECTED_BORDER_COLOR, BLOCK_SELECTED_BORDER_DASHARRAY} from '../../../../../../common/consts/slides';
 import store from '../../../../../../store/store';
 import {Selection} from '../../../../../../types/selectedSlides';
 import {useDispatch} from 'react-redux';
 import {selectBlock, selectBlocks} from '../../../../../../store/actionCreators/selectedSlides';
+import {useDragAndDrop} from '../../../../../../customHooks/useDragAndDrop';
 
 type CanvasBlockProps = {
     block: BlockType,
-    sizeCoefficient: number,
     isFilmstrip: boolean
 }
 
@@ -28,15 +28,7 @@ function getBorder(x: number, y: number, width: number, height: number) {
     return `M ${x} ${y} h ${width} v ${height} h ${(-1) * width} Z`;
 }
 
-function getBlock(block: BlockType, sizeCoefficient: number, isFilmstrip: boolean) {
-    block = {
-        ...block,
-        width: block.width / sizeCoefficient,
-        height: block.height / sizeCoefficient,
-        x: block.x / sizeCoefficient,
-        y: block.y / sizeCoefficient
-    }
-
+function getBlock(block: BlockType, isFilmstrip: boolean) {
     let blockElement: ReactElement;
 
     switch (block.type) {
@@ -46,7 +38,7 @@ function getBlock(block: BlockType, sizeCoefficient: number, isFilmstrip: boolea
         case 'text':
             block = {
                 ...block,
-                fontSize: block.fontSize / sizeCoefficient
+                fontSize: block.fontSize
             }
             blockElement = <TextBlock textBlock={block}/>;
             break;
@@ -73,9 +65,18 @@ function getBlock(block: BlockType, sizeCoefficient: number, isFilmstrip: boolea
 
 function CanvasBlock(props: CanvasBlockProps) {
     const dispatch = useDispatch();
-    const canvasBlock = getBlock(props.block, props.sizeCoefficient, props.isFilmstrip);
+    const [position, setPosition] = useState({x: props.block.x, y: props.block.y})
+    let canvasBlock = getBlock({
+        ...props.block,
+        x: position.x,
+        y: position.y
+    }, props.isFilmstrip);
+    const ref = useRef(null);
+    useDragAndDrop(ref, position, setPosition);
+
     return (
         <g
+            ref={ref}
             onClick={(event) => {
                 if (props.isFilmstrip) {
                     return;

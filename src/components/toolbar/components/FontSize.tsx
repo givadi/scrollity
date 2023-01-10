@@ -1,32 +1,48 @@
 import styles from '../../common/barIcon/BarIcon.module.css';
 import font_size from '../../../assets/images/barIcons/font_size.svg';
-import {Presentation, FigureType, ImageBlockType, BlockType, Slide, SlideBackground, TextBlockType} from '../../../data/types';
-import {getState} from '../../../data/testData_v2';
+import store from '../../../store/store';
+import {ReactElement} from 'react';
+//import FigureBlock from '../components/';
+import {TextBlockType} from '../../../types/blocks';
+//import {ImageBlock} from './components/imageBlock/ImageBlock';
+import {BlockType} from '../../../types/blocks';
+import {Selection} from '../../../types/selectedSlides';
+import {useDispatch} from 'react-redux';
+// import {selectBlock, selectBlocks, } from '../../../store/actionCreators/selectedSlides';
+import {selectBlock, selectBlocks, } from '../../../store/actions/selectedSlides';
+import {changeFontSize} from '../../../store/actionCreators/slides';
+import { getLastSelectedSlideId, getSelectedBlocks } from '../../../common/functions/slides';
 
 
 
-// установть среднйи шрифт выбранным
-// применени выбранного шрифта
-
-
-
-// отрисовать селект шрифтов
-const FontSize = (props) => {
-  // console.log("fontSize = ", {block1.fontSize});
+const FontSize = () => {
+  const dispatch = useDispatch();
+  const selectedSlides = store.getState().selectedSlides;
+ 
+// console.log("fontSize = ", fontSize);
+    // const selectedSlides: Array<string> | Selection = store.getState().selectedSlides;
+  //   if (!Array.isArray(selectedSlides)) {
+  //     return selectedSlides.selectedBlocksId.includes(fontSize);
+  // }
   return (
     <div className={styles.wrapper}>
-      <form >
-      <label>Font size:</label>
-      <select>
-        <option value="12">12</option>
-        <option value="18">18</option>
-        <option value="32">32</option>
-      </select>
-      <img className={styles.icon} src={font_size} alt='Font Size' />
-      </form>
-
+    
+       <form >
+       <label>Font size: </label>
+       <select onChange = {(event) => { 
+       console.log(event.target.value);
+       const newFontSize = event.target.value;
+        console.log('selected blocks',  getSelectedBlocks(selectedSlides, store.getState().slides));
+          dispatch(changeFontSize(getLastSelectedSlideId(
+          selectedSlides), selectBlock(selectedSlides, store.getState().slides, newFontSize)))
+        }}>
+         <option value="12">12</option>
+         <option value="18">18</option>
+         <option value="32">32</option>
+       </select>
+        </form>
     </div>
-  );
+);
 }
 
 const FontSizeSelected = () =>{

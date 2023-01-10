@@ -16,11 +16,12 @@ function getFigureBlock(figure: FigureBlockType) {
                 ...figureStyles,
                 cx: figure.x + figure.width / 2,
                 cy: figure.y + figure.height / 2,
-                r: figure.width / 2
+                rx: figure.width / 2,
+                ry: figure.height / 2
             }
 
             return (
-                <circle style={circleStyles}></circle>
+                <ellipse style={circleStyles}></ellipse>
             );
         case ('rectangle'):
             const rectStyles = {

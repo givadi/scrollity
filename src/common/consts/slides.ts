@@ -1,4 +1,3 @@
-import {FigureBlockType} from '../../types/blocks';
 import {generateId} from '../functions/id';
 import {FigureBlockType, ImageBlockType, TextBlockType} from '../../types/blocks';
 import {BlockBase} from '../../data/types';

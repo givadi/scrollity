@@ -1,11 +1,10 @@
-import {generateId} from '../../common/id';
-import {Slide, Selection} from '../../data/types';
+import {generateId} from '../../common/functions/id';
 import {
-    getLastSelectedSlideId,
+    getLastSelectedSlideId, getSelectedSlideIds,
     getSlidesByOppositeSelection,
 } from '../../common/functions/slides';
-import {Slide} from '../../types/slides';
-import {BlockType, TextBlockType} from '../../types/blocks';
+import {Slide, SlideBackground} from '../../types/slides';
+import {BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
 
@@ -25,10 +24,10 @@ function addSlide(slides: Array<Slide>, selectedSlides: Array<string> | Selectio
     const selectedSlideId: string = getLastSelectedSlideId(selectedSlides);
     const indexToInsert: number = slides.findIndex(slide => slide.id === selectedSlideId) + 1;
 
-    let newSlides: Array<Slide> = slides;
+    const newSlides: Array<Slide> = slides;
     newSlides.splice(indexToInsert, 0, newSlide);
 
-    return newSlides;
+    return [...newSlides];
 }
 
 function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
@@ -38,6 +37,27 @@ function deleteSlides(slides: Array<Slide>, selectedSlides: Array<string> | Sele
 
     return newSlides;
 }
+
+function changeSlideBackground(
+    slides: Array<Slide>,
+    selectedSlides: Array<string> | Selection,
+    newBackground: SlideBackground)
+    : Array<Slide> {
+    const selectedSlidesIdToChangeBackground: Array<string> = getSelectedSlideIds(selectedSlides);
+
+    const newSlides = slides;
+
+    newSlides.map((slide: Slide) => {
+        if (selectedSlidesIdToChangeBackground.includes(slide.id)) {
+            return slide.background = newBackground;
+        }
+
+        return slide;
+    })
+
+    return [...newSlides];
+}
+
 
 function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
     return slides.map((slide) => {
@@ -58,22 +78,31 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
 
 function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType, newFontSize: number): Array<Slide> {
     console.log('works');
-if (block.type === 'text') {
+  return slides.map((slide) =>  {
+    if (slide.id === slideId){
+   const newData =  slide.data.map(block); {
+        if (block.type === 'text') {
             return {
                 ...block,
-                fontSize: newFontSize
+                fontsize: CHANGE_FONT_SIZE
             }
-        }
-        return slides;
-   }
+            }
+    }
+    return {
+        ...slide,
+        data: newData
+    }
+    return slide
+    }})
 
 
-
+}
 
 export {
     addSlide,
     deleteSlides,
     getEmptySlide,
+    changeSlideBackground,
     addBlock,
     changeFontSize
 }

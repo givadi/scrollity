@@ -1,19 +1,25 @@
 import styles from './App.module.css';
 import Menubar from './components/menubar/Menubar';
 import Toolbar from './components/toolbar/Toolbar';
-import { PresentationEditorArea } from './components/workPanel/PresentationEditorArea';
-import { Presentation } from './data/types';
+import PresentationEditorArea from './components/workPanel/PresentationEditorArea';
+import store from './store/store';
+import PresentationName from './components/presentationName/PresentationName';
+import {useSelector} from 'react-redux';
+import {Presentation} from './types/presentation';
 
-type appProps = {
-    presentation: Presentation
-}
+function App() {
+    document.title = store.getState().name;
+    useSelector((state: Presentation) => state.name);
 
-function App(props: appProps) {
     return (
         <div className={styles.app}>
-            <Menubar />
-            <Toolbar />
-            <PresentationEditorArea presentation={props.presentation} />
+            <PresentationName />
+            <div>
+                <Menubar />
+                <Toolbar />
+            </div>
+
+            <PresentationEditorArea />
         </div>
     );
 }

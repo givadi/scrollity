@@ -2,17 +2,14 @@ import styles from '../../common/barIcon/BarIcon.module.css';
 import font_size from '../../../assets/images/barIcons/font_size.svg';
 import store from '../../../store/store';
 import {ReactElement} from 'react';
-//import FigureBlock from '../components/';
-import {TextBlockType} from '../../../types/blocks';
-//import {ImageBlock} from './components/imageBlock/ImageBlock';
-import {BlockType} from '../../../types/blocks';
+import {TextBlockType, BlockType} from '../../../types/blocks';
 import {Selection} from '../../../types/selectedSlides';
 import {useDispatch} from 'react-redux';
 // import {selectBlock, selectBlocks, } from '../../../store/actionCreators/selectedSlides';
 import {selectBlock, selectBlocks, } from '../../../store/actions/selectedSlides';
 import {changeFontSize} from '../../../store/actionCreators/slides';
 import { getLastSelectedSlideId, getSelectedBlocks } from '../../../common/functions/slides';
-
+import { number } from 'yargs';
 
 
 const FontSize = () => {
@@ -26,21 +23,25 @@ const FontSize = () => {
   // }
   return (
     <div className={styles.wrapper}>
-    
-       <form >
+    <form >
        <label>Font size: </label>
-       <select onChange = {(event) => { 
+       <select  onChange = {(event) => { 
        console.log(event.target.value);
        const newFontSize = event.target.value;
         console.log('selected blocks',  getSelectedBlocks(selectedSlides, store.getState().slides));
-          dispatch(changeFontSize(getLastSelectedSlideId(
-          selectedSlides), selectBlock(selectedSlides, store.getState().slides, newFontSize)))
+          dispatch(changeFontSize(getLastSelectedSlideId(store.getState().selectedSlides), {
+            ...selectedSlides,
+            fontSize: CHANGE_FONT_SIZE,
+          }))
+
         }}>
          <option value="12">12</option>
          <option value="18">18</option>
          <option value="32">32</option>
        </select>
         </form>
+
+      
     </div>
 );
 }

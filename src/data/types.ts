@@ -61,5 +61,6 @@ export type {
     TextBlockType,
     ImageBlockType,
     FigureType,
-    BlockType
+    BlockType,
+    BlockBase
 }

@@ -1,15 +1,15 @@
 import styles from './Filmstrip.module.css';
-import { Thumbnail } from './components/thumbnail/Thumbnail';
-import { Slide } from '../../../../data/types';
+import {Thumbnail} from './components/thumbnail/Thumbnail';
+import {useSelector} from 'react-redux';
+import {Presentation} from '../../../../data/types';
 
-type FilmstripProps = {
-    slides: Array<Slide>
-}
+function Filmstrip() {
+    const slides = useSelector((state: Presentation) => state.slides);
+    useSelector((state: Presentation) => state.selectedSlides);
 
-function Filmstrip(props: FilmstripProps) {
     return (
         <div className={styles.filmstrip}>
-            {props.slides.map((slide, index) => (
+            {slides.map((slide, index) => (
                 <Thumbnail
                     key={slide.id}
                     slide={slide}

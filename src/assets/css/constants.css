@@ -2,10 +2,12 @@
     --main-background-color: #fff;
     --border-color: #dadada;
     --border-active-color: #8bc3c3;
+    --border-hover-color: darkgrey;
     --wrapper-active-color: #a5e8e830;
     --subtext-color: #808080;
 
     --box-shadow: 0 0 7px 1px rgba(172,172,172,0.2);
+    --box-shadow-dark: 0 0 7px 1px rgb(0, 0, 0, 0.2);
     --border: 2px var(--border-color) solid;
     --border-active: 2px var(--border-active-color) solid;
 }

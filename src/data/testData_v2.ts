@@ -1,10 +1,12 @@
-import {Presentation, FigureType, ImageBlockType, BlockType, Slide, SlideBackground, TextBlockType} from './types';
+import {BlockType, FigureBlockType, ImageBlockType, TextBlockType} from '../types/blocks';
+import {Slide, SlideBackground} from '../types/slides';
+import {Presentation} from '../types/presentation';
 
 const block1: BlockType & TextBlockType = {
-    id: '1',
+    id: 'blockId1',
     x: 30.0,
     y: 50.0,
-    width: 20.0,
+    width: 100.0,
     height: 30.0,
     type: 'text',
     chars: 'My super text',
@@ -17,7 +19,7 @@ const block1: BlockType & TextBlockType = {
 }
 
 const block2: BlockType & ImageBlockType = {
-    id: '2',
+    id: 'blockId2',
     x: 530.0,
     y: 50.0,
     width: 400.0,
@@ -26,8 +28,8 @@ const block2: BlockType & ImageBlockType = {
     imageResource: 'https://get.wallhere.com/photo/2559x1571-px-cave-coast-landscape-nature-photography-sea-water-1039832.jpg'
 }
 
-const block3: BlockType & FigureType = {
-    id: '3',
+const block3: BlockType & FigureBlockType = {
+    id: 'blockId3',
     x: 130.0,
     y: 250.0,
     width: 200.0,
@@ -38,8 +40,8 @@ const block3: BlockType & FigureType = {
     figureType: 'rectangle',
 }
 
-const block4: BlockType & FigureType = {
-    id: '4',
+const block4: BlockType & FigureBlockType = {
+    id: 'blockId4',
     x: 450.0,
     y: 50.0,
     width: 20.0,
@@ -50,8 +52,8 @@ const block4: BlockType & FigureType = {
     figureType: 'triangle',
 }
 
-const block5: BlockType & FigureType = {
-    id: '5',
+const block5: BlockType & FigureBlockType = {
+    id: 'blockId5',
     x: 500.0,
     y: 450.0,
     width: 50.0,
@@ -85,42 +87,21 @@ const slide3: Slide = {
     background: slideBackground,
 }
 
-let presentation: Presentation = {
+const presentation: Presentation = {
     name: 'name',
     slides: [slide1, slide2, slide3],
     selectedSlides:
         {
-            selectedSlideId: 'slideId1',
+            selectedSlideId: '1',
             selectedBlocksId: [
-                'blockId1',
-                'blockId2'
+                'blockId2',
+                'blockId3'
             ]
         }
 }
 
-let changePresentationHandler: Function = () => {}
-
-function getState(): Presentation {
+export function getState(): Presentation {
     return presentation;
-}
-
-function setState(newPresentation: Presentation) {
-    presentation = newPresentation;
-    changePresentationHandler();
-}
-
-function addChangePresentationHandler(handler: Function) {
-    changePresentationHandler = handler;
-}
-
-function dispatch(modifyFn: Function, payload: Object) {
-    setState(modifyFn(presentation, payload))
-}
-
-export {
-    getState,
-    dispatch,
-    addChangePresentationHandler
 }
 
 // const границы слайда с которым будут взаимодействовать блоки

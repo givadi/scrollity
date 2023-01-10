@@ -1,49 +1,52 @@
 import styles from '../../common/barIcon/BarIcon.module.css';
 import insert_picture from '../../../assets/images/barIcons/insert_picture.svg';
-import { useState, useRef, MutableRefObject } from 'react';
+import {useRef, MutableRefObject} from 'react';
+import {addBlock} from '../../../store/actionCreators/slides';
+import store from '../../../store/store';
+import {useDispatch} from 'react-redux';
+import {getLastSelectedSlideId} from '../../../common/functions/slides';
+import {defaultImageData} from '../../../common/consts/slides';
+import {generateId} from '../../../common/functions/id';
 
-const InsertPicture = () => {
-  const filePicker: MutableRefObject<HTMLInputElement | null> = useRef(null);
-  const [selectedFile, setSelectedFile] = useState(null as (File | null));
-  const [uploaded, setUploaded] = useState();
-  const hostUrl = '/upload';
+function InsertPicture() {
+    const dispatch = useDispatch();
+    const filePicker: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
-  const handleChange = () => {
-    if((filePicker.current) && (filePicker.current.files)) {
-      console.log(filePicker.current.files);
-      setSelectedFile(filePicker.current.files[0])
-    }
-  };
+    const handleChange = () => {
+        if ((filePicker.current) && (filePicker.current.files)) {
+            const reader = new FileReader();
+            reader.readAsDataURL(filePicker.current.files[0]);
+            reader.onload = () => {
+                let image = new Image();
+                image.src = reader.result as string;
 
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      alert("Please select a file");
-      return;
+                image.onload = () => {
+                    dispatch(addBlock(getLastSelectedSlideId(store.getState().selectedSlides), {
+                        ...defaultImageData,
+                        id: generateId(),
+                        imageResource: image.src,
+                        width: image.width,
+                        height: image.height
+                    }));
+                }
+
+            }
+        }
     };
-    const formData = new FormData();
-    formData.append('file', selectedFile );
 
-    const res = await fetch(hostUrl, {
-      method: 'POST',
-      body: formData,
-    });
-    const data = await res.json();
+    const handlePick = () => {
+        if (filePicker.current) {
+            filePicker.current.click()
+        }
+    }
 
-    setUploaded(data);
-  };
-
-const handlePick = () => {
-  if (filePicker.current){
-    filePicker.current.click()
-  } 
-}
-
-return (
-   <div className={styles.wrapper}>
-     <img className={styles.icon} src={insert_picture} alt='Insert_picture' onClick={handlePick} />
-     <input className = {styles.hidden} type="file" ref={filePicker}  onChange = {handleChange} accept="image/*, .png, .jpg, .jpeg"/>
-    </div>
-)
+    return (
+        <div className={styles.container}>
+            <img className={styles.icon} src={insert_picture} alt="Insert_picture" onClick={handlePick}/>
+            <input className={styles.hidden} type="file" ref={filePicker} onChange={handleChange}
+                   accept="image/*, .png, .jpg, .jpeg"/>
+        </div>
+    )
 }
 
 export default InsertPicture;

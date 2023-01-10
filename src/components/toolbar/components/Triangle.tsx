@@ -3,7 +3,7 @@ import triangle from '../../../assets/images/barIcons/triangle.svg';
 
 const Triangle = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={triangle} alt='Triangle' />
     </div>
   );

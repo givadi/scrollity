@@ -1,5 +1,6 @@
-import {SlideActionTypes} from '../../types/slides';
-import {Selection} from '../../data/types';
+import {SlideActionTypes, SlideBackground} from '../../types/slides';
+import {BlockType} from '../../types/blocks';
+import {Selection} from '../../types/selectedSlides';
 
 export const addSlide = (selectedSlides: Array<string> | Selection) => ({
     type: SlideActionTypes.ADD_SLIDE,
@@ -25,4 +26,12 @@ export const changeFontSize = (slideId: string, newBlock: BlockType) => ({
         slideId,
         newBlock
     }
+});
+
+export const changeBackground = (selectedSlides: Array<string> | Selection, newBackground: SlideBackground) => ({
+    type: SlideActionTypes.CHANGE_BACKGROUND,
+    payload: {
+        selectedSlides: selectedSlides,
+        newBackground: newBackground
+    },
 });

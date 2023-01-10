@@ -1,10 +1,42 @@
-import {Selection} from '../data/types';
+import {BlockType} from './blocks';
+import {Selection} from './selectedSlides';
 
-export enum SlideActionTypes {
-    ADD_SLIDE = 'ADD_SLIDE',
-    DELETE_SLIDES = 'DELETE_SLIDES',
-    ADD_BLOCK = 'ADD_BLOCK',
-    CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE'
+type Slide = {
+    id: string,
+    data: Array<BlockType>,
+    background: SlideBackground,
+}
+
+type SlideBackground = {
+    type: 'image'|'color',
+    data: string
+}
+
+
+interface AddSlideAction {
+    type: SlideActionTypes.ADD_SLIDE,
+    payload: Selection | Array<string>
+}
+
+interface RemoveSlideAction {
+    type: SlideActionTypes.DELETE_SLIDES,
+    payload: Selection | Array<string>
+}
+
+interface AddBlockAction {
+    type: SlideActionTypes.ADD_BLOCK,
+    payload: {
+        slideId: string,
+        newBlock: BlockType
+    }
+}
+
+interface ChangeBackgroundAction {
+    type: SlideActionTypes.CHANGE_BACKGROUND,
+    payload: {
+        selectedSlides: Selection | Array<string>,
+        newBackground: SlideBackground
+    }
 }
 
 interface AddSlideAction {
@@ -40,3 +72,12 @@ export type {
     Slide,
     SlideBackground,
 }
+
+export enum SlideActionTypes {
+    ADD_SLIDE = 'ADD_SLIDE',
+    DELETE_SLIDES = 'DELETE_SLIDES',
+    ADD_BLOCK = 'ADD_BLOCK',
+    CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE',
+    CHANGE_BACKGROUND = 'CHANGE_BACKGROUND'
+}
+

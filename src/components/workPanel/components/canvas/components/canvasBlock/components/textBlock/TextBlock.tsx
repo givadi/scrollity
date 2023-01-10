@@ -1,4 +1,4 @@
-import {TextBlockType} from '../../../../../../../../data/types';
+import {TextBlockType} from '../../../../../../../../types/blocks';
 
 type TextBlockProps = {
     textBlock: TextBlockType
@@ -15,9 +15,15 @@ function TextBlock(props: TextBlockProps) {
     }
 
     return (
-        <text x={props.textBlock.x} y={props.textBlock.y} style={textBlockStyles}>
+        <foreignObject
+            x={props.textBlock.x}
+            y={props.textBlock.y}
+            width={props.textBlock.width}
+            height={props.textBlock.height}
+            style={textBlockStyles}
+        >
             {props.textBlock.chars}
-        </text>
+        </foreignObject>
     );
 }
 

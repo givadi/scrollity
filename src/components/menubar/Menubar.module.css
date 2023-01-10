@@ -1,5 +1,12 @@
 .actionMenu {
-    background-color: bisque;
-    border-bottom: 2px #dac3a7 solid;
-    height: 7%;
+    background-color: var(--main-background-color);
+    border-bottom: 2px var(--border-color) solid;
+    border-top: 2px var(--border-color) solid;
+    display: flex;
+    align-items: center;
+}
+
+.section {
+    position: relative;
+    padding: 5px 5px;
 }

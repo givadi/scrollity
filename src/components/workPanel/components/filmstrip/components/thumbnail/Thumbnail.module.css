@@ -1,15 +1,18 @@
 @import '../../../../../../assets/css/constants.css';
 
 .wrapper {
-    padding: 15px 5px;
+    padding: 15px 10px;
     cursor: pointer;
 }
+
+.wrapper:hover {}
 
 .wrapperActive {
     background-color: var(--wrapper-active-color);
 }
 
 .number {
+    font-size: 12px;
     display: inline-block;
     margin-right: 5px;
     vertical-align: top;
@@ -28,6 +31,10 @@
     box-shadow: var(--box-shadow);
 }
 
-.slideActive {
+.thumbnail:hover {
+    border-color: var(--border-hover-color);
+}
+
+.thumbnailActive {
     border: var(--border-active);
 }

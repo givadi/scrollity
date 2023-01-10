@@ -1,4 +1,4 @@
-import {ImageBlockType} from '../../../../../../../../data/types';
+import {ImageBlockType} from '../../../../../../../../types/blocks';
 
 type ImageBlockProps = {
     imageBlock: ImageBlockType

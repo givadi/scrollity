@@ -1,18 +1,30 @@
-import {Slide} from '../../../../data/types';
 import styles from './Workspace.module.css';
 import {Canvas} from '../canvas/Canvas';
-
-type WorkspaceProps = {
-    slide: Slide
-}
+import {useDispatch, useSelector} from 'react-redux';
+import store from '../../../../store/store';
+import {getSlidesBySelection} from '../../../../common/functions/slides';
+import {Presentation} from '../../../../types/presentation';
+import {Slide} from '../../../../types/slides';
+import {clearSelectedBlocks} from '../../../../store/actionCreators/selectedSlides';
 
 const SLIDE_SIZE_COEFFICIENT = 1;
 
-export function Workspace(props: WorkspaceProps) {
+function Workspace() {
+    useSelector((state: Presentation) => state.slides);
+    useSelector((state: Presentation) => state.selectedSlides);
+    const dispatch = useDispatch();
+
+    const currentSlide: Slide = getSlidesBySelection(store.getState().slides, store.getState().selectedSlides)[0];
 
     return (
-        <div className={styles.wrapper}>
-            <Canvas slide={props.slide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} />
+        <div className={styles.wrapper}
+             onClick={() => {
+                 dispatch(clearSelectedBlocks());
+             }}
+        >
+            <Canvas slide={currentSlide} sizeCoefficient={SLIDE_SIZE_COEFFICIENT} isFilmstrip={false}/>
         </div>
     );
 }
+
+export default Workspace;

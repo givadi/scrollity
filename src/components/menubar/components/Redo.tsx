@@ -3,7 +3,7 @@ import redo from '../../../assets/images/barIcons/redo.svg';
 
 const Redo = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={redo} alt='Redo' />
     </div>
   );

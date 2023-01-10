@@ -3,7 +3,7 @@ import font_family from '../../../assets/images/barIcons/font_family.svg';
 
 const FontFamily = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <img className={styles.icon} src={font_family} alt='FontFamily' />
     </div>
   );

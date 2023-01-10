@@ -5,6 +5,8 @@ import {BlockBase} from '../../data/types';
 const DEFAULT_BLOCK_COLOR = '#ffffff';
 const FIGURE_TYPE = 'figure';
 const RECTANGLE_TYPE = 'rectangle';
+const TRIANGLE_TYPE = 'triangle';
+const CIRCLE_TYPE = 'circle';
 
 const IMAGE_TYPE = 'image';
 const TEXT_TYPE = 'text';
@@ -24,7 +26,7 @@ const defaultBlockBase: BlockBase = {
     x: 0,
     y: 0,
     width: 100,
-    height: 50,
+    height: 100,
 }
 
 const defaultTextBlockBase: BlockBase = {
@@ -67,6 +69,8 @@ export {
     defaultTextData,
     DEFAULT_BLOCK_COLOR,
     RECTANGLE_TYPE,
+    TRIANGLE_TYPE,
+    CIRCLE_TYPE,
     FIGURE_TYPE,
     TEXT_TYPE,
     BLOCK_SELECTED_BORDER_COLOR,

@@ -18,16 +18,6 @@ const block1: BlockType & TextBlockType = {
     color: '#C71585'
 }
 
-const block2: BlockType & ImageBlockType = {
-    id: 'blockId2',
-    x: 530.0,
-    y: 50.0,
-    width: 400.0,
-    height: 300.0,
-    type: 'image',
-    imageResource: 'https://get.wallhere.com/photo/2559x1571-px-cave-coast-landscape-nature-photography-sea-water-1039832.jpg'
-}
-
 const block3: BlockType & FigureBlockType = {
     id: 'blockId3',
     x: 130.0,
@@ -71,7 +61,7 @@ const slideBackground: SlideBackground = {
 
 const slide1: Slide = {
     id: '1',
-    data: [block1, block2, block3, block4, block5],
+    data: [block1, block3, block4, block5],
     background: slideBackground,
 }
 
@@ -94,7 +84,7 @@ const presentation: Presentation = {
         {
             selectedSlideId: '1',
             selectedBlocksId: [
-                'blockId2',
+                'blockId1',
                 'blockId3'
             ]
         }

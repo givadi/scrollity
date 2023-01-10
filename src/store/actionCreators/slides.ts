@@ -1,5 +1,5 @@
 import {SlideActionTypes, SlideBackground} from '../../types/slides';
-import {BlockType} from '../../types/blocks';
+import {BlockPositionType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
 export const addSlide = (selectedSlides: Array<string> | Selection) => ({
@@ -26,6 +26,15 @@ export const changeFontSize = (slideId: string, newFontBlock: BlockType, newFont
         slideId,
        newFontBlock,
         newFontSize
+    }
+});
+
+export const moveBlocks = (slideId: string, blocksIds: Array<string>, newPosition: BlockPositionType) => ({
+    type: SlideActionTypes.ADD_BLOCK,
+    payload: {
+        slideId,
+        blocksIds,
+        newPosition
     }
 });
 

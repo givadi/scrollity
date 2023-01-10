@@ -1,4 +1,5 @@
 .canvas {
-    background-color: #fff;
     box-shadow: var(--box-shadow-dark);
+    background-color: var(--main-background-color);
+    overflow: visible;
 }

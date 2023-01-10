@@ -4,7 +4,7 @@ import {
     getSlidesByOppositeSelection,
 } from '../../common/functions/slides';
 import {Slide, SlideBackground} from '../../types/slides';
-import {BlockType} from '../../types/blocks';
+import {BlockPositionType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
 
@@ -95,11 +95,36 @@ function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType,
     });
 }
 
+function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
+    return slides.map((slide) => {
+         if (slide.id === slideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (blockIds.includes(block.id)) {
+                     return {
+                         ...block,
+                         x: newPosition.x,
+                         y: newPosition.y
+                     }
+                 }
+                 return block;
+             });
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
+
 export {
     addSlide,
     deleteSlides,
     getEmptySlide,
-    changeSlideBackground,
     addBlock,
+    moveBlocks,
+    changeSlideBackground,
     changeFontSize
 }

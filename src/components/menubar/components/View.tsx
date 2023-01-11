@@ -3,10 +3,12 @@ import viewStyles from './View.module.css';
 import view from '../../../assets/images/barIcons/view.svg';
 import {WorkspaceCanvas} from '../../workPanel/components/canvas/WorkspaceCanvas';
 import store from '../../../store/store';
-import {useEffect, useState} from 'react';
+import {MutableRefObject, useEffect, useRef, useState} from 'react';
+
 
 const View = () => {
-    const [currentSlideNumber, setCurrentSlideNumber] = useState(0);
+    const [currentSlideNumber, setCurrentSlideNumber] = useState(-1);
+    const wrapRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
     const viewSize = {
         width: 1920,
@@ -14,10 +16,14 @@ const View = () => {
     }
 
     useEffect(() => {
-        if (currentSlideNumber === store.getState().slides.length) {
+        if (currentSlideNumber === Object.values(store.getState().slides).length) {
             document.exitFullscreen()
                     .then(() => {
-                        document.getElementById('slideshowTest')!.classList.add(viewStyles.wrapper)
+                        if(wrapRef.current)
+                        {
+                            wrapRef.current.classList.add(viewStyles.wrapper);
+                        }
+                        setCurrentSlideNumber(-1);
                     })
                     .catch((err) => console.error(err))
         }
@@ -26,16 +32,20 @@ const View = () => {
     return (
         <div className={styles.container}>
             <img className={styles.icon} src={view} alt="View" onClick={() => {
-                if (document.getElementById('slideshowTest')) {
-                    document.getElementById('slideshowTest')!.classList.remove(viewStyles.wrapper)
-                    document.getElementById('slideshowTest')!.requestFullscreen().catch((e) => {
+                setCurrentSlideNumber(currentSlideNumber + 1);
+                console.log(store.getState().slides[currentSlideNumber]);
+                if (wrapRef.current) {
+                    wrapRef.current.classList.remove(viewStyles.wrapper)
+                    wrapRef.current.requestFullscreen().catch((e) => {
                         console.log(e)
                     })
                 }
             }
             }/>
 
-            <div id={'slideshowTest'} className={viewStyles.wrapper} onClick={() => {
+            <div id={'slideshowTest'}  ref={wrapRef} className={viewStyles.wrapper} onClick={() => {
+                console.log(store.getState().slides);
+
                 setCurrentSlideNumber(currentSlideNumber + 1);
             }
             }>

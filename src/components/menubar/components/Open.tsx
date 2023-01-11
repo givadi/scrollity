@@ -16,7 +16,7 @@ const Open = () => {
       reader.onload = (e: ProgressEvent<FileReader>) => {
         if (e.target) {
           const presentation = JSON.parse(String(e.target.result))
-          dispatch(uploadSlides(presentation.slides));
+          dispatch(uploadSlides(Object.values(presentation.slides)));
           dispatch(uploadName(presentation.name));
           if((filePicker.current)) {
             filePicker.current.value = '';

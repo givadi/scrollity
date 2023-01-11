@@ -74,7 +74,7 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
 }
 
 function upload(newSlides: Array<Slide>): Array<Slide> {
-    return {...newSlides};
+    return Object.values(newSlides);
 }
 
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {

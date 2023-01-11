@@ -29,8 +29,6 @@ export const changeTextBlock = (slideId: string, newFontBlock: BlockType, newTex
     }
 });
 
-
-
 export const changeFontSize = (slideId: string, newFontBlock: BlockType, newFontSize: number) => ({
     type: SlideActionTypes.CHANGE_FONT_SIZE,
     payload: {
@@ -85,6 +83,14 @@ export const changeBackground = (selectedSlides: Array<string> | Selection, newB
 
 export const changeBlockColor = (selection: Selection, newColor: string) => ({
     type: SlideActionTypes.CHANGE_BLOCK_COLOR,
+        payload: {
+        selection: selection,
+            newColor: newColor
+    }
+});
+
+export const changeBlockBorder = (selection: Selection, newColor: string) => ({
+    type: SlideActionTypes.CHANGE_BLOCK_BORDER,
         payload: {
         selection: selection,
             newColor: newColor

@@ -9,7 +9,7 @@ import {
     changeSlideBackground,
     changeBlocksColor,
     blockToFront,
-    upload, changeFontSize, changeFontFamily, changeFontWeight, changeFontStyle,
+    upload, changeFontSize, changeFontFamily, changeFontWeight, changeFontStyle, changeBlocksBorder,
 } from '../actions/slides';
 
 function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideAction): Array<Slide> {
@@ -36,8 +36,10 @@ function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideA
         //     return changeTextBlock(state, action.payload.slideId, action.payload.newFontBlock, action.payload.newText);
 
 
-            case SlideActionTypes.CHANGE_BLOCK_COLOR:
+        case SlideActionTypes.CHANGE_BLOCK_COLOR:
             return changeBlocksColor(state, action.payload.selection, action.payload.newColor);
+        case SlideActionTypes.CHANGE_BLOCK_BORDER:
+            return changeBlocksBorder(state, action.payload.selection, action.payload.newColor);
         case SlideActionTypes.BLOCK_TO_FRONT:
             return blockToFront(state, action.payload);
         case SlideActionTypes.UPLOAD:

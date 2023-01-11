@@ -6,6 +6,7 @@ type FigureProps = {
 
 function getFigureBlock(figure: FigureBlockType) {
     const figureStyles = {
+        strokeWidth: 2,
         stroke: figure.colorBorder,
         fill: figure.colorBackground
     }

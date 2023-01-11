@@ -16,8 +16,8 @@ import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
 import TextAlign from './components/TextAlign';
-import ChangedTextBlock from './components/ChangedTextBlock';
 import BlockColor from './components/BlockColor';
+import BlockBorder from './components/BlockBorder';
 
 function Toolbar() {
     return (
@@ -41,6 +41,7 @@ function Toolbar() {
                     <Circle/>
                     <Rectangle/>
                     <BlockColor/>
+                    <BlockBorder/>
                 </div>
                 <span className={styles.description}>Insert</span>
             </div>

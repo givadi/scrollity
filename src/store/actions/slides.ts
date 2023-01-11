@@ -258,6 +258,28 @@ function changeBlocksColor(slides: Array<Slide>, selection: Selection, newColor:
     });
 }
 
+function changeBlocksBorder(slides: Array<Slide>, selection: Selection, newColor: string): Array<Slide> {
+    return slides.map((slide) => {
+         if (slide.id === selection.selectedSlideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (selection.selectedBlocksId.includes(block.id) && block.type === 'figure') {
+                     return {
+                         ...block,
+                         colorBorder: newColor
+                     }
+                 }
+                 return block;
+             });
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
 
 export {
     addSlide,
@@ -273,5 +295,6 @@ export {
     changeTextBlock,
     changeBlocksColor,
     upload,
-    blockToFront
+    blockToFront,
+    changeBlocksBorder
 }

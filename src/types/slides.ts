@@ -24,6 +24,7 @@ export enum SlideActionTypes {
     CHANGE_FONT_STYLE = 'CHANGE_FONT_STYLE',
     CHANGE_TEXT_BLOCK = 'CHANGE_TEXT_BLOCK',
     CHANGE_BLOCK_COLOR = 'CHANGE_BLOCK_COLOR',
+    CHANGE_BLOCK_BORDER = 'CHANGE_BLOCK_BORDER',
     BLOCK_TO_FRONT = 'BLOCK_TO_FRONT',
     UPLOAD = 'UPLOAD',
 }
@@ -65,6 +66,14 @@ interface ChangeBackgroundAction {
 
 interface ChangeBlocksColorAction {
     type: SlideActionTypes.CHANGE_BLOCK_COLOR,
+    payload: {
+        selection: Selection,
+        newColor: string
+    }
+}
+
+interface ChangeBlocksBorderAction {
+    type: SlideActionTypes.CHANGE_BLOCK_BORDER,
     payload: {
         selection: Selection,
         newColor: string
@@ -151,6 +160,8 @@ export type SlideAction = AddSlideAction
     | UploadAction
     | MoveBlockAction
     | BlockToFrontAction
+    | ChangeBlocksColorAction
+    | ChangeBlocksBorderAction
     | ChangeBlocksColorAction
     | ChangeFontSizeAction
     | ChangeFontFamilyAction

@@ -4,16 +4,21 @@ import store from '../../../store/store';
 import {Presentation, Slide} from '../../../data/types';
 import {getLastSelectedSlideId} from '../../../common/functions/slides';
 import {changeBackground} from '../../../store/actionCreators/slides';
-import {SlideBackground} from '../../../types/slides';
 import {DEFAULT_COLOR} from '../../../common/consts/common';
 
 function getCurrentSlideColor(): string {
+    const slides = store.getState().slides;
     const currentSlideId: string = getLastSelectedSlideId(store.getState().selectedSlides);
-    const slideBackground: SlideBackground = store.getState().slides.filter((slide: Slide) => {
-        return slide.id === currentSlideId;
-    })[0].background;
 
-    return slideBackground.type === 'image' ? DEFAULT_COLOR : slideBackground.data;
+    if (slides.length < 1 || !currentSlideId) return DEFAULT_COLOR;
+
+    const currentSlide: Slide = Object.values(slides).filter((slide: Slide) => {
+        return slide.id === currentSlideId;
+    })[0];
+
+    return currentSlide
+        ? currentSlide.background.type === 'image' ? DEFAULT_COLOR : currentSlide.background.data
+        : DEFAULT_COLOR
 }
 
 function Background() {

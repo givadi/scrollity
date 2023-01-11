@@ -1,5 +1,6 @@
 export enum NameActionTypes {
     CHANGE_NAME = 'CHANGE_NAME',
+    UPLOAD_NAME = 'UPLOAD_NAME'
 }
 
 interface ChangeNameAction {
@@ -7,4 +8,9 @@ interface ChangeNameAction {
     payload: string
 }
 
-export type NameAction = ChangeNameAction;
+interface UploadAction {
+    type: NameActionTypes.UPLOAD_NAME,
+    payload: string
+}
+
+export type NameAction = ChangeNameAction | UploadAction;

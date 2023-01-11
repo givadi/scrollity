@@ -14,7 +14,8 @@ function getData(): Presentation {
 const handleSave = () => {
     const presentation: Presentation = getData();
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(presentation, null, 2)));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,'
+        + encodeURIComponent(JSON.stringify({ ...presentation, selectedSlides: {}}, null, 2)));
     element.setAttribute('download', presentation.name + '.json');
     element.click();
 };

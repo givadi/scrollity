@@ -15,6 +15,7 @@ import DeleteSlide from '../menubar/components/DeleteSlide';
 import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
+import BlockColor from './components/BlockColor';
 
 function Toolbar() {
     return (
@@ -36,6 +37,7 @@ function Toolbar() {
                     <Triangle/>
                     <Circle/>
                     <Rectangle/>
+                    <BlockColor/>
                 </div>
                 <span className={styles.description}>Insert</span>
             </div>

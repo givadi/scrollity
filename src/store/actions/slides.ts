@@ -142,7 +142,8 @@ function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockTyp
     return slides.map((slide: Slide) => {
         if (slideId === slide.id) {
             let newData =  slide.data;
-             newData = newData.map((blockData: BlockType) => {
+            // @ts-ignore
+            newData = newData.map((blockData: BlockType) => {
                 if (blockData.id === block.id && blockData.type === 'text') {
                     return {
                         ...blockData,
@@ -163,6 +164,7 @@ function changeFontStyle(slides: Array<Slide>, slideId: string, block: BlockType
     return slides.map((slide: Slide) => {
         if (slideId === slide.id) {
             let newData =  slide.data;
+            // @ts-ignore
              newData = newData.map((blockData: BlockType) => {
                 if (blockData.id === block.id && blockData.type === 'text') {
                     return {

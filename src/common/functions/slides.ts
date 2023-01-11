@@ -1,8 +1,7 @@
 import { BlockType } from '../../types/blocks';
-import {SelectedBlocks, Selection} from '../../types/selectedSlides';
+import {Selection} from '../../types/selectedSlides';
 import {Slide} from '../../types/slides';
 import store from '../../store/store';
-import {BlockType} from '../../types/blocks';
 
 function getSelectedSlideIds(selectedSlides: Array<string> | Selection): Array<string> {
     return Array.isArray(selectedSlides)

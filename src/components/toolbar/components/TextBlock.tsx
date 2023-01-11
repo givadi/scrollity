@@ -10,15 +10,14 @@ import { generateId } from '../../../common/functions/id';
 
 const TextBlock = () => {
     const dispatch = useDispatch();
-    const [text, setText] = useState();
+    const [text, setText] = useState('');
     
   
     return (
         <div className={styles.container} >
          <input value={text} placeholder="Please, enter yout text here" onChange={event => setText(event.target.value)} />
         <img className={styles.icon} src={text_block} alt="Text block"
-             onClick={(event) => {
-                console.log(event.target.value);
+             onClick={() => {
                  dispatch(addBlock(getLastSelectedSlideId(store.getState().selectedSlides), {
                      ...defaultTextData,
                      chars: text,

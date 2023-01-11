@@ -151,7 +151,12 @@ export type SlideAction = AddSlideAction
     | UploadAction
     | MoveBlockAction
     | BlockToFrontAction
-    | ChangeBlocksColorAction | ChangeFontSizeAction | ChangeFontFamilyAction | ChangeFontWeightAction| ChangeFontStyleAction | ChangeTextBlockAction;
+    | ChangeBlocksColorAction
+    | ChangeFontSizeAction
+    | ChangeFontFamilyAction
+    | ChangeFontWeightAction
+    | ChangeFontStyleAction
+    | ChangeTextBlockAction;
 
 export type {
     Slide,

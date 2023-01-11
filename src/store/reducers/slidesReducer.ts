@@ -9,7 +9,7 @@ import {
     changeSlideBackground,
     changeBlocksColor,
     blockToFront,
-    upload,
+    upload, changeFontSize, changeFontFamily, changeFontWeight, changeFontStyle,
 } from '../actions/slides';
 
 function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideAction): Array<Slide> {

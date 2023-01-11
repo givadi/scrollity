@@ -14,7 +14,7 @@ function getLastSelectedSlideId(selectedSlides: Array<string> | Selection): stri
 }
 
 function getSlidesBySelection(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
-    return slides.filter((slide: Slide) => {
+    return Object.values(slides).filter((slide: Slide) => {
         return getSelectedSlideIds(selectedSlides).includes(slide.id);
     });
 }

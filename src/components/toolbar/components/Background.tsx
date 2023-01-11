@@ -7,8 +7,12 @@ import {changeBackground} from '../../../store/actionCreators/slides';
 import {DEFAULT_COLOR} from '../../../common/consts/common';
 
 function getCurrentSlideColor(): string {
+    const slides = store.getState().slides;
     const currentSlideId: string = getLastSelectedSlideId(store.getState().selectedSlides);
-    const currentSlide: Slide = store.getState().slides.filter((slide: Slide) => {
+
+    if (slides.length < 1 || !currentSlideId) return DEFAULT_COLOR;
+
+    const currentSlide: Slide = Object.values(slides).filter((slide: Slide) => {
         return slide.id === currentSlideId;
     })[0];
 

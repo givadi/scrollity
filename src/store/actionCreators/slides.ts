@@ -1,4 +1,4 @@
-import {SlideActionTypes, SlideBackground} from '../../types/slides';
+import {Slide, SlideActionTypes, SlideBackground} from '../../types/slides';
 import {BlockPositionType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
@@ -35,6 +35,11 @@ export const changeBackground = (selectedSlides: Array<string> | Selection, newB
         selectedSlides: selectedSlides,
         newBackground: newBackground
     },
+});
+
+export const uploadSlides = (slides: Array<Slide>) => ({
+    type: SlideActionTypes.UPLOAD,
+    payload: slides
 });
 
 export const blockToFront = (selection: Selection) => ({

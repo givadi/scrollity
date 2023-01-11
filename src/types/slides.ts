@@ -18,6 +18,7 @@ export enum SlideActionTypes {
     ADD_BLOCK = 'ADD_BLOCK',
     CHANGE_BACKGROUND = 'CHANGE_BACKGROUND',
     MOVE_BLOCKS = 'MOVE_BLOCK',
+    CHANGE_BLOCK_COLOR = 'CHANGE_BLOCK_COLOR',
     BLOCK_TO_FRONT = 'BLOCK_TO_FRONT',
     UPLOAD = 'UPLOAD',
 }
@@ -57,6 +58,14 @@ interface ChangeBackgroundAction {
     }
 }
 
+interface ChangeBlocksColorAction {
+    type: SlideActionTypes.CHANGE_BLOCK_COLOR,
+    payload: {
+        selection: Selection,
+        newColor: string
+    }
+}
+
 interface BlockToFrontAction {
     type: SlideActionTypes.BLOCK_TO_FRONT,
     payload: Selection
@@ -67,7 +76,14 @@ interface UploadAction {
     payload: Array<Slide>
 }
 
-export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | UploadAction | MoveBlockAction | BlockToFrontAction;
+export type SlideAction = AddSlideAction
+    | RemoveSlideAction
+    | ChangeBackgroundAction
+    | AddBlockAction
+    | UploadAction
+    | MoveBlockAction
+    | BlockToFrontAction
+    | ChangeBlocksColorAction;
 
 export type {
     Slide,

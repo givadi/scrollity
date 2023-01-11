@@ -130,6 +130,28 @@ function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> 
     return newSlides;
 }
 
+function changeBlocksColor(slides: Array<Slide>, selection: Selection, newColor: string): Array<Slide> {
+    return slides.map((slide) => {
+         if (slide.id === selection.selectedSlideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (selection.selectedBlocksId.includes(block.id) && block.type === 'figure') {
+                     return {
+                         ...block,
+                         colorBackground: newColor
+                     }
+                 }
+                 return block;
+             });
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
 export {
     addSlide,
     deleteSlides,
@@ -137,6 +159,7 @@ export {
     addBlock,
     moveBlocks,
     changeSlideBackground,
+    changeBlocksColor,
     upload,
     blockToFront
 }

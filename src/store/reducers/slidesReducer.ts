@@ -7,6 +7,7 @@ import {
     deleteSlides,
     moveBlocks,
     changeSlideBackground,
+    changeBlocksColor,
     blockToFront,
     upload,
 } from '../actions/slides';
@@ -23,6 +24,8 @@ function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideA
             return addBlock(state, action.payload.slideId, action.payload.newBlock);
         case SlideActionTypes.MOVE_BLOCKS:
             return moveBlocks(state, action.payload.slideId, action.payload.blockIds, action.payload.position);
+            case SlideActionTypes.CHANGE_BLOCK_COLOR:
+            return changeBlocksColor(state, action.payload.selection, action.payload.newColor);
         case SlideActionTypes.BLOCK_TO_FRONT:
             return blockToFront(state, action.payload);
         case SlideActionTypes.UPLOAD:

@@ -37,6 +37,14 @@ export const changeBackground = (selectedSlides: Array<string> | Selection, newB
     },
 });
 
+export const changeBlockColor = (selection: Selection, newColor: string) => ({
+    type: SlideActionTypes.CHANGE_BLOCK_COLOR,
+        payload: {
+        selection: selection,
+            newColor: newColor
+    }
+});
+
 export const uploadSlides = (slides: Array<Slide>) => ({
     type: SlideActionTypes.UPLOAD,
     payload: slides

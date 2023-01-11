@@ -1,6 +1,7 @@
 import {Selection} from '../../types/selectedSlides';
 import {Slide} from '../../types/slides';
 import store from '../../store/store';
+import {BlockType} from '../../types/blocks';
 
 function getSelectedSlideIds(selectedSlides: Array<string> | Selection): Array<string> {
     return Array.isArray(selectedSlides)
@@ -33,7 +34,7 @@ function getLastSlideBySelection(): Slide {
     return slidesBySelection[slidesBySelection.length - 1];
 }
 
-function getSelectedBlocks(): Array<string> {
+function getSelectedBlocksIds(): Array<string> {
     const selectedSlides = store.getState().selectedSlides;
     if (Array.isArray(selectedSlides)) {
         return [];
@@ -42,11 +43,31 @@ function getSelectedBlocks(): Array<string> {
     return selectedSlides.selectedBlocksId;
 }
 
+function getSelectedBlocks(selectedSlides: Array<string> | Selection, slides: Array<Slide>): Array<BlockType> {
+    if (Array.isArray(selectedSlides)) {
+        return [];
+    }
+
+    const selectedBlocksIds = selectedSlides.selectedBlocksId;
+    const selectedSlideId = selectedSlides.selectedSlideId;
+
+    let newArray: BlockType[] = [];
+
+    slides.forEach((slide: Slide) => {
+        if (slide.id === selectedSlideId) {
+            newArray = slide.data;
+        }
+    });
+
+    return newArray.filter((block: BlockType) => selectedBlocksIds.includes(block.id));
+}
+
 export {
     getSelectedSlideIds,
     getLastSelectedSlideId,
     getSlidesBySelection,
     getSlidesByOppositeSelection,
     getLastSlideBySelection,
+    getSelectedBlocksIds,
     getSelectedBlocks
 }

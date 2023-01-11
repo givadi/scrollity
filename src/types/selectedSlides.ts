@@ -12,6 +12,7 @@ export enum SelectedSlidesTypes {
     SELECT_BLOCK = 'SELECT_BLOCK',
     SELECT_BLOCKS = 'SELECT_BLOCKS',
     CLEAR_SELECTED_BLOCKS = 'CLEAR_SELECTED_BLOCKS',
+    UPLOAD = 'UPLOAD'
 }
 
 interface SelectSlideAction {

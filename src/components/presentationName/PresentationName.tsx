@@ -1,7 +1,9 @@
 import {changeName} from '../../store/actionCreators/name';
 import store from '../../store/store';
-import {DEFAULT_PRESENTATION_NAME} from '../../types/presentation';
+import {DEFAULT_PRESENTATION_NAME, Presentation} from '../../types/presentation';
 import styles from './PresentationName.module.css';
+import {useSelector} from 'react-redux';
+import {MutableRefObject, useRef} from 'react';
 
 function updateNameInput(changedPresentationName: string) {
     if (changedPresentationName === '')
@@ -19,10 +21,21 @@ function updateNameInput(changedPresentationName: string) {
 }
 
 function PresentationName() {
+    const nameInputRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+    useSelector((state: Presentation) => {
+        if (nameInputRef.current && nameInputRef.current?.value) {
+            nameInputRef.current.value = state.name;
+            document.title = state.name;
+
+            return state.name;
+        }
+    });
+
     return (
         <div className={styles.nameBar}>
             <input className={styles.nameInput}
                 id={'presentationName'}
+                   ref={nameInputRef}
                 defaultValue={store.getState().name}
                 onBlur={event => {
                     updateNameInput(event.target.value);

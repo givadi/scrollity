@@ -6,3 +6,8 @@ export const changeName = (newName: string) => (
         payload: newName
     }
 );
+
+export const uploadName = (newName: string) => ({
+    type: NameActionTypes.UPLOAD_NAME,
+    payload: newName
+});

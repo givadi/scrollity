@@ -17,6 +17,7 @@ import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
 import TextAlign from './components/TextAlign';
 import ChangedTextBlock from './components/ChangedTextBlock';
+import BlockColor from './components/BlockColor';
 
 function Toolbar() {
     return (
@@ -39,6 +40,7 @@ function Toolbar() {
                     <Triangle/>
                     <Circle/>
                     <Rectangle/>
+                    <BlockColor/>
                 </div>
                 <span className={styles.description}>Insert</span>
             </div>

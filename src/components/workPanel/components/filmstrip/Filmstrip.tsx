@@ -9,7 +9,7 @@ function Filmstrip() {
 
     return (
         <div className={styles.filmstrip}>
-            {slides.map((slide, index) => (
+            {slides && Object.values(slides).map((slide, index) => (
                 <Thumbnail
                     key={slide.id}
                     slide={slide}

@@ -2,6 +2,7 @@ import { BlockType } from '../../types/blocks';
 import {SelectedBlocks, Selection} from '../../types/selectedSlides';
 import {Slide} from '../../types/slides';
 import store from '../../store/store';
+import {BlockType} from '../../types/blocks';
 
 function getSelectedSlideIds(selectedSlides: Array<string> | Selection): Array<string> {
     return Array.isArray(selectedSlides)
@@ -15,7 +16,7 @@ function getLastSelectedSlideId(selectedSlides: Array<string> | Selection): stri
 }
 
 function getSlidesBySelection(slides: Array<Slide>, selectedSlides: Array<string> | Selection): Array<Slide> {
-    return slides.filter((slide: Slide) => {
+    return Object.values(slides).filter((slide: Slide) => {
         return getSelectedSlideIds(selectedSlides).includes(slide.id);
     });
 }
@@ -34,16 +35,6 @@ function getLastSlideBySelection(): Slide {
     return slidesBySelection[slidesBySelection.length - 1];
 }
 
-// function getSelectedBlocks(): Array<string> {
-//     const selectedSlides = store.getState().selectedSlides;
-//     if (Array.isArray(selectedSlides)) {
-//         return [];
-//     }
-
-//     return selectedSlides.selectedBlocksId;
-// }
-
-
 function getSelectedBlocksIds(selectedSlides: Array<string> | Selection): Array<string> {
     if (Array.isArray(selectedSlides)) {
         return [];
@@ -58,22 +49,17 @@ function getSelectedBlocks(selectedSlides: Array<string> | Selection, slides: Ar
 
     const selectedBlocksIds = selectedSlides.selectedBlocksId;
     const selectedSlideId = selectedSlides.selectedSlideId;
-    
+
     let newArray: BlockType[] = [];
 
-    slides.map((slide: Slide) => {
+    slides.forEach((slide: Slide) => {
         if (slide.id === selectedSlideId) {
-            newArray = slide.data;    
+            newArray = slide.data;
         }
     });
 
-    return newArray.filter((block: BlockType) => {
-        if (selectedBlocksIds.includes(block.id)) {
-            return block;
-        }
-    });
+    return newArray.filter((block: BlockType) => selectedBlocksIds.includes(block.id));
 }
-
 
 export {
     getSelectedSlideIds,

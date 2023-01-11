@@ -116,7 +116,7 @@ function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType,
 
 function changeFontFamily(slides: Array<Slide>, slideId: string, block: BlockType, newFontFamily: string): Array<Slide> {
     return slides.map((slide: Slide) => {
-        
+
         if (slideId === slide.id) {
             let newData =  slide.data;
              newData = newData.map((blockData: BlockType) => {
@@ -132,6 +132,10 @@ function changeFontFamily(slides: Array<Slide>, slideId: string, block: BlockTyp
         }
         return slide;
     });
+}
+
+function upload(newSlides: Array<Slide>): Array<Slide> {
+    return Object.values(newSlides);
 }
 
 function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
@@ -200,6 +204,58 @@ function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<strin
     });
 }
 
+function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> {
+    const selectedSlide: Slide = slides.filter((slide) => {
+       return slide.id === selection.selectedSlideId
+    })[0];
+    const data = selectedSlide.data;
+
+    const selectedBlockIndex = selectedSlide.data.findIndex((block) => block.id === selection.selectedBlocksId[0]);
+
+    let movableBlock = data[selectedBlockIndex];
+
+    let newSlides: Array<Slide> = Object.values(slides);
+
+    if (selectedBlockIndex + 1 < data.length) {
+        data[selectedBlockIndex] = data[selectedBlockIndex + 1];
+        data[selectedBlockIndex + 1] = movableBlock;
+
+        newSlides = slides.map((slide) => {
+            if (slide.id === selection.selectedSlideId) {
+                return {
+                    ...slide,
+                    data: data
+                }
+            }
+            return slide;
+        })
+    }
+
+    return newSlides;
+}
+
+function changeBlocksColor(slides: Array<Slide>, selection: Selection, newColor: string): Array<Slide> {
+    return slides.map((slide) => {
+         if (slide.id === selection.selectedSlideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (selection.selectedBlocksId.includes(block.id) && block.type === 'figure') {
+                     return {
+                         ...block,
+                         colorBackground: newColor
+                     }
+                 }
+                 return block;
+             });
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
 
 export {
     addSlide,
@@ -212,5 +268,8 @@ export {
     changeFontFamily,
     changeFontWeight,
     changeFontStyle,
-    changeTextBlock
+    changeTextBlock,
+    changeBlocksColor,
+    upload,
+    blockToFront
 }

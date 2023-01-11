@@ -28,6 +28,10 @@ function InsertPicture() {
                         width: image.width,
                         height: image.height
                     }));
+
+                    if((filePicker.current)) {
+                        filePicker.current.value = '';
+                    }
                 }
 
             }

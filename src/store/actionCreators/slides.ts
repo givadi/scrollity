@@ -20,11 +20,12 @@ export const addBlock = (slideId: string, newBlock: BlockType) => ({
     }
 });
 
-export const deleteBlock = (slideId: string, selectedBlocksId: Array<string>) => ({
+export const deleteBlock = (slideId: string, blocksIds: Array<string>, selectedBlocksId: Array<string>) => ({
     type: SlideActionTypes.DELETE_BLOCK,
     payload: {
         slideId,
-        selectedBlocksId
+        blocksIds,
+        selectedBlocksId,
     }
 });
 
@@ -60,5 +61,10 @@ export const uploadSlides = (slides: Array<Slide>) => ({
 
 export const blockToFront = (selection: Selection) => ({
     type: SlideActionTypes.BLOCK_TO_FRONT,
+    payload: selection
+});
+
+export const blockToBack = (selection: Selection) => ({
+    type: SlideActionTypes.BLOCK_TO_BACK,
     payload: selection
 });

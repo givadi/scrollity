@@ -100,6 +100,21 @@ function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<strin
     });
 }
 
+function deleteBlock(slides: Array<Slide>, slideId: string, blockIds: Array<string>, selectedBlocksId: Array<string>): Array<Slide> {
+    return slides.map((slide) => {
+        if (slide.id === slideId) {
+            const newBlocks = slide.data.filter((block: BlockType) => {
+            });
+            return {
+                ...slide,
+                data: newBlocks
+            }
+        }
+
+        return slide;
+   });
+}
+
 function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> {
     const selectedSlide: Slide = slides.filter((slide) => {
        return slide.id === selection.selectedSlideId
@@ -115,6 +130,36 @@ function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> 
     if (selectedBlockIndex + 1 < data.length) {
         data[selectedBlockIndex] = data[selectedBlockIndex + 1];
         data[selectedBlockIndex + 1] = movableBlock;
+
+        newSlides = slides.map((slide) => {
+            if (slide.id === selection.selectedSlideId) {
+                return {
+                    ...slide,
+                    data: data
+                }
+            }
+            return slide;
+        })
+    }
+
+    return newSlides;
+}
+
+function blockToBack(slides: Array<Slide>, selection: Selection): Array<Slide> {
+    const selectedSlide: Slide = slides.filter((slide) => {
+       return slide.id === selection.selectedSlideId
+    })[0];
+    const data = selectedSlide.data;
+
+    const selectedBlockIndex = selectedSlide.data.findIndex((block) => block.id === selection.selectedBlocksId[0]);
+
+    let movableBlock = data[selectedBlockIndex];
+
+    let newSlides: Array<Slide> = Object.values(slides);
+
+    if (selectedBlockIndex - 1 < data.length) {
+        data[selectedBlockIndex] = data[selectedBlockIndex - 1];
+        data[selectedBlockIndex - 1] = movableBlock;
 
         newSlides = slides.map((slide) => {
             if (slide.id === selection.selectedSlideId) {
@@ -162,5 +207,6 @@ export {
     changeSlideBackground,
     changeBlocksColor,
     upload,
-    blockToFront
+    blockToFront,
+    blockToBack,
 }

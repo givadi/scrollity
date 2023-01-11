@@ -5,7 +5,6 @@ import {WorkspaceCanvas} from '../../workPanel/components/canvas/WorkspaceCanvas
 import store from '../../../store/store';
 import {MutableRefObject, useEffect, useRef, useState} from 'react';
 
-
 const View = () => {
     const [currentSlideNumber, setCurrentSlideNumber] = useState(-1);
     const wrapRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
@@ -43,15 +42,12 @@ const View = () => {
             }
             }/>
 
-            <div id={'slideshowTest'}  ref={wrapRef} className={viewStyles.wrapper} onClick={() => {
+            <div id={'slideshowTest'}  ref={wrapRef} className={`${viewStyles.wrapper} ${viewStyles.test}`} onClick={() => {
                 console.log(store.getState().slides);
-
                 setCurrentSlideNumber(currentSlideNumber + 1);
             }
             }>
-                <div>
-                    <WorkspaceCanvas slide={store.getState().slides[currentSlideNumber]} isFilmstrip={false} size={viewSize} />
-                </div>
+                <WorkspaceCanvas slide={store.getState().slides[currentSlideNumber]} isEditArea={true} size={viewSize} />
             </div>
         </div>
     );

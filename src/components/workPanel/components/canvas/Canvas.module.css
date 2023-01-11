@@ -3,3 +3,16 @@
     background-color: var(--main-background-color);
     overflow: visible;
 }
+
+.view {
+    animation: inAnimation 0.3s ease-in-out;
+}
+
+@keyframes inAnimation {
+    from {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 1;
+    }
+}

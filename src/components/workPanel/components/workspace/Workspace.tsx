@@ -21,7 +21,7 @@ function Workspace() {
                  dispatch(clearSelectedBlocks());
              }}
         >
-            <WorkspaceCanvas slide={currentSlide} isFilmstrip={false}/>
+            <WorkspaceCanvas slide={currentSlide} isEditArea={false}/>
         </div>
     );
 }

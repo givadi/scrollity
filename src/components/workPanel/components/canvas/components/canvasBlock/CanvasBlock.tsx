@@ -13,7 +13,7 @@ import {useResizeBlock} from '../../../../../../customHooks/useResizeBlock';
 
 type CanvasBlockProps = {
     block: BlockType,
-    isFilmstrip: boolean
+    isEditArea: boolean
 }
 
 function checkIfSelected(blockId: string): boolean {
@@ -82,7 +82,7 @@ function CanvasBlock(props: CanvasBlockProps) {
         <g
             ref={ref}
             onClick={(event) => {
-                if (props.isFilmstrip) {
+                if (props.isEditArea) {
                     return;
                 }
                 event.stopPropagation();
@@ -90,7 +90,7 @@ function CanvasBlock(props: CanvasBlockProps) {
             }}
         >
             {canvasBlock}
-            {!props.isFilmstrip
+            {!props.isEditArea
                 && checkIfSelected(props.block.id)
                 && <path
                 d={getBorder(position.x, position.y, size.width, size.height)}
@@ -98,7 +98,7 @@ function CanvasBlock(props: CanvasBlockProps) {
                 fill="transparent"
                 strokeDasharray={BLOCK_SELECTED_BORDER_DASHARRAY}>
                 </path>}
-            {!props.isFilmstrip && checkIfSelected(props.block.id) && <circle
+            {!props.isEditArea && checkIfSelected(props.block.id) && <circle
                 ref={resizeDotRef}
                 data-point-order={++pointOrder}
                 style={{cursor: 'nw-resize'}}

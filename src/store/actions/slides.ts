@@ -73,6 +73,32 @@ function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Arra
     });
 }
 
+// function deleteBlock(slides: Array<Slide>, slideId: string, blockIds: Array<string>): Array<Slide> {
+//     return slides.map((slide) => {
+//         if (slide.id === slideId) {
+//             const newBlocks = slide.data;
+            
+
+//             return {
+//                 ...slide,
+//                 data: newBlocks
+//             }
+//         }
+
+//         return slide;
+//     });
+// }
+
+function deleteBlock(slides: Array<Slide>, slideId: string, blockIds: Array<string>): Array<Slide> {
+    return slides.map((slide) => {
+        if (slide.id === slideId) {
+            slide.data = slide.data.filter(block => blockIds.find(deletedBlockId => deletedBlockId !== block.id));
+        }
+
+        return slide;
+    });
+}
+
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
     return slides.map((slide) => {
          if (slide.id === slideId) {
@@ -101,6 +127,7 @@ export {
     deleteSlides,
     getEmptySlide,
     addBlock,
+    deleteBlock,
     moveBlocks,
     changeSlideBackground,
 }

@@ -29,12 +29,14 @@ function getBackground(slide: Slide): string {
 
 function WorkspaceCanvas(props: CanvasProps) {
     const canvasBackground: string = getBackground(props.slide);
+    
     return (
         <svg className={styles.canvas}
              style={{background: canvasBackground}}
              width={props.size ? props.size.width : CANVAS_SIZE.width}
              height={props.size ? props.size.height : CANVAS_SIZE.height}
              viewBox={`0 0 ${CANVAS_SIZE.width} ${CANVAS_SIZE.height}`}
+             
         >
             {props.slide.data.map(block => (
                 <CanvasBlock

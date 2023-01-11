@@ -16,6 +16,7 @@ export enum SlideActionTypes {
     ADD_SLIDE = 'ADD_SLIDE',
     DELETE_SLIDES = 'DELETE_SLIDES',
     ADD_BLOCK = 'ADD_BLOCK',
+    DELETE_BLOCK = 'DELETE_BLOCK',
     CHANGE_BACKGROUND = 'CHANGE_BACKGROUND',
     MOVE_BLOCKS = 'MOVE_BLOCK',
 }
@@ -38,6 +39,14 @@ interface AddBlockAction {
     }
 }
 
+interface DeleteBlockAction {
+    type: SlideActionTypes.DELETE_BLOCK,
+    payload: {
+        slideId: string,
+        blockIds: Array<string>
+    }
+}
+
 interface MoveBlockAction {
     type: SlideActionTypes.MOVE_BLOCKS,
     payload: {
@@ -55,7 +64,7 @@ interface ChangeBackgroundAction {
     }
 }
 
-export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | MoveBlockAction;
+export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | DeleteBlockAction | MoveBlockAction;
 
 export type {
     Slide,

@@ -8,6 +8,7 @@ import store from '../../../../../../store/store';
 import {Selection} from '../../../../../../types/selectedSlides';
 import {useDispatch} from 'react-redux';
 import {selectBlock, selectBlocks} from '../../../../../../store/actionCreators/selectedSlides';
+import {deleteBlock} from '../../../../../../store/actionCreators/slides';
 import {useDragAndDrop} from '../../../../../../customHooks/useDragAndDrop';
 import {useResizeBlock} from '../../../../../../customHooks/useResizeBlock';
 
@@ -86,8 +87,9 @@ function CanvasBlock(props: CanvasBlockProps) {
                     return;
                 }
                 event.stopPropagation();
-                event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
+                event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));            
             }}
+
         >
             {canvasBlock}
             {!props.isFilmstrip

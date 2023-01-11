@@ -20,6 +20,14 @@ export const addBlock = (slideId: string, newBlock: BlockType) => ({
     }
 });
 
+export const deleteBlock = (slideId: string, selectedBlocksId: Array<string>) => ({
+    type: SlideActionTypes.DELETE_BLOCK,
+    payload: {
+        slideId,
+        selectedBlocksId
+    }
+});
+
 export const moveBlocks = (slideId: string, blocksIds: Array<string>, newPosition: BlockPositionType) => ({
     type: SlideActionTypes.ADD_BLOCK,
     payload: {

@@ -1,7 +1,7 @@
 import {Slide} from '../../data/types';
 import {SlideAction, SlideActionTypes} from '../../types/slides';
 import {initialState} from '../../types/presentation';
-import {addBlock, addSlide, deleteSlides, moveBlocks, changeSlideBackground,} from '../actions/slides';
+import {addBlock, deleteBlock, addSlide, deleteSlides, moveBlocks, changeSlideBackground,} from '../actions/slides';
 
 function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideAction): Array<Slide> {
     switch (action.type) {
@@ -13,6 +13,8 @@ function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideA
             return changeSlideBackground(state, action.payload.selectedSlides, action.payload.newBackground);
         case SlideActionTypes.ADD_BLOCK:
             return addBlock(state, action.payload.slideId, action.payload.newBlock);
+        case SlideActionTypes.DELETE_BLOCK:
+            return deleteBlock(state, action.payload.slideId, action.payload.blockIds);
         case SlideActionTypes.MOVE_BLOCKS:
             return moveBlocks(state, action.payload.slideId, action.payload.blockIds, action.payload.position);
         default:

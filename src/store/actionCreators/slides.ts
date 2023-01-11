@@ -36,3 +36,8 @@ export const changeBackground = (selectedSlides: Array<string> | Selection, newB
         newBackground: newBackground
     },
 });
+
+export const blockToFront = (selection: Selection) => ({
+    type: SlideActionTypes.BLOCK_TO_FRONT,
+    payload: selection
+});

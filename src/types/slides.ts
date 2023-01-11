@@ -18,6 +18,7 @@ export enum SlideActionTypes {
     ADD_BLOCK = 'ADD_BLOCK',
     CHANGE_BACKGROUND = 'CHANGE_BACKGROUND',
     MOVE_BLOCKS = 'MOVE_BLOCK',
+    BLOCK_TO_FRONT = 'BLOCK_TO_FRONT',
 }
 
 interface AddSlideAction {
@@ -55,7 +56,12 @@ interface ChangeBackgroundAction {
     }
 }
 
-export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | MoveBlockAction;
+interface BlockToFrontAction {
+    type: SlideActionTypes.BLOCK_TO_FRONT,
+    payload: Selection
+}
+
+export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | MoveBlockAction | BlockToFrontAction;
 
 export type {
     Slide,

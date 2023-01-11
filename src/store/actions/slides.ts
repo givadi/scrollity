@@ -96,6 +96,38 @@ function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<strin
     });
 }
 
+function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> {
+    const selectedSlide: Slide = slides.filter((slide) => {
+       return slide.id === selection.selectedSlideId
+    })[0];
+    console.log(selectedSlide, 'd');
+    const data = selectedSlide.data;
+
+    const selectedBlockIndex = selectedSlide.data.findIndex((block) => block.id === selection.selectedBlocksId[0]);
+
+    let movableBlock = data[selectedBlockIndex];
+
+    let newSlides: Array<Slide> = Object.values(slides);
+    console.log(data.length)
+    console.log(selectedBlockIndex)
+    if (selectedBlockIndex + 1 < data.length) {
+        data[selectedBlockIndex] = data[selectedBlockIndex + 1];
+        data[selectedBlockIndex + 1] = movableBlock;
+
+        newSlides = slides.map((slide) => {
+            if (slide.id === selection.selectedSlideId) {
+                return {
+                    ...slide,
+                    data: data
+                }
+            }
+            return slide;
+        })
+    }
+
+    return newSlides;
+}
+
 export {
     addSlide,
     deleteSlides,
@@ -103,4 +135,5 @@ export {
     addBlock,
     moveBlocks,
     changeSlideBackground,
+    blockToFront
 }

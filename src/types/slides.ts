@@ -21,6 +21,7 @@ export enum SlideActionTypes {
     CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE',
     CHANGE_FONT_FAMILY = 'CHANGE_FONT_FAMILY',
     CHANGE_FONT_WEIGHT = 'CHANGE_FONT_WEIGHT',
+    CHANGE_FONT_STYLE = 'CHANGE_FONT_STYLE',
 }
 
 interface AddSlideAction {
@@ -103,7 +104,16 @@ interface ChangeFontWeightAction {
     }
 }
 
-export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | MoveBlockAction | ChangeFontSizeAction | ChangeFontFamilyAction | ChangeFontWeightAction;
+interface ChangeFontStyleAction {
+    type: SlideActionTypes.CHANGE_FONT_STYLE,
+    payload: {
+        slideId: string,
+        newFontBlock: BlockType,
+        newFontWeight: boolean
+    }
+}
+
+export type SlideAction = AddSlideAction | RemoveSlideAction | ChangeBackgroundAction | AddBlockAction | MoveBlockAction | ChangeFontSizeAction | ChangeFontFamilyAction | ChangeFontWeightAction| ChangeFontStyleAction;
 
 export type {
     Slide,

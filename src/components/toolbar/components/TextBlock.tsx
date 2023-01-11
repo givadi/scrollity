@@ -12,6 +12,7 @@ const TextBlock = () => {
         <div className={styles.container}>
             <img className={styles.icon} src={text_block} alt="Text block"
                  onClick={() => {
+                
                      dispatch(addBlock(getLastSelectedSlideId(store.getState().selectedSlides), {
                          ...defaultTextData,
                          type: TEXT_TYPE,

@@ -15,6 +15,7 @@ import DeleteSlide from '../menubar/components/DeleteSlide';
 import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
+import TextAlign from './components/TextAlign';
 
 function Toolbar() {
     return (
@@ -45,6 +46,7 @@ function Toolbar() {
                     <FontSize/>
                     <Bold/>
                     <Italic/>
+                    <TextAlign/>
                 </div>
                 <span className={styles.description}>Font style</span>
             </div>

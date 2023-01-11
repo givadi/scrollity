@@ -33,15 +33,13 @@ function getBlock(block: BlockType) {
     let blockElement: ReactElement;
 
     switch (block.type) {
+       
         case 'figure':
             blockElement = <FigureBlock figure={block}/>;
             break;
         case 'text':
-            block = {
-                ...block,
-                fontSize: block.fontSize
-            }
             blockElement = <TextBlock textBlock={block}/>;
+            console.log(' case text getBlock');
             break;
         case 'image':
             blockElement = <ImageBlock imageBlock={block}/>;

@@ -115,31 +115,49 @@ function changeFontFamily(slides: Array<Slide>, slideId: string, block: BlockTyp
     });
 }
 
-function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockType, newFontWeight: boolean): Array<Slide> {
+function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
     return slides.map((slide: Slide) => {
         if (slideId === slide.id) {
-            console.log(slide);
             let newData =  slide.data;
-             console.log(slide.data);
-             
              newData = newData.map((blockData: BlockType) => {
                 if (blockData.id === block.id && blockData.type === 'text') {
                     console.log("blockData.fontWeight=", blockData.fontWeight);
                     return {
                         ...blockData,
-                        newFontWeight: !blockData.fontWeight
+                        fontWeight: !blockData.fontWeight,
                     }
                 }
-              
+
                 return blockData;
             });
             slide.data = newData;
-            console.log("newFontWeight=", newFontWeight);
+            return {...slide};
         }
         return slide;
     });
 }
 
+function changeFontStyle(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    console.log("blockData.fontStyle=", blockData.fontStyle);
+                    return {
+                        ...blockData,
+                        fontStyle: !blockData.fontStyle,
+                    }
+                }
+
+                return blockData;
+            });
+            slide.data = newData;
+            return {...slide};
+        }
+        return slide;
+    });
+}
 
 
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
@@ -175,5 +193,6 @@ export {
     changeSlideBackground,
     changeFontSize,
     changeFontFamily,
-    changeFontWeight
+    changeFontWeight,
+    changeFontStyle
 }

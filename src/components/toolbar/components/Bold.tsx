@@ -12,10 +12,10 @@ const Bold = () => {
       <img className={styles.icon} src={bold} alt='Bold'  onClick = {(event) => { 
             const selectedSlides = store.getState().selectedSlides;
             const slides = store.getState().slides;
-            const selectedBlocks = getSelectedBlocks(selectedSlides, slides)[0];
-            const newFontWeight = Boolean(event.target);
-            dispatch(changeFontWeight(getLastSelectedSlideId(selectedSlides), selectedBlocks, newFontWeight));
-            }} />
+            const selectedBlock = getSelectedBlocks(selectedSlides, slides)[0];
+            dispatch(changeFontWeight(getLastSelectedSlideId(selectedSlides), selectedBlock));
+            }}
+      />
     </div>
 );
 }

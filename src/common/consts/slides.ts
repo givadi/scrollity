@@ -18,7 +18,7 @@ const DEFAULT_BLOCK_FONT_FAMILY ='Arial';
 const DEFAULT_BLOCK_FONT_STYLE = 'normal';
 const DEFAULT_BLOCK_FONT_SIZE = 20;
 const DEFAULT_TEXT_DECORATION = 'none';
-const DEFAULT_FONT_WEIGHT = 'normal';
+const DEFAULT_WEIGHT = false;
 
 const defaultBlockBase: BlockBase = {
     id: '',
@@ -59,7 +59,7 @@ const defaultTextData: TextBlockType = {
     fontStyle: DEFAULT_BLOCK_FONT_STYLE,
     color: DEFAULT_BLOCK_FONT_COLOR,
     textDecoration: DEFAULT_TEXT_DECORATION,
-    fontWeight: DEFAULT_FONT_WEIGHT
+    fontWeight: DEFAULT_WEIGHT
 }
 
 

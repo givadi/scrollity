@@ -10,7 +10,7 @@ type TextBlockType = BlockBase & {
     fontFamily: string,
     fontStyle: string
     color: string,
-    fontWeight: string,
+    fontWeight: boolean,
     textDecoration: string
 }
 

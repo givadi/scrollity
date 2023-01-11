@@ -44,6 +44,34 @@ interface ClearSelectedBlocksAction {
     type: SelectedSlidesTypes.CLEAR_SELECTED_BLOCKS
 }
 
+type SelectedBlocks = {
+    selectedBlocks: string;
+}
+
+interface SelectSlideAction {
+    type: SelectedSlidesTypes.SELECT_SLIDE,
+    payload: string
+}
+
+interface UpdateAfterDeletingSlidesAction {
+    type: SelectedSlidesTypes.UPDATE_AFTER_DELETING_SLIDES,
+    payload: Array<Slide>
+}
+
+interface SelectBlockAction {
+    type: SelectedSlidesTypes.SELECT_BLOCK,
+    payload: string
+}
+
+interface SelectBlocksAction {
+    type: SelectedSlidesTypes.SELECT_BLOCKS,
+    payload: string
+}
+
+interface ClearSelectedBlocksAction {
+    type: SelectedSlidesTypes.CLEAR_SELECTED_BLOCKS
+}
+
 export type SelectedSlidesAction = SelectSlideAction
     | UpdateAfterDeletingSlidesAction
     | SelectBlockAction
@@ -52,5 +80,6 @@ export type SelectedSlidesAction = SelectSlideAction
     | SelectSlidesAction;
 
 export type {
-    Selection
+    Selection,
+    SelectedBlocks
 }

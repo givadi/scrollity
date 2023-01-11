@@ -28,6 +28,10 @@
     background-color: #ebe8e8;
 }
 
+.icon:active + .text {
+    background-color: #ebe8e8;
+}
+
 .hidden {
     opacity: 0;
     height: 0;

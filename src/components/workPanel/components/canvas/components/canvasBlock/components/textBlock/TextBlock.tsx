@@ -8,7 +8,9 @@ function TextBlock(props: TextBlockProps) {
     const textBlockStyles = {
         fontSize: props.textBlock.fontSize,
         fontFamily: props.textBlock.fontFamily,
-        fontStyle: props.textBlock.fontStyle,
+        fontStyle: props.textBlock.fontStyle ? 'normal' : 'italic',
+        fontWeight: props.textBlock.fontWeight ? 'normal' : 'bold',
+        textDecoration:props.textBlock.textDecoration,
         fill: props.textBlock.color,
     }
 
@@ -18,8 +20,13 @@ function TextBlock(props: TextBlockProps) {
             y={props.textBlock.y}
             width={props.textBlock.width}
             height={props.textBlock.height}
-            style={textBlockStyles}
+            style={{...textBlockStyles}}
         >
+           
+            {/* <input defaultValue='' type="text" placeholder="Please..." onFocus={(event)=> {
+                event.stopPropagation();
+                console.log('djdjdjdjdj');
+            }}></input> */}
             {props.textBlock.chars}
         </foreignObject>
     );

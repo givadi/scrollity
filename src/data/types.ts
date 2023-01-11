@@ -3,7 +3,9 @@ type TextBlockType = BlockBase & {
     chars: string,
     fontSize: number,
     fontFamily: string,
-    fontStyle: string
+    fontStyle: string,
+    fontWeight: string,
+    textDecoration: string,
     color: string
 }
 

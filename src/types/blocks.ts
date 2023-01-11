@@ -9,7 +9,9 @@ type TextBlockType = BlockBase & {
     fontSize: number,
     fontFamily: string,
     fontStyle: string
-    color: string
+    color: string,
+    fontWeight: string,
+    textDecoration: string
 }
 
 type ImageBlockType = BlockBase & {

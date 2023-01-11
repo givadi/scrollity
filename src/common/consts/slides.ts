@@ -17,9 +17,10 @@ const BLOCK_SELECTED_BORDER_DASHARRAY = '5';
 const DEFAULT_BLOCK_TEXT = 'Please, enter your text';
 const DEFAULT_BLOCK_FONT_COLOR = '#ffffff';
 const DEFAULT_BLOCK_FONT_FAMILY ='Arial';
-const DEFAULT_BLOCK_FONT_STYLE = 'normal';
+const CHANGE_FONT_STYLE = 'normal';
 const DEFAULT_BLOCK_FONT_SIZE = 20;
-
+const DEFAULT_TEXT_DECORATION = 'none';
+const DEFAULT_WEIGHT = 'normal';
 
 const defaultBlockBase: BlockBase = {
     id: '',
@@ -57,8 +58,10 @@ const defaultTextData: TextBlockType = {
     chars: DEFAULT_BLOCK_TEXT,
     fontSize: DEFAULT_BLOCK_FONT_SIZE,
     fontFamily: DEFAULT_BLOCK_FONT_FAMILY,
-    fontStyle: DEFAULT_BLOCK_FONT_STYLE,
+    fontStyle: CHANGE_FONT_STYLE,
     color: DEFAULT_BLOCK_FONT_COLOR,
+    textDecoration: DEFAULT_TEXT_DECORATION,
+    fontWeight: DEFAULT_WEIGHT
 }
 
 

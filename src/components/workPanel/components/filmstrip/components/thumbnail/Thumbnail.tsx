@@ -37,7 +37,7 @@ export function Thumbnail(props: ThumbnailProps) {
         >
             <span className={styles.number}>{props.slideNumber}</span>
             <div className={`${styles.thumbnail} ${isActive ? styles.thumbnailActive : ''}`}>
-                <WorkspaceCanvas slide={props.slide} size={thumbnailSize} isFilmstrip={true}></WorkspaceCanvas>
+                <WorkspaceCanvas slide={props.slide} size={thumbnailSize} isEditArea={true}></WorkspaceCanvas>
             </div>
         </div>
     )

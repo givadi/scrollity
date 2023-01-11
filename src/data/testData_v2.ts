@@ -6,15 +6,35 @@ const block1: BlockType & TextBlockType = {
     id: 'blockId1',
     x: 30.0,
     y: 50.0,
+    width: 200.0,
+    height: 30.0,
+    type: 'text',
+    chars: 'My super text false',
+    fontSize: 20,
+    fontFamily: 'Arial',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    textDecoration: 'underline',
+    color: '#C71585'
+}
+
+const block7: BlockType & TextBlockType = {
+    id: 'blockId7',
+    x: 130.0,
+    y: 290.0,
     width: 100.0,
     height: 30.0,
     type: 'text',
-    chars: 'my super text',
-    fontSize: 12,
-    fontFamily: 'roboto',
-    fontStyle: 'italic',
-    color: '#090808'
+    chars: 'Lalalala true',
+    fontSize: 20,
+    fontFamily: 'Arial',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    textDecoration: 'underline',
+    color: '#C71585'
 }
+
+
 
 const block3: BlockType & FigureBlockType = {
     id: 'blockId3',
@@ -59,7 +79,7 @@ const slideBackground: SlideBackground = {
 
 const slide1: Slide = {
     id: '1',
-    data: [block1, block3, block4, block5],
+    data: [block1, block3, block4, block5, block7],
     background: slideBackground,
 }
 

@@ -15,7 +15,9 @@ import DeleteSlide from '../menubar/components/DeleteSlide';
 import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
+import TextAlign from './components/TextAlign';
 import BlockColor from './components/BlockColor';
+import BlockBorder from './components/BlockBorder';
 
 function Toolbar() {
     return (
@@ -33,11 +35,13 @@ function Toolbar() {
             <div className={styles.section}>
                 <div className={styles.icons}>
                     <TextBlock/>
+                    {/* <ChangedTextBlock/> */}
                     <InsertPicture/>
                     <Triangle/>
                     <Circle/>
                     <Rectangle/>
                     <BlockColor/>
+                    <BlockBorder/>
                 </div>
                 <span className={styles.description}>Insert</span>
             </div>
@@ -47,6 +51,7 @@ function Toolbar() {
                     <FontSize/>
                     <Bold/>
                     <Italic/>
+                    <TextAlign/>
                 </div>
                 <span className={styles.description}>Font style</span>
             </div>

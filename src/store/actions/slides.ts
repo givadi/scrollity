@@ -7,6 +7,7 @@ import {Slide, SlideBackground} from '../../types/slides';
 import {BlockPositionType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
+
 function getEmptySlide(): Slide {
     return {
         id: generateId(),
@@ -50,32 +51,137 @@ function changeSlideBackground(
         if (selectedSlidesIdToChangeBackground.includes(slide.id)) {
             return slide.background = newBackground;
         }
-
         return slide;
     })
 
     return [...newSlides];
 }
 
+
+function changeTextBlock(slides: Array<Slide>, slideId: string, block: BlockType, newText: string): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        chars: newText
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
+        }
+        return slide;
+    });
+}
+
+
 function addBlock(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
     return slides.map((slide) => {
-        if (slide.id === slideId) {
-            const newBlocks = slide.data;
-            newBlocks.push(block)
+         if (slide.id === slideId) {
+             const newBlocks = slide.data;
+             newBlocks.push(block)
 
-            return {
-                ...slide,
-                data: newBlocks
-            }
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
+
+function changeFontSize(slides: Array<Slide>, slideId: string, block: BlockType, newFontSize: number): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontSize: newFontSize
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
         }
+        return slide;
+    });
+}
 
+function changeFontFamily(slides: Array<Slide>, slideId: string, block: BlockType, newFontFamily: string): Array<Slide> {
+    return slides.map((slide: Slide) => {
+
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontFamily: newFontFamily
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
+        }
         return slide;
     });
 }
 
 function upload(newSlides: Array<Slide>): Array<Slide> {
-    return {...newSlides};
+    return Object.values(newSlides);
 }
+
+function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+            // @ts-ignore
+            newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontWeight: !blockData.fontWeight,
+                    }
+                }
+
+                return blockData;
+            });
+            slide.data = newData;
+            return {...slide};
+        }
+        return slide;
+    });
+}
+
+function changeFontStyle(slides: Array<Slide>, slideId: string, block: BlockType): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+            // @ts-ignore
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        fontStyle: !blockData.fontStyle,
+                    }
+                }
+
+                return blockData;
+            });
+            slide.data = newData;
+            return {...slide};
+        }
+        return slide;
+    });
+}
+
 
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
     return slides.map((slide) => {
@@ -197,6 +303,29 @@ function changeBlocksColor(slides: Array<Slide>, selection: Selection, newColor:
     });
 }
 
+function changeBlocksBorder(slides: Array<Slide>, selection: Selection, newColor: string): Array<Slide> {
+    return slides.map((slide) => {
+         if (slide.id === selection.selectedSlideId) {
+             const newBlocks = slide.data.map((block: BlockType) => {
+                 if (selection.selectedBlocksId.includes(block.id) && block.type === 'figure') {
+                     return {
+                         ...block,
+                         colorBorder: newColor
+                     }
+                 }
+                 return block;
+             });
+             return {
+                 ...slide,
+                 data: newBlocks
+             }
+         }
+
+         return slide;
+    });
+}
+
+
 export {
     addSlide,
     deleteSlides,
@@ -205,8 +334,14 @@ export {
     deleteBlock,
     moveBlocks,
     changeSlideBackground,
+    changeFontSize,
+    changeFontFamily,
+    changeFontWeight,
+    changeFontStyle,
+    changeTextBlock,
     changeBlocksColor,
     upload,
     blockToFront,
+    changeBlocksBorder,
     blockToBack,
 }

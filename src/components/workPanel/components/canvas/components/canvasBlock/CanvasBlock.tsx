@@ -39,7 +39,6 @@ function getBlock(block: BlockType) {
             break;
         case 'text':
             blockElement = <TextBlock textBlock={block}/>;
-            console.log(' case text getBlock');
             break;
         case 'image':
             blockElement = <ImageBlock imageBlock={block}/>;

@@ -16,6 +16,7 @@ import Undo from '../menubar/components/Undo';
 import Redo from '../menubar/components/Redo';
 import Background from './components/Background';
 import TextAlign from './components/TextAlign';
+import ChangedTextBlock from './components/ChangedTextBlock';
 
 function Toolbar() {
     return (
@@ -33,6 +34,7 @@ function Toolbar() {
             <div className={styles.section}>
                 <div className={styles.icons}>
                     <TextBlock/>
+                    {/* <ChangedTextBlock/> */}
                     <InsertPicture/>
                     <Triangle/>
                     <Circle/>

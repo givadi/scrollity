@@ -2,7 +2,7 @@ import styles from '../../common/barIcon/BarIcon.module.css';
 import italic from '../../../assets/images/barIcons/italic.svg';
 import store from '../../../store/store';
 import {useDispatch} from 'react-redux';
-import {changeFontStyle, changeFontWeight} from '../../../store/actionCreators/slides';
+import {changeFontStyle} from '../../../store/actionCreators/slides';
 import { getLastSelectedSlideId, getSelectedBlocks } from '../../../common/functions/slides';
 
 const Italic = () => {

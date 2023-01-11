@@ -13,7 +13,7 @@ const block1: BlockType & TextBlockType = {
     fontSize: 20,
     fontFamily: 'Arial',
     fontStyle: 'normal',
-    fontWeight: false,
+    fontWeight: 'normal',
     textDecoration: 'underline',
     color: '#C71585'
 }
@@ -29,7 +29,7 @@ const block7: BlockType & TextBlockType = {
     fontSize: 20,
     fontFamily: 'Arial',
     fontStyle: 'normal',
-    fontWeight: true,
+    fontWeight: 'bold',
     textDecoration: 'underline',
     color: '#C71585'
 }

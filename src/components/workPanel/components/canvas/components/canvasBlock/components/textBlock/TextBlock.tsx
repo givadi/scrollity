@@ -1,17 +1,15 @@
 import {TextBlockType} from '../../../../../../../../types/blocks';
-import Italic from '../../../../../../../toolbar/components/Italic';
 
 type TextBlockProps = {
     textBlock: TextBlockType
 }
 
 function TextBlock(props: TextBlockProps) {
-    console.log('(props.textBlock.fontStyle', props.textBlock.fontStyle);
     const textBlockStyles = {
         fontSize: props.textBlock.fontSize,
         fontFamily: props.textBlock.fontFamily,
-        fontStyle: props.textBlock.fontStyle ? 'italic' : 'normal',
-        fontWeight: props.textBlock.fontWeight ? 700 : 0,
+        fontStyle: props.textBlock.fontStyle ? 'normal' : 'italic',
+        fontWeight: props.textBlock.fontWeight ? 'normal' : 'bold',
         textDecoration:props.textBlock.textDecoration,
         fill: props.textBlock.color,
     }
@@ -24,6 +22,11 @@ function TextBlock(props: TextBlockProps) {
             height={props.textBlock.height}
             style={{...textBlockStyles}}
         >
+           
+            {/* <input defaultValue='' type="text" placeholder="Please..." onFocus={(event)=> {
+                event.stopPropagation();
+                console.log('djdjdjdjdj');
+            }}></input> */}
             {props.textBlock.chars}
         </foreignObject>
     );

@@ -51,11 +51,30 @@ function changeSlideBackground(
         if (selectedSlidesIdToChangeBackground.includes(slide.id)) {
             return slide.background = newBackground;
         }
-
         return slide;
     })
 
     return [...newSlides];
+}
+
+
+function changeTextBlock(slides: Array<Slide>, slideId: string, block: BlockType, newText: string): Array<Slide> {
+    return slides.map((slide: Slide) => {
+        if (slideId === slide.id) {
+            let newData =  slide.data;
+             newData = newData.map((blockData: BlockType) => {
+                if (blockData.id === block.id && blockData.type === 'text') {
+                    return {
+                        ...blockData,
+                        chars: newText
+                    }
+                }
+                return blockData;
+            });
+            slide.data = newData;
+        }
+        return slide;
+    });
 }
 
 
@@ -121,7 +140,6 @@ function changeFontWeight(slides: Array<Slide>, slideId: string, block: BlockTyp
             let newData =  slide.data;
              newData = newData.map((blockData: BlockType) => {
                 if (blockData.id === block.id && blockData.type === 'text') {
-                    console.log("blockData.fontWeight=", blockData.fontWeight);
                     return {
                         ...blockData,
                         fontWeight: !blockData.fontWeight,
@@ -143,7 +161,6 @@ function changeFontStyle(slides: Array<Slide>, slideId: string, block: BlockType
             let newData =  slide.data;
              newData = newData.map((blockData: BlockType) => {
                 if (blockData.id === block.id && blockData.type === 'text') {
-                    console.log("blockData.fontStyle=", blockData.fontStyle);
                     return {
                         ...blockData,
                         fontStyle: !blockData.fontStyle,
@@ -194,5 +211,6 @@ export {
     changeFontSize,
     changeFontFamily,
     changeFontWeight,
-    changeFontStyle
+    changeFontStyle,
+    changeTextBlock
 }

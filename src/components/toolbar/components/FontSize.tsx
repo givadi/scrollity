@@ -25,6 +25,8 @@ const FontSize = () => {
             <option value="28">28</option>
             <option value="32">32</option>
             <option value="36">36</option>
+            <option value="44">44</option>
+            <option value="60">60</option>
           </select>
       </form>  
     </div>

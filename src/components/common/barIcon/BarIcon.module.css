@@ -19,6 +19,17 @@
     vertical-align: middle;
 }
 
+.template {
+    height: 50px;
+    width: 75px;
+    vertical-align: middle;
+}
+
+.size-for-img {
+    min-width: 900px;
+    min-height: 540px;
+    margin: auto;
+}
 .container:hover {
     background-color: #ebe8e8;
     cursor: pointer;

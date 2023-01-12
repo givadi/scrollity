@@ -8,7 +8,6 @@ import store from '../../../../../../store/store';
 import {Selection} from '../../../../../../types/selectedSlides';
 import {useDispatch} from 'react-redux';
 import {selectBlock, selectBlocks} from '../../../../../../store/actionCreators/selectedSlides';
-import {deleteBlock} from '../../../../../../store/actionCreators/slides';
 import {useDragAndDrop} from '../../../../../../customHooks/useDragAndDrop';
 import {useResizeBlock} from '../../../../../../customHooks/useResizeBlock';
 

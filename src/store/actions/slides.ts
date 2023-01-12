@@ -206,7 +206,7 @@ function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<strin
     });
 }
 
-function deleteBlock(slides: Array<Slide>, slideId: string, blockIds: Array<string>, selectedBlocksId: Array<string>): Array<Slide> {
+function deleteBlock(slides: Array<Slide>, slideId: string, blocksIds: Array<string>, selectedBlocksIds: Array<string>): Array<Slide> {
     return slides.map((slide) => {
         if (slide.id === slideId) {
             const newBlocks = slide.data.filter((block: BlockType) => {

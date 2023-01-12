@@ -53,8 +53,8 @@ interface DeleteBlockAction {
     type: SlideActionTypes.DELETE_BLOCK,
     payload: {
         slideId: string,
-        blockIds: Array<string>,
-        selectedBlocksId: Array<string>
+        blocksIds: Array<string>,
+        selectedBlocksIds: Array<string>
     }
 }
 

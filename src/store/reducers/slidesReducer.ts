@@ -25,7 +25,7 @@ function slidesReducer(state: Array<Slide> = initialState.slides, action: SlideA
         case SlideActionTypes.ADD_BLOCK:
             return addBlock(state, action.payload.slideId, action.payload.newBlock);
         case SlideActionTypes.DELETE_BLOCK:
-            return deleteBlock(state, action.payload.slideId, action.payload.blockIds, action.payload.selectedBlocksId);
+            return deleteBlock(state, action.payload.slideId, action.payload.blocksIds, action.payload.selectedBlocksIds);
         case SlideActionTypes.MOVE_BLOCKS:
             return moveBlocks(state, action.payload.slideId, action.payload.blockIds, action.payload.position);
         case SlideActionTypes.CHANGE_FONT_SIZE:

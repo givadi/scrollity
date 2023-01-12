@@ -1,7 +1,7 @@
 import styles from '../../common/barIcon/BarIcon.module.css';
 import order_back from '../../../assets/images/barIcons/order_back.svg';
 import {useDispatch} from 'react-redux';
-import {blockToBack, blockToFront} from '../../../store/actionCreators/slides';
+import {blockToBack} from '../../../store/actionCreators/slides';
 import store from '../../../store/store';
 
 const OrderBack = () => {

@@ -63,13 +63,12 @@ export const changeFontStyle = (slideId: string, newFontBlock: BlockType) => ({
     }
 });
 
-
-export const deleteBlock = (slideId: string, blocksIds: Array<string>, selectedBlocksId: Array<string>) => ({
+export const deleteBlock = (slideId: string, blocksIds: Array<string>, selectedBlocksIds: Array<string>) => ({
     type: SlideActionTypes.DELETE_BLOCK,
     payload: {
         slideId,
         blocksIds,
-        selectedBlocksId,
+        selectedBlocksIds
     }
 });
 

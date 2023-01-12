@@ -2,6 +2,11 @@ import {getEmptySlide} from '../store/actions/slides';
 import {Slide} from './slides';
 import {Selection} from './selectedSlides';
 
+type CanvasSize = {
+    width: string,
+    height: string
+}
+
 type Presentation = {
     name: string,
     slides: Array<Slide>,
@@ -18,4 +23,5 @@ export const initialState: Presentation = {
 
 export type {
     Presentation,
+    CanvasSize
 }

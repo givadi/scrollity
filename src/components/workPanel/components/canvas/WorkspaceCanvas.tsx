@@ -1,15 +1,13 @@
 import styles from './Canvas.module.css';
-import {CanvasBlock} from './components/canvasBlock/CanvasBlock';
 import {Slide} from '../../../../types/slides';
 import {DEFAULT_COLOR} from '../../../../common/consts/common';
+import {CanvasBlock} from './components/canvasBlock/CanvasBlock';
+import {CanvasSize} from '../../../../types/presentation';
 
 type CanvasProps = {
     slide: Slide,
     isEditArea: boolean,
-    size?: {
-        width: number,
-        height: number
-    },
+    size?: CanvasSize,
 }
 
 const CANVAS_SIZE = {
@@ -33,7 +31,7 @@ function getBackground(slide: Slide): string {
 function WorkspaceCanvas(props: CanvasProps) {
     const canvasBackground: string = getBackground(props.slide);
     return (
-        <svg className={styles.canvas + ' ' + styles.view}
+        <svg className={styles.canvas}
              style={{background: canvasBackground}}
              width={props.size ? props.size.width : CANVAS_SIZE.width}
              height={props.size ? props.size.height : CANVAS_SIZE.height}

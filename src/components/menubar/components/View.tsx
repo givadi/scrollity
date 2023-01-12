@@ -4,14 +4,15 @@ import view from '../../../assets/images/barIcons/view.svg';
 import {WorkspaceCanvas} from '../../workPanel/components/canvas/WorkspaceCanvas';
 import store from '../../../store/store';
 import {MutableRefObject, useEffect, useRef, useState} from 'react';
+import {CanvasSize} from '../../../types/presentation';
 
 const View = () => {
     const [currentSlideNumber, setCurrentSlideNumber] = useState(-1);
     const wrapRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
-    const viewSize = {
-        width: 1920,
-        height: 1080
+    const viewSize: CanvasSize = {
+        width: '100%',
+        height: '100%'
     }
 
     useEffect(() => {
@@ -32,7 +33,6 @@ const View = () => {
         <div className={styles.container}>
             <img className={styles.icon} src={view} alt="View" onClick={() => {
                 setCurrentSlideNumber(currentSlideNumber + 1);
-                console.log(store.getState().slides[currentSlideNumber]);
                 if (wrapRef.current) {
                     wrapRef.current.classList.remove(viewStyles.wrapper)
                     wrapRef.current.requestFullscreen().catch((e) => {
@@ -43,7 +43,6 @@ const View = () => {
             }/>
 
             <div id={'slideshowTest'}  ref={wrapRef} className={`${viewStyles.wrapper} ${viewStyles.test}`} onClick={() => {
-                console.log(store.getState().slides);
                 setCurrentSlideNumber(currentSlideNumber + 1);
             }
             }>

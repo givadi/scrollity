@@ -5,6 +5,7 @@ import {selectSlide, selectSlides} from '../../../../../../store/actionCreators/
 import store from '../../../../../../store/store';
 import {Slide} from '../../../../../../types/slides';
 import {Selection} from '../../../../../../types/selectedSlides';
+import {CanvasSize} from '../../../../../../types/presentation';
 
 type ThumbnailProps = {
     slide: Slide,
@@ -22,9 +23,9 @@ function checkIfActive(selectedSlides: Array<string> | Selection, currentSlideId
 export function Thumbnail(props: ThumbnailProps) {
     const dispatch = useDispatch();
     const isActive = checkIfActive(store.getState().selectedSlides, props.slide.id) ? styles.wrapperActive : '';
-    const thumbnailSize = {
-        width: 160,
-        height: 90
+    const thumbnailSize: CanvasSize = {
+        width: '160',
+        height: '90'
     }
 
     return (

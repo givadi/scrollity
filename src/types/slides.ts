@@ -1,4 +1,4 @@
-import {BlockPositionType, BlockType} from './blocks';
+import {BlockPositionType, BlockSizeType, BlockType} from './blocks';
 import {Selection} from './selectedSlides';
 
 type Slide = {
@@ -18,6 +18,7 @@ export enum SlideActionTypes {
     ADD_BLOCK = 'ADD_BLOCK',
     CHANGE_BACKGROUND = 'CHANGE_BACKGROUND',
     MOVE_BLOCKS = 'MOVE_BLOCK',
+    RESIZE_BLOCKS = 'RESIZE_BLOCKS',
     CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE',
     CHANGE_FONT_FAMILY = 'CHANGE_FONT_FAMILY',
     CHANGE_FONT_WEIGHT = 'CHANGE_FONT_WEIGHT',
@@ -51,8 +52,17 @@ interface MoveBlockAction {
     type: SlideActionTypes.MOVE_BLOCKS,
     payload: {
         slideId: string,
-        blockIds: Array<string>,
-        position: BlockPositionType
+        blocksIds: Array<string>,
+        newPosition: BlockPositionType
+    }
+}
+
+interface ResizeBlockAction {
+    type: SlideActionTypes.RESIZE_BLOCKS,
+    payload: {
+        slideId: string,
+        blocksIds: Array<string>,
+        newSize: BlockSizeType
     }
 }
 
@@ -162,12 +172,12 @@ export type SlideAction = AddSlideAction
     | BlockToFrontAction
     | ChangeBlocksColorAction
     | ChangeBlocksBorderAction
-    | ChangeBlocksColorAction
     | ChangeFontSizeAction
     | ChangeFontFamilyAction
     | ChangeFontWeightAction
     | ChangeFontStyleAction
-    | ChangeTextBlockAction;
+    | ChangeTextBlockAction
+    | ResizeBlockAction;
 
 export type {
     Slide,

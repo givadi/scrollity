@@ -3,6 +3,11 @@ type BlockPositionType = {
     y: number
 }
 
+type BlockSizeType = {
+    width: number,
+    height: number
+}
+
 type TextBlockType = BlockBase & {
     type: 'text',
     chars: string,
@@ -36,4 +41,4 @@ type BlockBase = {
 
 type BlockType = TextBlockType | ImageBlockType | FigureBlockType
 
-export type { BlockType, TextBlockType, ImageBlockType, FigureBlockType, BlockPositionType };
+export type { BlockType, TextBlockType, ImageBlockType, FigureBlockType, BlockPositionType, BlockSizeType };

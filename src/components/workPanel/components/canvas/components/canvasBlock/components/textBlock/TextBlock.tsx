@@ -22,11 +22,6 @@ function TextBlock(props: TextBlockProps) {
             height={props.textBlock.height}
             style={{...textBlockStyles}}
         >
-           
-            {/* <input defaultValue='' type="text" placeholder="Please..." onFocus={(event)=> {
-                event.stopPropagation();
-                console.log('djdjdjdjdj');
-            }}></input> */}
             {props.textBlock.chars}
         </foreignObject>
     );

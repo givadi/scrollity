@@ -1,10 +1,11 @@
 import {generateId} from '../../common/functions/id';
 import {
-    getLastSelectedSlideId, getSelectedSlideIds,
+    getLastSelectedSlideId,
+    getSelectedSlideIds,
     getSlidesByOppositeSelection,
 } from '../../common/functions/slides';
 import {Slide, SlideBackground} from '../../types/slides';
-import {BlockPositionType, BlockType} from '../../types/blocks';
+import {BlockPositionType, BlockSizeType, BlockType} from '../../types/blocks';
 import {Selection} from '../../types/selectedSlides';
 
 
@@ -185,30 +186,55 @@ function changeFontStyle(slides: Array<Slide>, slideId: string, block: BlockType
 
 function moveBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newPosition: BlockPositionType): Array<Slide> {
     return slides.map((slide) => {
-         if (slide.id === slideId) {
-             const newBlocks = slide.data.map((block: BlockType) => {
-                 if (blockIds.includes(block.id)) {
-                     return {
-                         ...block,
-                         x: newPosition.x,
-                         y: newPosition.y
-                     }
-                 }
-                 return block;
-             });
-             return {
-                 ...slide,
-                 data: newBlocks
-             }
-         }
+        if (slide.id === slideId) {
+            const newBlocks = slide.data.map((block: BlockType) => {
+                if (blockIds.includes(block.id)) {
+                    return {
+                        ...block,
+                        x: newPosition.x,
+                        y: newPosition.y
+                    }
+                }
+                return {...block};
+            });
+            return {
+                ...slide,
+                data: newBlocks
+            }
+        }
 
-         return slide;
+        return {...slide};
     });
+}
+
+function resizeBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<string>, newSize: BlockSizeType): Array<Slide> {
+    const result = slides.map((slide) => {
+        if (slide.id === slideId) {
+            const newBlocks = slide.data.map((block: BlockType) => {
+                if (blockIds.includes(block.id)) {
+                    return {
+                        ...block,
+                        width: newSize.width,
+                        height: newSize.height
+                    }
+                }
+                return {...block};
+            });
+            return {
+                ...slide,
+                data: newBlocks
+            }
+        }
+
+        return {...slide};
+    });
+
+    return result;
 }
 
 function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> {
     const selectedSlide: Slide = slides.filter((slide) => {
-       return slide.id === selection.selectedSlideId
+        return slide.id === selection.selectedSlideId
     })[0];
     const data = selectedSlide.data;
 
@@ -296,5 +322,6 @@ export {
     changeBlocksColor,
     upload,
     blockToFront,
-    changeBlocksBorder
+    changeBlocksBorder,
+    resizeBlocks
 }

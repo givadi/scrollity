@@ -63,10 +63,10 @@ function CanvasBlock(props: CanvasBlockProps) {
     const [size, setSize] = useState({width: props.block.width, height: props.block.height});
     let canvasBlock = getBlock({
         ...props.block,
-        width: size.width,
-        height: size.height,
-        x: position.x,
-        y: position.y
+        width: props.block.width,
+        height: props.block.height,
+        x: props.block.x,
+        y: props.block.y
     });
     const ref = useRef(null);
     const resizeDotRef = useRef(null);
@@ -74,6 +74,7 @@ function CanvasBlock(props: CanvasBlockProps) {
     useDragAndDrop(ref, position, setPosition);
     useResizeBlock(resizeDotRef, size, setSize);
     let pointOrder = 0;
+    // console.log('position', props.isFilmstrip, position, props.block.x, props.block.y);
 
     return (
         <g
@@ -106,7 +107,6 @@ function CanvasBlock(props: CanvasBlockProps) {
                 stroke={'#dac3a7'}
                 />
             }
-
         </g>
     );
 }

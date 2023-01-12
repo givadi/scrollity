@@ -63,6 +63,14 @@ export const changeFontStyle = (slideId: string, newFontBlock: BlockType) => ({
     }
 });
 
+export const deleteBlock = (slideId: string, blocksIds: Array<string>, selectedBlocksIds: Array<string>) => ({
+    type: SlideActionTypes.DELETE_BLOCK,
+    payload: {
+        slideId,
+        blocksIds,
+        selectedBlocksIds
+    }
+});
 
 export const moveBlocks = (slideId: string, blocksIds: Array<string>, newPosition: BlockPositionType) => ({
     type: SlideActionTypes.MOVE_BLOCKS,
@@ -122,5 +130,10 @@ export const uploadSlides = (slides: Array<Slide>) => ({
 
 export const blockToFront = (selection: Selection) => ({
     type: SlideActionTypes.BLOCK_TO_FRONT,
+    payload: selection
+});
+
+export const blockToBack = (selection: Selection) => ({
+    type: SlideActionTypes.BLOCK_TO_BACK,
     payload: selection
 });

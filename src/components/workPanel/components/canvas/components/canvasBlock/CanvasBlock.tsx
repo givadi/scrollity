@@ -84,8 +84,9 @@ function CanvasBlock(props: CanvasBlockProps) {
                     return;
                 }
                 event.stopPropagation();
-                event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));
+                event.ctrlKey ? dispatch(selectBlocks(props.block.id)) : dispatch(selectBlock(props.block.id));            
             }}
+
         >
             {canvasBlock}
             {!props.isEditArea

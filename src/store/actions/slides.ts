@@ -232,6 +232,21 @@ function resizeBlocks(slides: Array<Slide>, slideId: string, blockIds: Array<str
     return result;
 }
 
+function deleteBlock(slides: Array<Slide>, slideId: string, blocksIds: Array<string>, selectedBlocksIds: Array<string>): Array<Slide> {
+    return slides.map((slide) => {
+        if (slide.id === slideId) {
+            const newBlocks = slide.data.filter((block: BlockType) => {
+            });
+            return {
+                ...slide,
+                data: newBlocks
+            }
+        }
+
+        return slide;
+   });
+}
+
 function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> {
     const selectedSlide: Slide = slides.filter((slide) => {
         return slide.id === selection.selectedSlideId
@@ -247,6 +262,36 @@ function blockToFront(slides: Array<Slide>, selection: Selection): Array<Slide> 
     if (selectedBlockIndex + 1 < data.length) {
         data[selectedBlockIndex] = data[selectedBlockIndex + 1];
         data[selectedBlockIndex + 1] = movableBlock;
+
+        newSlides = slides.map((slide) => {
+            if (slide.id === selection.selectedSlideId) {
+                return {
+                    ...slide,
+                    data: data
+                }
+            }
+            return slide;
+        })
+    }
+
+    return newSlides;
+}
+
+function blockToBack(slides: Array<Slide>, selection: Selection): Array<Slide> {
+    const selectedSlide: Slide = slides.filter((slide) => {
+       return slide.id === selection.selectedSlideId
+    })[0];
+    const data = selectedSlide.data;
+
+    const selectedBlockIndex = selectedSlide.data.findIndex((block) => block.id === selection.selectedBlocksId[0]);
+
+    let movableBlock = data[selectedBlockIndex];
+
+    let newSlides: Array<Slide> = Object.values(slides);
+
+    if (selectedBlockIndex - 1 < data.length) {
+        data[selectedBlockIndex] = data[selectedBlockIndex - 1];
+        data[selectedBlockIndex - 1] = movableBlock;
 
         newSlides = slides.map((slide) => {
             if (slide.id === selection.selectedSlideId) {
@@ -312,6 +357,7 @@ export {
     deleteSlides,
     getEmptySlide,
     addBlock,
+    deleteBlock,
     moveBlocks,
     changeSlideBackground,
     changeFontSize,
@@ -323,5 +369,6 @@ export {
     upload,
     blockToFront,
     changeBlocksBorder,
+    blockToBack,
     resizeBlocks
 }

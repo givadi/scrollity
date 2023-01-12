@@ -16,6 +16,7 @@ export enum SlideActionTypes {
     ADD_SLIDE = 'ADD_SLIDE',
     DELETE_SLIDES = 'DELETE_SLIDES',
     ADD_BLOCK = 'ADD_BLOCK',
+    DELETE_BLOCK = 'DELETE_BLOCK',
     CHANGE_BACKGROUND = 'CHANGE_BACKGROUND',
     MOVE_BLOCKS = 'MOVE_BLOCK',
     RESIZE_BLOCKS = 'RESIZE_BLOCKS',
@@ -27,6 +28,7 @@ export enum SlideActionTypes {
     CHANGE_BLOCK_COLOR = 'CHANGE_BLOCK_COLOR',
     CHANGE_BLOCK_BORDER = 'CHANGE_BLOCK_BORDER',
     BLOCK_TO_FRONT = 'BLOCK_TO_FRONT',
+    BLOCK_TO_BACK = 'LOCK_TO_BACK',
     UPLOAD = 'UPLOAD',
 }
 
@@ -45,6 +47,15 @@ interface AddBlockAction {
     payload: {
         slideId: string,
         newBlock: BlockType
+    }
+}
+
+interface DeleteBlockAction {
+    type: SlideActionTypes.DELETE_BLOCK,
+    payload: {
+        slideId: string,
+        blocksIds: Array<string>,
+        selectedBlocksIds: Array<string>
     }
 }
 
@@ -92,6 +103,11 @@ interface ChangeBlocksBorderAction {
 
 interface BlockToFrontAction {
     type: SlideActionTypes.BLOCK_TO_FRONT,
+    payload: Selection
+}
+
+interface BlockToBackAction {
+    type: SlideActionTypes.BLOCK_TO_BACK,
     payload: Selection
 }
 
@@ -167,11 +183,13 @@ export type SlideAction = AddSlideAction
     | RemoveSlideAction
     | ChangeBackgroundAction
     | AddBlockAction
+    | DeleteBlockAction
     | UploadAction
     | MoveBlockAction
     | BlockToFrontAction
     | ChangeBlocksColorAction
     | ChangeBlocksBorderAction
+    | BlockToBackAction
     | ChangeFontSizeAction
     | ChangeFontFamilyAction
     | ChangeFontWeightAction
